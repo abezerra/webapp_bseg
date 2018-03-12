@@ -1,0 +1,65 @@
+<div class="row content-of-component-principaly-of-module">
+  <div class="col-md-12">
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">Seguro auto</h3>
+
+        <div class="box-tools">
+          <button class="btn btn-info" (click)="getAll()">
+            <i class="fas fa-sync"></i>
+          </button>
+          <ul class="pagination pagination-sm no-margin pull-right">
+            <li>
+              <a href="#">«</a>
+            </li>
+            <li>
+              <a href="#">1</a>
+            </li>
+            <li>
+              <a href="#">2</a>
+            </li>
+            <li>
+              <a href="#">3</a>
+            </li>
+            <li>
+              <a href="#">»</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <th>Apolice</th>
+            <th>CPF</th>
+            <th>Segurado</th>
+            <th>Adesão</th>
+            <th>Ações</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let a of autoInsurances">
+              <td>{{ a.apoliceNumber }}</td>
+              <td>{{ a.client.cpf }} </td>
+              <td>{{ a.client.name }} </td>
+              <td>{{ a.created_at | date: 'dd/MM/yyyy' }}</td>
+              <td>
+                <span class="badge badge-info" (click)="show(a.id)" data-toggle="modal" data-target="#show">
+                  <i class="fas fa-eye"></i>
+                </span>
+
+                <span class="badge badge-warning" (click)="edit(a.id)">
+                  <i class="fas fa-pencil-alt"></i>
+                </span>
+
+                <span class="badge badge-danger" (click)="destroy(a.id)">
+                  <i class="fas fa-trash-alt"></i>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

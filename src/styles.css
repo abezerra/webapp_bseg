@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+.skin-green .main-header .navbar{
+    background-color: #126f69;
+}
+
+.logo {
+    background-color: #126f69;
+}
+
+.btn-new-insurance{
+    background-color: #1e645d;
+    font-size: 14px;
+    color: #fff;
+    
+  }
+
+  .content-of-component-principaly-of-module{
+      margin-top: 2em;
+  }
+
+  .modal-lg .modal {
+    max-width: 95% !important;
+  }

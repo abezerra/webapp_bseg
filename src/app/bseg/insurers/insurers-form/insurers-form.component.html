@@ -1,0 +1,55 @@
+<div class="modal fade" id="modal-add-insurers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+  data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-lg modal-dialog-centered " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nova seguradora</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form [formGroup]="formAddInsurers" (ngSubmit)="create()">
+
+
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="insurer">Nome</label>
+                <input type="text" name="name" id="name" value="" class="form-control" formControlName="name">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="insurer">E-mail</label>
+                <input type="text" name="email" id="email" value="" class="form-control" formControlName="email">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="insurer">CNPJ</label>
+                <input type="text" name="cnpj" id="cnpj" value="" class="form-control" formControlName="cnpj">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="insurer">Site</label>
+                <input type="date" name="site" id="site" value="" class="form-control" formControlName="site">
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Adicionar</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

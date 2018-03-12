@@ -1,0 +1,222 @@
+<!-- Modal -->
+<div class="modal fade" id="modal-add-auto-insurance" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+  data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nova apolice de seguro auto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form [formGroup]="formAddCarInsurance" (ngSubmit)="create()">
+
+        <div class="modal-body">
+          <div class="row">
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="insurer">Seguradora</label>
+                <select class="form-control" name="insurer" formControlName="insurer">
+                  <option value="">Selecione</option>
+                  <option value="xyz">Seguradora XYZ</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="insurer">Nº da apolice</label>
+                <input type="text" name="apoliceNumber" value="" placeholder="Ex.: 123.456.789" class="form-control" formControlName="apoliceNumber">
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="insurer">Termino da vigência</label>
+                <input type="date" name="validity" id="validity" value="" class="form-control" formControlName="validity">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="insurer">Classificação</label>
+                <select class="form-control" name="classification" id="classification" formControlName="classification">
+                  <option value="">Selecione</option>
+                  <option value="0">Nova</option>
+                  <option value="1">Indefinida</option>
+                  <option value="2">Renovação</option>
+                  <option value="3">Endoso</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="insurer">Adesão</label>
+                <input type="date" name="accession" value="" class="form-control" formControlName="accession">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="insurer">Arquivo da apolice</label>
+                <input type="file" name="autoApoliceFile" value="" class="form-control" accept="application/pdf" (change)="prepareFileToUpload($event)">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="insurer">Entrada / avista</label>
+                <input type="number" name="input" id="input" value="" class="form-control" formControlName="input">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="insurer">Valor</label>
+                <input type="text" name="value" value="" class="form-control" formControlName="value">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="insurer">Total de parcelas</label>
+                <select class="form-control" name="totalOfPortions" formControlName="totalOfPortions">
+                  <option value="">Não informar</option>
+                  <option value="0">A vista</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="insurer">Forma de pagamento</label>
+                <select class="form-control" name="paymentForm" id="paymentForm" formControlName="paymentForm">
+                  <option value="">Não informar</option>
+                  <option value="0">Boleto bancario</option>
+                  <option value="1">Cartão de credito</option>
+                  <option value="2">Débito em conta corrente</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="insurer">Dia de vencimento</label>
+                <input type="text" name="portion" id="portion" value="" class="form-control" formControlName="portion">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="insurer">CPF</label>
+                <input type="text" name="cpf" id="cpf" value="" class="form-control" formControlName="cpf">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="insurer">Nome</label>
+                <input type="text" name="name" id="name" value="" class="form-control" formControlName="name">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="insurer">E-mail</label>
+                <input type="text" name="email" id="email" value="" class="form-control" formControlName="email">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="insurer">Nascimento</label>
+                <input type="date" name="birth" id="birth" value="" class="form-control" formControlName="birth">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="insurer">Veiculo</label>
+                <input type="text" name="veichle" id="veichle" value="" class="form-control" formControlName="veichle">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="insurer">Placa</label>
+                <input type="text" name="board" id="board" value="" class="form-control" formControlName="board">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="insurer">Ano de fabricação</label>
+                <input type="text" name="yearOfManufacture" id="yearOfManufacture" value="" class="form-control" formControlName="yearOfManufacture">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="insurer">Ano do modelo</label>
+                <input type="text" name="yearOfModel" id="yearOfModel" value="" class="form-control" formControlName="yearOfModel">
+              </div>
+            </div>
+          </div>
+
+          <div class="row" formArrayName="coverageArray" *ngFor="let coverage of formAddCarInsurance.get('coverageArray').controls">
+            <div class="col-md-12" [formGroup]="coverage">
+              <div class="form-group">
+                <label for="insurer">Cobertura</label>
+                <input type="text" name="coverage" id="coverage" class="form-control" formControlName="coverage">
+              </div>
+
+              <div class="form-group">
+                <label for="insurer">Valor</label>
+                <input type="text" name="value" id="value" class="form-control" formControlName="value">
+              </div>
+
+              <div class="form-group">
+                <label for="insurer">Franquia</label>
+                <input type="text" name="franchise" id="franchise" class="form-control" formControlName="franchise">
+              </div>
+
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary" (click)="addCoverage()">Adicionar Cobertura</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Adicionar</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

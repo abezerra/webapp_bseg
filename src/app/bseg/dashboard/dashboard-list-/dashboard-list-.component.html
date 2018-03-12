@@ -1,0 +1,44 @@
+<div class="panel">
+  <div class="panel-body">
+    <table class="table table-striped table-hover">
+      <thead>
+        <th>Apólice</th>
+        <th>Ramo</th>
+        <th>CPF</th>
+        <th>Segurado</th>
+        <th>Adesão</th>
+        <th>Ações</th>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let item of insurances">
+          <td>{{ item.apoliceNumber }}</td>
+          <td>1</td>
+          <td>{{ item.cpf }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.accession | date: 'dd/MM/yyyy' }}</td>
+          <td>
+            <button class="btn btn-secondary dropdown-toggle btn-new-insurance" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-list-ul"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" data-toggle="modal" data-target="#modal-add-auto-insurance">
+                <i class="fas fa-eye"></i>
+                Detalhes da apolice
+              </a>
+              <a class="dropdown-item" data-toggle="modal" data-target="#modal-add-lease-bound">
+                <i class="fas fa-pencil-alt"></i>
+                Alterar apolice
+              </a>
+              <a class="dropdown-item" data-toggle="modal" data-target="#modal-add-residential">
+                <i class="fas fa-trash-alt"></i>
+                Excluir apolice
+              </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<ul class="sidebar-menu">
+  <li class="header">bseg v0.0.1</li>
+  <li class="active">
+    <a [routerLink]="['/dashboard']">
+      <i class="fab fa-flipboard"></i>
+      <span>Dashboard</span>
+    </a>
+  </li>
+  <li class="treeview">
+    <a href="#">
+      <i class="fas fa-sitemap"></i>
+      <span>Apolices</span>
+      <span class="pull-right-container">
+        <span class="label label-primary pull-right">5</span>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+      <li>
+        <i class="fas fa-car"></i>
+        <a [routerLink]="['/auto']">Seguro auto</a>
+      </li>
+      <li>
+        <i class="fas fa-heartbeat"></i>
+        <a [routerLink]="['/life']">Seguro vida</a>
+      </li>
+      <li>
+        <i class="fas fa-heartbeat"></i>
+        <a [routerLink]="['/residential']">Residencial</a>
+      </li>
+      <li>
+        <i class="fab fa-jenkins"></i>
+        <a [routerLink]="['/eo']">Responsabilidade Civil (E&O)</a>
+      </li>
+      <li>
+        <i class="fas fa-dollar-sign"></i>
+        <a [routerLink]="['/lease']">Fiança locaticia</a>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <a [routerLink]="['/clients']">
+      <i class="fas fa-users"></i>
+      <span>Clientes</span>
+    </a>
+  </li>
+
+  <li>
+    <a [routerLink]="['/broker']">
+      <i class="fas fa-university"></i>
+      <span>Corretora</span>
+    </a>
+  </li>
+
+  <li>
+    <a [routerLink]="['/insurers']">
+      <i class="fas fa-shield-alt"></i>
+      <span>Seguradoras</span>
+    </a>
+  </li>
+
+  <li>
+    <a [routerLink]="['/alerts']">
+      <i class="fas fa-exclamation-circle"></i>
+      <span>Alertas</span>
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['/chat']">
+      <i class="fas fa-comments"></i>
+      <span>Chat</span>
+    </a>
+  </li>
+
+  <li>
+    <a [routerLink]="['/notifications']">
+      <i class="far fa-dot-circle"></i>
+      <span>Push Notifications</span>
+    </a>
+  </li>
+</ul>
