@@ -9,7 +9,7 @@ declare var $ :any;
 })
 export class AlertsShowComponent implements OnInit {
 
-  @Input() public palert: any
+  @Input() public palert: any;
 
   constructor() { 
     console.log('álert', this.palert);
@@ -19,7 +19,7 @@ export class AlertsShowComponent implements OnInit {
   ngOnInit() {}
 
   public toUpdate(key: any): void{
-    $('#show').modal('hide')
+    $('#show').modal('hide');
     console.log('update apolice', key);
   }
 

@@ -19,7 +19,7 @@ import { LifeService } from '../../../../services/life.service';
 })
 export class LifeFormComponent implements OnInit {
 
-  private individualLifePolicyFile: any
+  private individualLifePolicyFile: any;
   constructor(
     private db: LifeService,
     private _fb: FormBuilder) { }
@@ -48,10 +48,10 @@ export class LifeFormComponent implements OnInit {
     email: this._fb.control('', [Validators.required]),
     birth: this._fb.control('', [Validators.required]),
     coverageArray: this._fb.array([]),
-  })
+  });
 
   addCoverageOfIndividualLifeInsurer() {
-    let co = this.formAddIndividualLifeInsurance.get('coverageArray') as FormArray
+    let co = this.formAddIndividualLifeInsurance.get('coverageArray') as FormArray;
     co.push(this.createCoverageInputs())
   }
 
@@ -71,7 +71,7 @@ export class LifeFormComponent implements OnInit {
           'Sucesso',
           'Seguro cadastrado com sucesso',
           'success'
-        )
+        );
         $('#modal-add-individual-life').modal('hide')
       })
 

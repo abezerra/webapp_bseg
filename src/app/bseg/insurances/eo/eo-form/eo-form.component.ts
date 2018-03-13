@@ -19,7 +19,7 @@ import { EOService } from '../../../../services/eo.service';
 })
 export class EoFormComponent implements OnInit {
 
-  private eoFile: any
+  private eoFile: any;
   constructor(private db: EOService, private _fb: FormBuilder) { }
 
   ngOnInit() {
@@ -50,10 +50,10 @@ export class EoFormComponent implements OnInit {
     cnpj: this._fb.control('', [Validators.required]),
     coverageArray: this._fb.array([]),
 
-  })
+  });
 
   addConverageOfEOInsurer() {
-    let co = this.formAddEOInsurer.get('coverageArray') as FormArray
+    let co = this.formAddEOInsurer.get('coverageArray') as FormArray;
     co.push(this.createCoverageOfEOInsurerInput())
   }
 
@@ -73,7 +73,7 @@ export class EoFormComponent implements OnInit {
           'Sucesso',
           'Seguro cadastrado com sucesso',
           'success'
-        )
+        );
         $('#modal-add-civl-and-professional-responsors').modal('hide')
       })
 

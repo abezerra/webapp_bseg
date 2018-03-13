@@ -16,8 +16,8 @@ import { AutoService } from '../../../../services/auto.service';
 })
 export class AutoFormComponent implements OnInit {
 
-  private autoApoliceFile: any
-  public clients: any
+  private autoApoliceFile: any;
+  public clients: any;
   constructor(
     private db: AutoService,
     private _fb: FormBuilder) { }
@@ -59,10 +59,10 @@ export class AutoFormComponent implements OnInit {
     yearOfManufacture: this._fb.control('', [Validators.required]),
     yearOfModel: this._fb.control('', [Validators.required]),
     coverageArray: this._fb.array([]),
-  })
+  });
 
   addCoverage() {
-    let co = this.formAddCarInsurance.get('coverageArray') as FormArray
+    let co = this.formAddCarInsurance.get('coverageArray') as FormArray;
     co.push(this.createCoverageInputs())
   }
 
@@ -82,7 +82,7 @@ export class AutoFormComponent implements OnInit {
           'Sucesso',
           'Seguro auto cadastrado com sucesso',
           'success'
-        )
+        );
         $('#modal-add-auto-insurance').modal('hide')
       })
 

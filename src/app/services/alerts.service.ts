@@ -6,7 +6,7 @@ import 'rxjs/operator/toPromise'
 @Injectable()
 export class AlertsService {
 
-    public apiUrl = api.apiUrl
+    public apiUrl = api.apiUrl;
     constructor(private http: Http) { }
 
     public fetch(): Promise<any> {

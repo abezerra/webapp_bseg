@@ -31,4 +31,4 @@ export const r:  Routes = [
     { path: 'eo', component: EoComponent },
     { path: 'lease', component: LeaseComponent },
     { path: 'insurers', component: InsurersComponent },
-]
+];

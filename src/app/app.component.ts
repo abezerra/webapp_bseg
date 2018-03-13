@@ -6,8 +6,8 @@ import { Component, OnInit,  } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'Brasal Seguradora'
-  pagedescription = 'Brasal Labs'
+  title = 'Brasal Seguradora';
+  pagedescription = 'Brasal Labs';
   bodyClasses = 'skin-green sidebar-mini';
   body: HTMLBodyElement = document.getElementsByTagName('body')[0];
 

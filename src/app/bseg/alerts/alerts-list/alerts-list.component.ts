@@ -9,8 +9,8 @@ import swal from 'sweetalert2'
 })
 export class AlertsListComponent implements OnInit {
 
-  public alerts: any
-  public alert: any
+  public alerts: any;
+  public alert: any;
   constructor(private db: AlertsService) { }
 
   ngOnInit() {

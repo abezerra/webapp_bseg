@@ -8,8 +8,8 @@ import swal from 'sweetalert2'
   styleUrls: ['./auto-list.component.css']
 })
 export class AutoListComponent implements OnInit {
-  public autoInsurances: any
-  public insurer: any
+  public autoInsurances: any;
+  public insurer: any;
   constructor(private db: AutoService) { }
 
   ngOnInit() {
@@ -40,7 +40,7 @@ export class AutoListComponent implements OnInit {
     this.db
       .destroy(id)
       .then(res => {
-        this.getAll()
+        this.getAll();
         swal(
           'Sucesso',
           'Seguro removido com sucesso',

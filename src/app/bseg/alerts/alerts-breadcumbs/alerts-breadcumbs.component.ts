@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlertsBreadcumbsComponent implements OnInit {
 
-  public pagedescription = 'Alertas enviados aos clientes'
+  public pagedescription = 'Alertas enviados aos clientes';
   constructor() { }
 
   ngOnInit() {

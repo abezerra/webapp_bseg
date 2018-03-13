@@ -26,7 +26,7 @@ export class AlertsFormComponent implements OnInit {
     content: this._fb.control('', [Validators.required]),
     status: this._fb.control('', [Validators.required]),
     user_id: this._fb.control('', [Validators.required])
-  })
+  });
 
   public create(){
     this.db
@@ -36,7 +36,7 @@ export class AlertsFormComponent implements OnInit {
             'Sucesso',
             'Alerta enviado com sucesso',
             'success'
-          )
+          );
           $('#modal-add-alert').modal('hide') 
         })
         .catch( err => {

@@ -19,7 +19,7 @@ import { InsurersService } from '../../../services/insurers.service';
 export class InsurersFormComponent implements OnInit {
 
   
-  private eoFile: any
+  private eoFile: any;
   constructor(private db: InsurersService, private _fb: FormBuilder) { }
 
   ngOnInit() {
@@ -34,7 +34,7 @@ export class InsurersFormComponent implements OnInit {
     site: this._fb.control('', [Validators.required]),
     cnpj: this._fb.control('', [Validators.required]),
     email: this._fb.control('', [Validators.required]),
-  })
+  });
 
   public create() {
     this.db
@@ -44,7 +44,7 @@ export class InsurersFormComponent implements OnInit {
           'Sucesso',
           'Seguradora cadastrado com sucesso',
           'success'
-        )
+        );
         $('#modal-add-insurers').modal('hide')
       })
 
