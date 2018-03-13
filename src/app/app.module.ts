@@ -92,6 +92,7 @@ import { InsurersBreadcumbsComponent } from './bseg/insurers/insurers-breadcumbs
 import { InsurersService } from './services/insurers.service';
 import { AuthComponent } from './bseg/auth/auth.component';
 import { SignupComponent } from './bseg/signup/signup.component';
+import {BrokerService} from "./services/broker.service";
 
 @NgModule({
   declarations: [
@@ -182,7 +183,8 @@ import { SignupComponent } from './bseg/signup/signup.component';
     ResidentialService,
     EOService,
     LeaseService,
-    InsurersService
+    InsurersService,
+    BrokerService,
   ],
   bootstrap: [AppComponent]
 })
