@@ -8,12 +8,12 @@ import { ClientsService } from '../../../services/clients.service';
 })
 export class ClientsListComponent implements OnInit {
 
-  public clients: any
-  public leads: any
+  public clients: any;
+  public leads: any;
   constructor(private db: ClientsService) { }
 
   ngOnInit() {
-    this.clients_with_policy()
+    this.clients_with_policy();
     this.lead()
   }
 

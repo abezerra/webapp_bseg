@@ -9,9 +9,9 @@ import swal from 'sweetalert2'
 export class InsurersListComponent implements OnInit {
 
   
-  public insurers: any
-  public dize: number
-  public eo
+  public insurers: any;
+  public dize: number;
+  public eo;
   constructor(private db: InsurersService) { }
 
   ngOnInit() {
@@ -41,7 +41,7 @@ export class InsurersListComponent implements OnInit {
     this.db
       .destroy(id)
       .then(res => {
-        this.getAll()
+        this.getAll();
         swal(
           'Sucesso',
           'Seguradora removido com sucesso',

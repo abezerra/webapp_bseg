@@ -8,8 +8,8 @@ import swal from 'sweetalert2'
   styleUrls: ['./residential-list.component.css']
 })
 export class ResidentialListComponent implements OnInit {
-  public residentialInsurances: any
-  public insurer: any
+  public residentialInsurances: any;
+  public insurer: any;
   constructor(private db: ResidentialService) { }
 
   ngOnInit() {
@@ -40,7 +40,7 @@ export class ResidentialListComponent implements OnInit {
     this.db
       .destroy(id)
       .then(res => {
-        this.getAll()
+        this.getAll();
         swal(
           'Sucesso',
           'Seguro removido com sucesso',

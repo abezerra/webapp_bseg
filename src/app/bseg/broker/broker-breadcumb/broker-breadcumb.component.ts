@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrokerBreadcumbComponent implements OnInit {
 
-  public pagedescription =  'Brasal Corretora'
+  public pagedescription =  'Brasal Corretora';
   constructor() { }
 
   ngOnInit() {

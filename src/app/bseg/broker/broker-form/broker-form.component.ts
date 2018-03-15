@@ -44,10 +44,10 @@ export class BrokerFormComponent implements OnInit {
     city: this._fb.control('',[Validators.required]),
     uf: this._fb.control('',[Validators.required]),
     departamentArray: this._fb.array([]),
-  })
+  });
 
   addDepartaments() {
-    let co = this.formAddBroker.get('departamentArray') as FormArray
+    let co = this.formAddBroker.get('departamentArray') as FormArray;
     co.push(this.createDepartamentsInputs())
   }
 
@@ -69,7 +69,7 @@ export class BrokerFormComponent implements OnInit {
           'Sucesso',
           'Corretora cadastrada com sucesso',
           'success'
-        )
+        );
         $('#modal-add-broker').modal('hide')
       })
 

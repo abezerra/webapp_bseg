@@ -17,7 +17,7 @@ import { ResidentialService } from '../../../../services/residential.service';
 })
 export class ResidentialFormComponent implements OnInit {
 
-  private residentialApoliceFile: any
+  private residentialApoliceFile: any;
 
   constructor(
     private db: ResidentialService,
@@ -50,10 +50,10 @@ export class ResidentialFormComponent implements OnInit {
     neigbrhood: this._fb.control('', [Validators.required]),
     cep: this._fb.control('', [Validators.required]),
     coverageArray: this._fb.array([]),
-  })
+  });
 
   addCoverageOfResidentialInsurer() {
-    let co = this.formAddResidentialInsurer.get('coverageArray') as FormArray
+    let co = this.formAddResidentialInsurer.get('coverageArray') as FormArray;
     co.push(this.createCoverageInputs())
   }
 
@@ -73,7 +73,7 @@ export class ResidentialFormComponent implements OnInit {
           'Sucesso',
           'Seguro cadastrado com sucesso',
           'success'
-        )
+        );
         $('#modal-add-residential').modal('hide')
       })
   }

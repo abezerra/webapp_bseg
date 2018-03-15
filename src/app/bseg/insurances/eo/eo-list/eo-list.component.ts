@@ -9,9 +9,9 @@ import swal from 'sweetalert2'
 })
 export class EoListComponent implements OnInit {
 
-  public EOInsurances: any
-  public dize: number
-  public eo
+  public EOInsurances: any;
+  public dize: number;
+  public eo;
   constructor(private db: EOService) { }
 
   ngOnInit() {
@@ -41,7 +41,7 @@ export class EoListComponent implements OnInit {
     this.db
       .destroy(id)
       .then(res => {
-        this.getAll()
+        this.getAll();
         swal(
           'Sucesso',
           'Seguro removido com sucesso',

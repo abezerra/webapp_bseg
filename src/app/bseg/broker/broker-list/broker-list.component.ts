@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {BrokerService} from "../../../services/broker.service";
 
 @Component({
   selector: 'app-broker-list',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrokerListComponent implements OnInit {
 
-  constructor() { }
+  public broker: any;
+  constructor(private _db: BrokerService) { }
 
-  ngOnInit() {
+  ngOnInit() { this.getAll() }
+
+
+  public getAll(): void {
+    this._db
+      .index()
+      .then(res => this.broker = res)
+      .catch( err => console.error('Insurances not found', err))
   }
 
 }

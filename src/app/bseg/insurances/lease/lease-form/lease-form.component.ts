@@ -19,7 +19,7 @@ export class LeaseFormComponent implements OnInit {
 
 
 
-  private leaseBoundFile: any
+  private leaseBoundFile: any;
 
   constructor(
     private db: LeaseService,
@@ -52,10 +52,10 @@ export class LeaseFormComponent implements OnInit {
     administrator: this._fb.control('', [Validators.required]),
     duartion: this._fb.control('', [Validators.required]),
     coverageArray: this._fb.array([]),
-  })
+  });
 
   addCoverageOfLeaseBoundInsurance() {
-    let co = this.formAddLeaseBoundInsurance.get('coverageArray') as FormArray
+    let co = this.formAddLeaseBoundInsurance.get('coverageArray') as FormArray;
     co.push(this.createCoverageInputs())
   }
 
@@ -75,7 +75,7 @@ export class LeaseFormComponent implements OnInit {
           'Sucesso',
           'Seguro cadastrado com sucesso',
           'success'
-        )
+        );
         $('#modal-add-lease-bound').modal('hide')
       })
 
