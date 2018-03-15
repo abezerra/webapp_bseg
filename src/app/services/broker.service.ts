@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { Http } from '@angular/http';
 import api from '../../environments/api'
 import 'rxjs/operator/toPromise'
+import {logger} from "codelyzer/util/logger";
 
 @Injectable()
 export class BrokerService {
@@ -9,12 +10,13 @@ export class BrokerService {
   public apiUrl = api.apiUrl;
   constructor(private http: Http) { }
 
-  public fetch(): Promise<any> {
+  public index(): Promise<any> {
     return this.http
       .get(`${this.apiUrl}/broker`)
       .toPromise()
       .then((resposta: any) => resposta.json())
   }
+
 
   public create(data: any): Promise<any> {
     return this.http
