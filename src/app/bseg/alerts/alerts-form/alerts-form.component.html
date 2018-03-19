@@ -20,7 +20,8 @@
           <div class="col-md-4">
             <div class="form-group">
               <label>Destinatario</label>
-              <input class="form-control" type="text" name="slogan" formControlName="user_id">
+              <!--<input id="user_id" class="form-control" type="text" name="user_id" formControlName="user_id">-->
+              <select class="form-control" formControlName="user_id" id="user_id"></select>
             </div>
           </div>
 
@@ -43,7 +44,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-primary" (click)="create(alert)">
+        <button type="submit" class="btn btn-primary" (click)="create(alert)" [disabled]="formAddAlert.invalid">
           <i class="fab fa-telegram-plane"></i>
           Salvar e enviar
         </button>

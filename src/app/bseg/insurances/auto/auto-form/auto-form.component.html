@@ -27,7 +27,7 @@
 
             <div class="col-md-4">
               <div class="form-group">
-                <label for="insurer">Nº da apolice</label>
+                <label for="apoliceNumber">Nº da apolice</label>
                 <input type="text" name="apoliceNumber" value="" placeholder="Ex.: 123.456.789" class="form-control" formControlName="apoliceNumber">
               </div>
             </div>
@@ -213,7 +213,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Adicionar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="formAddCarInsurance.invalid">Adicionar</button>
         </div>
       </form>
 

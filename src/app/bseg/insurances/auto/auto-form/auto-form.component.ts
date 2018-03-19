@@ -43,15 +43,15 @@ export class AutoFormComponent implements OnInit {
     validity: this._fb.control('', [Validators.required]),
     classification: this._fb.control('', [Validators.required]),
     accession: this._fb.control('', [Validators.required]),
-    input: this._fb.control('', [Validators.required]),
-    value: this._fb.control('', [Validators.required]),
-    totalOfPortions: this._fb.control('', [Validators.required]),
-    paymentForm: this._fb.control('', [Validators.required]),
-    portion: this._fb.control('', [Validators.required]),
-    date: this._fb.control('', [Validators.required]),
-    portionValue: this._fb.control('', [Validators.required]),
+    input: this._fb.control('', []),
+    value: this._fb.control('', []),
+    totalOfPortions: this._fb.control('', []),
+    paymentForm: this._fb.control('', []),
+    portion: this._fb.control('', []),
+    date: this._fb.control('', []),
+    portionValue: this._fb.control('', []),
     cpf: this._fb.control('', [Validators.required]),
-    name: this._fb.control('', [Validators.required]),
+    name: this._fb.control('', [Validators.required, Validators.minLength(3)]),
     email: this._fb.control('', [Validators.required]),
     birth: this._fb.control('', [Validators.required]),
     veichle: this._fb.control('', [Validators.required]),
@@ -75,16 +75,17 @@ export class AutoFormComponent implements OnInit {
   }
 
   public create() {
-    this.db
-      .create(this.formAddCarInsurance.value)
-      .then(res => {
-        swal(
-          'Sucesso',
-          'Seguro auto cadastrado com sucesso',
-          'success'
-        );
-        $('#modal-add-auto-insurance').modal('hide')
-      })
+    console.log(this.formAddCarInsurance)
+    // this.db
+    //   .create(this.formAddCarInsurance.value)
+    //   .then(res => {
+    //     swal(
+    //       'Sucesso',
+    //       'Seguro auto cadastrado com sucesso',
+    //       'success'
+    //     );
+    //     $('#modal-add-auto-insurance').modal('hide')
+    //   })
 
   }
 

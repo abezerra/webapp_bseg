@@ -6,6 +6,7 @@ import 'rxjs/operator/toPromise'
 @Injectable()
 export class AlertsService {
 
+    private options = {}
     public apiUrl = api.apiUrl;
     constructor(private http: Http) { }
 
@@ -41,6 +42,13 @@ export class AlertsService {
     public destroy(id: any): Promise<any> {
         return this.http
                     .delete(`${this.apiUrl}/alerts/${id}`)
+                    .toPromise()
+                    .then((resposta: any) => resposta.json())
+    }
+
+    public clients(): Promise<any> {
+        return this.http
+                    .get(`${this.apiUrl}/clients`)
                     .toPromise()
                     .then((resposta: any) => resposta.json())
     }

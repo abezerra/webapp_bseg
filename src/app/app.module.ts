@@ -93,6 +93,7 @@ import { InsurersService } from './services/insurers.service';
 import { AuthComponent } from './bseg/auth/auth.component';
 import { SignupComponent } from './bseg/signup/signup.component';
 import {BrokerService} from "./services/broker.service";
+import {NgSelectizeModule} from "ng-selectize";
 
 @NgModule({
   declarations: [
@@ -173,7 +174,8 @@ import {BrokerService} from "./services/broker.service";
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(r)
+    RouterModule.forRoot(r),
+    NgSelectizeModule,
   ],
   providers: [
     AutoService,

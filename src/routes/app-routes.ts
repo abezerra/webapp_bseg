@@ -16,7 +16,8 @@ import { InsurersComponent } from "../app/bseg/insurers/insurers.component";
 import { AuthComponent } from "../app/bseg/auth/auth.component";
 
 export const r:  Routes = [
-    { path: 'auth', component: AuthComponent, pathMatch: 'full' },
+    { path: 'auth', component: AuthComponent },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'broker', component: BrokerComponent },
     { path: 'clients', component: ClientsComponent },

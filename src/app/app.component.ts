@@ -18,7 +18,7 @@ export class AppComponent implements OnInit{
     // add the the body classes
     this.body.classList.add('skin-green');
     this.body.classList.add('sidebar-mini');
-    this.pusher()
+    //this.pusher()
   }
 
    ngOnDestroy() {
@@ -27,32 +27,32 @@ export class AppComponent implements OnInit{
     this.body.classList.remove('sidebar-mini');
   }
 
-  public pusher(): void  {
-    Pusher.logToConsole = true;
-
-    var pusher = new Pusher('b1c9dfd0226ff506116d', {
-      cluster: 'us2',
-      encrypted: true
-    });
-
-    var channel = pusher.subscribe('my-channel');
-    channel.bind('event', function(data) {
-      swal({
-        title: 'Notificação do back',
-        text: 'auto close',
-        timer: 3000,
-        onOpen: () => {
-          swal.showLoading()
-        }
-      }).then((result) => {
-        if (
-          // Read more about handling dismissals
-        result.dismiss === swal.DismissReason.timer
-        ) {
-          console.log('I was closed by the timer')
-        }
-      })
-    });
-  }
+  // public pusher(): void  {
+  //   Pusher.logToConsole = true;
+  //
+  //   var pusher = new pusher('b1c9dfd0226ff506116d', {
+  //     cluster: 'us2',
+  //     encrypted: true
+  //   });
+  //
+  //   var channel = pusher.subscribe('my-channel');
+  //   channel.bind('event', function(data) {
+  //     swal({
+  //       title: 'Notificação do back',
+  //       text: 'auto close',
+  //       timer: 3000,
+  //       onOpen: () => {
+  //         swal.showLoading()
+  //       }
+  //     }).then((result) => {
+  //       if (
+  //         // Read more about handling dismissals
+  //       result.dismiss === swal.DismissReason.timer
+  //       ) {
+  //         console.log('I was closed by the timer')
+  //       }
+  //     })
+  //   });
+  // }
 
 }
