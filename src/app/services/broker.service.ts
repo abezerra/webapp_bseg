@@ -20,7 +20,7 @@ export class BrokerService {
 
   public create(data: any): Promise<any> {
     return this.http
-      .post(`${this.apiUrl}/broker`, data)
+      .post(`${this.apiUrl}/mailing`, data)
       .toPromise()
       .then((resposta: any) => resposta.json())
       .catch( (err: any) => err.json())

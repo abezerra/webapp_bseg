@@ -1,48 +1,49 @@
 import { Injectable } from '@angular/core'
-import { Http } from '@angular/http';
-import api from '../../environments/api'
+import { Router } from '@angular/router'
+import api from '../../environments/api';
+import {Http} from "@angular/http";
 import 'rxjs/operator/toPromise'
 
 @Injectable()
-export class AuthService {
+export class AuthService{
 
+  public token_id: string
   public apiUrl = api.apiUrl;
-  constructor(private http: Http) { }
+  constructor(private router: Router, private http: Http){}
 
-  public fetch(): Promise<any> {
-    return this.http
-      .get(`${this.apiUrl}/oauth/clients`)
-      .toPromise()
-      .then((resposta: any) => resposta.json())
+
+  public authenticated_user(): boolean {
+
+    if( this.token_id === undefined && localStorage.getItem('token')){
+      this.token_id = localStorage.getItem('token')
+    }
+
+    if(this.token_id === undefined){
+      this.router.navigate(['/auth'])
+    }
+    return this.token_id !== undefined
+
   }
 
-  public create(data: any): Promise<any> {
-    return this.http
-      .post(`${this.apiUrl}/alerts`, data)
+  public signin(email, password): Promise<any>{
+    return this.http.post(`${this.apiUrl}/authenticate`, {email: email, password: password})
       .toPromise()
-      .then((resposta: any) => resposta.json())
-      .catch( (err: any) => err.json())
+      .then( res =>  res.json())
+      .then( res => {
+         if(!res.success.token){
+           return false;
+         }
+        localStorage.setItem('token', res.success.token)
+        this.router.navigate((['/dashboard']))
+      })
+      .catch( err =>  err.json())
   }
 
-  public show(id: any): Promise<any> {
-    return this.http
-      .get(`${this.apiUrl}/alerts/${id}`)
-      .toPromise()
-      .then((resposta: any) => resposta.json())
+  public signup(): void{
+
   }
 
-  public update(id: any, data: any): Promise<any> {
-    return this.http
-      .put(`${this.apiUrl}/alerts/${id}`, data)
-      .toPromise()
-      .then((resposta: any) => resposta.json())
-  }
+  public logout(): void{
 
-  public destroy(id: any): Promise<any> {
-    return this.http
-      .delete(`${this.apiUrl}/alerts/${id}`)
-      .toPromise()
-      .then((resposta: any) => resposta.json())
   }
-
 }

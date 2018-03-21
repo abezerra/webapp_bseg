@@ -94,6 +94,9 @@ import { AuthComponent } from './bseg/auth/auth.component';
 import { SignupComponent } from './bseg/signup/signup.component';
 import {BrokerService} from "./services/broker.service";
 import {NgSelectizeModule} from "ng-selectize";
+import {AuthService} from "./services/auth.service";
+import {HttpClient, HttpHandler} from "@angular/common/http";
+import {AuthGuard} from "./security/auth.guard";
 
 @NgModule({
   declarations: [
@@ -187,6 +190,8 @@ import {NgSelectizeModule} from "ng-selectize";
     LeaseService,
     InsurersService,
     BrokerService,
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
