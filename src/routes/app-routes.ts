@@ -14,21 +14,23 @@ import { EoComponent } from "../app/bseg/insurances/eo/eo.component";
 import { AutoComponent } from "../app/bseg/insurances/auto/auto.component";
 import { InsurersComponent } from "../app/bseg/insurers/insurers.component";
 import { AuthComponent } from "../app/bseg/auth/auth.component";
+import {AuthGuard} from "../app/security/auth.guard";
 
 export const r:  Routes = [
-    { path: 'auth', component: AuthComponent, pathMatch: 'full' },
-    { path: 'dashboard', component: DashboardComponent },
-    { path: 'broker', component: BrokerComponent },
-    { path: 'clients', component: ClientsComponent },
-    { path: 'insurances', component: InsurancesComponent },
-    { path: 'notifications', component: NotificationsComponent },
-    { path: 'alerts', component: AlertsComponent },
-    { path: 'policies', component: PoliciesComponent },
-    { path: 'chat', component: ChatComponent },
-    { path: 'auto', component: AutoComponent },
-    { path: 'life', component: LifeComponent },
-    { path: 'residential', component: ResidentialComponent },
-    { path: 'eo', component: EoComponent },
-    { path: 'lease', component: LeaseComponent },
-    { path: 'insurers', component: InsurersComponent },
+    { path: 'auth', component: AuthComponent },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full', canActivate: [AuthGuard]},
+    { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+    { path: 'broker', component: BrokerComponent, canActivate: [AuthGuard]},
+    { path: 'clients', component: ClientsComponent, canActivate: [AuthGuard]},
+    { path: 'insurances', component: InsurancesComponent, canActivate: [AuthGuard]},
+    { path: 'notifications', component: NotificationsComponent, canActivate: [AuthGuard]},
+    { path: 'alerts', component: AlertsComponent, canActivate: [AuthGuard]},
+    { path: 'policies', component: PoliciesComponent, canActivate: [AuthGuard]},
+    { path: 'chat', component: ChatComponent, canActivate: [AuthGuard]},
+    { path: 'auto', component: AutoComponent, canActivate: [AuthGuard]},
+    { path: 'life', component: LifeComponent, canActivate: [AuthGuard]},
+    { path: 'residential', component: ResidentialComponent, canActivate: [AuthGuard]},
+    { path: 'eo', component: EoComponent, canActivate: [AuthGuard]},
+    { path: 'lease', component: LeaseComponent, canActivate: [AuthGuard]},
+    { path: 'insurers', component: InsurersComponent, canActivate: [AuthGuard]},
 ];

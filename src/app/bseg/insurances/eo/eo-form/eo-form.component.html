@@ -179,17 +179,17 @@
           <div class="row" formArrayName="coverageArray" *ngFor="let coverage of formAddEOInsurer.get('coverageArray').controls">
             <div class="col-md-12" [formGroup]="coverage">
               <div class="form-group">
-                <label for="insurer">Cobertura</label>
-                <input type="text" name="coverage" id="coverage" class="form-control" formControlName="coverage">
+                <label for="franchise">Cobertura</label>
+                <input type="text" name="franchise" id="coverage" class="form-control" formControlName="coverage">
               </div>
 
               <div class="form-group">
-                <label for="insurer">Valor</label>
-                <input type="text" name="value" id="value" class="form-control" formControlName="value">
+                <label for="franchise">Valor</label>
+                <input type="text" name="franchise" id="value" class="form-control" formControlName="value">
               </div>
 
               <div class="form-group">
-                <label for="insurer">Franquia</label>
+                <label for="franchise">Franquia</label>
                 <input type="text" name="franchise" id="franchise" class="form-control" formControlName="franchise">
               </div>
 
@@ -200,7 +200,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Adicionar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="formAddEOInsurer.invalid">Adicionar</button>
         </div>
       </form>
 

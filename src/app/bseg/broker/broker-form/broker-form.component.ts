@@ -27,20 +27,20 @@ export class BrokerFormComponent implements OnInit {
   }
 
   formAddBroker = this._fb.group({
-    image: this._fb.control('',[Validators.required]),
+    image: this._fb.control('',),
     name: this._fb.control('',[Validators.required]),
     description: this._fb.control('',[Validators.required]),
-    slogan: this._fb.control('',[Validators.required]),
+    slogan: this._fb.control('',),
     ddd: this._fb.control('',[Validators.required]),
-    cellphone: this._fb.control('',[Validators.required]),
+    cellphone: this._fb.control('',),
     telephone: this._fb.control('',[Validators.required]),
     email: this._fb.control('',[Validators.required]),
     site: this._fb.control('',[Validators.required]),
     cep: this._fb.control('',[Validators.required]),
-    ibge_code: this._fb.control('',[Validators.required]),
+    ibge_code: this._fb.control('',),
     address: this._fb.control('',[Validators.required]),
     neighborhood: this._fb.control('',[Validators.required]),
-    complement: this._fb.control('',[Validators.required]),
+    complement: this._fb.control('',),
     city: this._fb.control('',[Validators.required]),
     uf: this._fb.control('',[Validators.required]),
     departamentArray: this._fb.array([]),
@@ -53,11 +53,11 @@ export class BrokerFormComponent implements OnInit {
 
   createDepartamentsInputs(): FormGroup {
     return this._fb.group({
-      coverage: this._fb.control('', [Validators.required]),
-      description: this._fb.control('', [Validators.required]),
-      telephone: this._fb.control('', [Validators.required]),
-      email: this._fb.control('', [Validators.required]),
-      whatsapp: this._fb.control('', [Validators.required]),
+      coverage: this._fb.control('', ),
+      description: this._fb.control('', ),
+      telephone: this._fb.control('', ),
+      email: this._fb.control('', ),
+      whatsapp: this._fb.control('', ),
     })
   }
 
