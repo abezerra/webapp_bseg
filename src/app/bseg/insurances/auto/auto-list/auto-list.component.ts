@@ -19,8 +19,7 @@ export class AutoListComponent implements OnInit {
   public getAll(): void {
     this.db
       .index()
-      .then(res => this.autoInsurances = res)
-      .catch( err => console.error('Insurances not found', err))
+      .subscribe( data => this.autoInsurances = data, error => console.log('erro ao trazer dados da apolice', error))
   }
 
   public show(id: any): void {

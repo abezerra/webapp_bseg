@@ -2,32 +2,36 @@ import { Injectable } from '@angular/core'
 import { Http } from '@angular/http';
 import api from '../../environments/api'
 import 'rxjs/operator/toPromise'
+import {Observable} from "rxjs/Observable";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable()
 export class AutoService {
 
     public apiUrl = api.apiUrl;
-    constructor(private http: Http) { }
+    constructor(private http: HttpClient) { }
 
-    public index(): Promise<any> {
+    public index(): Observable<any> {
         return this.http
-                    .get(`${this.apiUrl}/auto`)
-                    .toPromise()
-                    .then((resposta: any) => resposta.json())
+                    .get(`${this.apiUrl}/auto`, {
+                      headers: {'Authorization': `Bearer ${localStorage.getItem('token')}` }
+                    })
+
     }
 
-    public clients(): Promise<any> {
+    public clients(): Observable<any> {
         return this.http
-                    .get(`${this.apiUrl}/clients`)
-                    .toPromise()
-                    .then((resposta: any) => resposta.json())
+                    .get(`${this.apiUrl}/clients`, {
+                      headers: {'Authorization': `Bearer ${localStorage.getItem('token')}` }
+                    })
+
     }
 
-    public create(data: any): Promise<any> {
+    public create(data: any): Observable<any> {
         return this.http
-                    .post(`${this.apiUrl}/auto`, data)
-                    .toPromise()
-                    .then((resposta: any) => resposta.json())
+                    .post(`${this.apiUrl}/auto`, data, {
+                      headers: {'Authorization': `Bearer ${localStorage.getItem('token')}` }
+                    })
     }
 
     public show(id: any): Promise<any> {
@@ -37,8 +41,8 @@ export class AutoService {
                     .then((resposta: any) => resposta.json())
     }
 
-    public update(data: any): Promise<any> {
-        return this.http
+    public update(data: any): void {
+        this.http
                     .put(`${this.apiUrl}/auto`, data)
                     .toPromise()
                     .then((resposta: any) => resposta.json())

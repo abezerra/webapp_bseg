@@ -95,8 +95,11 @@ import { SignupComponent } from './bseg/signup/signup.component';
 import {BrokerService} from "./services/broker.service";
 import {NgSelectizeModule} from "ng-selectize";
 import {AuthService} from "./services/auth.service";
-import {HttpClient, HttpHandler} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthGuard} from "./security/auth.guard";
+import TokensService from "./services/tokens.service";
+import {HttpService} from "./services/http.service";
+import AuthInterceptor from "./security/Auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -174,13 +177,14 @@ import {AuthGuard} from "./security/auth.guard";
     BrowserModule,
     // AppRoutingModule,
     AdminModule,
-    HttpModule,
+    HttpClientModule ,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(r),
     NgSelectizeModule,
   ],
   providers: [
+    //{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     AutoService,
     ClientsService,
     AlertsService,
@@ -191,7 +195,9 @@ import {AuthGuard} from "./security/auth.guard";
     InsurersService,
     BrokerService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    TokensService,
+    HttpService
   ],
   bootstrap: [AppComponent]
 })

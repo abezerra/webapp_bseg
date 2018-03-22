@@ -11,14 +11,13 @@ export class BrokerListComponent implements OnInit {
   public broker: any;
   constructor(private _db: BrokerService) { }
 
-  ngOnInit() { this.getAll() }
+  ngOnInit() {
+      this.getAll()
+  }
 
 
   public getAll(): void {
-    this._db
-      .index()
-      .then(res => this.broker = res)
-      .catch( err => console.error('Insurances not found', err))
+    this._db.index().subscribe( data => this.broker = data, err => console.log('erro no get da parada', err))
   }
 
 }

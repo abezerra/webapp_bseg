@@ -25,23 +25,6 @@ export class AuthComponent implements OnInit {
 
   public signin(): void {
     this.db.signin(this.authForm.value.email, this.authForm.value.password)
-      .then(res => {
-        swal({
-          position: 'top-end',
-          type: 'success',
-          title: 'Bem vindo ao BSeg',
-          showConfirmButton: false,
-          timer: 900
-        })
-      })
-      .catch(err => {
-        swal({
-          position: 'top-end',
-          type: 'error',
-          title: 'Credenciais invalidas',
-          showConfirmButton: false,
-          timer: 900
-        })
-      })
   }
+
 }

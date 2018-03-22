@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core'
 import { Http } from '@angular/http';
 import api from '../../environments/api'
 import 'rxjs/operator/toPromise'
+import {HttpClient} from "@angular/common/http";
 
 @Injectable()
 export class AlertsService {
 
     private options = {}
     public apiUrl = api.apiUrl;
-    constructor(private http: Http) { }
+    constructor(private http: HttpClient) { }
 
     public fetch(): Promise<any> {
         return this.http
