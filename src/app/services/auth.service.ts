@@ -41,14 +41,10 @@ export class AuthService{
   //     .catch( err =>  err.json())
   // }
 
-  // noinspection JSAnnotator
+
   public signin(email, password): Observable<any>{
-             this.http
+           return this.http
                 .post(`${this.apiUrl}/authenticate`, {email: email, password: password})
-                .subscribe(data => {
-                  localStorage.setItem('token', data.success.token)
-                  this.router.navigate(['/dashboard'])
-                }, err => console.log('erro ao se logar nessa porra', err))
   }
 
 

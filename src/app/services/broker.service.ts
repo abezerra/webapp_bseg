@@ -11,6 +11,7 @@ import {Observable} from "rxjs/Observable";
 export class BrokerService {
 
   public apiUrl = api.apiUrl;
+  private opions = {headers: {'Authorization': `Bearer ${localStorage.getItem('token')}` }}
 
   public headers = new HttpHeaders()
   constructor( private http: HttpClient) {
@@ -27,18 +28,13 @@ export class BrokerService {
 
   public index(): Observable<any>{
     return this.http
-      .get(`${this.apiUrl}/broker`, {
-        headers: {'Authorization': `Bearer ${localStorage.getItem('token')}` }
-      })
+      .get(`${this.apiUrl}/broker`, this.opions)
   }
 
 
-  public create(data: any): Promise<any> {
+  public create(data: any): Observable<any> {
      return this.http
-      .post(`${this.apiUrl}/mailing`, data)
-      .toPromise()
-      .then((resposta: any) => resposta.json())
-      .catch( (err: any) => err.json())
+      .post(`${this.apiUrl}/broker`, data, this.opions)
   }
 
   public show(id: any): Promise<any> {

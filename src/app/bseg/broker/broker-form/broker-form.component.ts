@@ -64,13 +64,19 @@ export class BrokerFormComponent implements OnInit {
   public create() {
     this._db
       .create(this.formAddBroker.value)
-      .then(res => {
+      .subscribe( data => {
         swal(
           'Sucesso',
           'Corretora cadastrada com sucesso',
           'success'
         );
         $('#modal-add-broker').modal('hide')
+      }, error => {
+        swal(
+          'ERRO',
+          'Houve um erro ao cadastrar a corretora',
+          'error'
+        );
       })
 
   }
