@@ -91,16 +91,6 @@ export class AutoFormComponent implements OnInit {
           'success'
         );
       })
-    // this.db
-    //   .create(this.formAddCarInsurance.value)
-    //   .then(res => {
-    //     swal(
-    //       'Sucesso',
-    //       'Seguro auto cadastrado com sucesso',
-    //       'success'
-    //     );
-    //     $('#modal-add-auto-insurance').modal('hide')
-    //   })
 
   }
 
