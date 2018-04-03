@@ -32,4 +32,8 @@ export class MediasListComponent implements OnInit {
     this._db.show(id)
       .subscribe( data => console.log(this.media = data), error => console.error('error', error))
   }
+
+  public disable(id: number){
+    this._db.update(id).subscribe(data => swal('Sucesso', 'Midia desativada com sucesso', 'success'), error => console.error(error))
+  }
 }
