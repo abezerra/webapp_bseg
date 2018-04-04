@@ -15,13 +15,22 @@ import { AutoComponent } from "../app/bseg/insurances/auto/auto.component";
 import { InsurersComponent } from "../app/bseg/insurers/insurers.component";
 import { AuthComponent } from "../app/bseg/auth/auth.component";
 import {AuthGuard} from "../app/security/auth.guard";
+import {MediasComponent} from "../app/bseg/medias/medias.component";
+import {BrokerEditComponent} from "../app/bseg/broker/broker-edit/broker-edit.component";
+import {BrokerEditMainComponent} from "../app/bseg/broker/broker-edit-main/broker-edit-main.component";
+import {ClientsShowComponent} from "../app/bseg/clients/clients-show/clients-show.component";
+import {ClientEditComponent} from "../app/bseg/clients/client-edit/client-edit.component";
 
 export const r:  Routes = [
     { path: 'auth', component: AuthComponent },
     { path: '', redirectTo: 'dashboard', pathMatch: 'full', canActivate: [AuthGuard]},
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
     { path: 'broker', component: BrokerComponent, canActivate: [AuthGuard]},
+    { path: 'broker-edit/:id', component: BrokerEditComponent, canActivate: [AuthGuard]},
+    { path: 'broker-main-edit/:id', component: BrokerEditMainComponent, canActivate: [AuthGuard]},
     { path: 'clients', component: ClientsComponent, canActivate: [AuthGuard]},
+    { path: 'clients-show/:id', component: ClientsShowComponent, canActivate: [AuthGuard]},
+    { path: 'clients-edit/:id', component: ClientEditComponent, canActivate: [AuthGuard]},
     { path: 'insurances', component: InsurancesComponent, canActivate: [AuthGuard]},
     { path: 'notifications', component: NotificationsComponent, canActivate: [AuthGuard]},
     { path: 'alerts', component: AlertsComponent, canActivate: [AuthGuard]},
@@ -33,4 +42,5 @@ export const r:  Routes = [
     { path: 'eo', component: EoComponent, canActivate: [AuthGuard]},
     { path: 'lease', component: LeaseComponent, canActivate: [AuthGuard]},
     { path: 'insurers', component: InsurersComponent, canActivate: [AuthGuard]},
+    { path: 'medias', component: MediasComponent, canActivate: [AuthGuard]},
 ];

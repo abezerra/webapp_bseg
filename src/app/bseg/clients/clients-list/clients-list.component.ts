@@ -18,15 +18,11 @@ export class ClientsListComponent implements OnInit {
   }
 
   public clients_with_policy(): void {
-    this.db
-        .clients()
-        .then(res => this.clients =  res )
+    this.db.clients().subscribe( success => console.log(this.clients =  success), error => console.error('Error to find clients', error))
   }
 
   public lead(): void {
-    this.db
-        .leads()
-        .then(res => this.leads =  res )
+    this.db.leads().subscribe(success => this.leads = success, error => console.error('Error to find leads', error))
   }
 
   public show(id: any): void {

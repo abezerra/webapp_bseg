@@ -100,6 +100,15 @@ import {AuthGuard} from "./security/auth.guard";
 import TokensService from "./services/tokens.service";
 import {HttpService} from "./services/http.service";
 import AuthInterceptor from "./security/Auth.interceptor";
+import { MediasComponent } from './bseg/medias/medias.component';
+import { MediasListComponent } from './bseg/medias/medias-list/medias-list.component';
+import { MediasFormComponent } from './bseg/medias/medias-form/medias-form.component';
+import { MediasBadagesComponent } from './bseg/medias/medias-badages/medias-badages.component';
+import { MediasShowComponent } from './bseg/medias/medias-show/medias-show.component';
+import {MediasService} from "./services/medias.service";
+import { BrokerEditComponent } from './bseg/broker/broker-edit/broker-edit.component';
+import { BrokerEditMainComponent } from './bseg/broker/broker-edit-main/broker-edit-main.component';
+import { ClientEditComponent } from './bseg/clients/client-edit/client-edit.component';
 
 @NgModule({
   declarations: [
@@ -171,7 +180,15 @@ import AuthInterceptor from "./security/Auth.interceptor";
     InsurersShowComponent,
     InsurersBreadcumbsComponent,
     AuthComponent,
-    SignupComponent
+    SignupComponent,
+    MediasComponent,
+    MediasListComponent,
+    MediasFormComponent,
+    MediasBadagesComponent,
+    MediasShowComponent,
+    BrokerEditComponent,
+    BrokerEditMainComponent,
+    ClientEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -197,7 +214,8 @@ import AuthInterceptor from "./security/Auth.interceptor";
     AuthService,
     AuthGuard,
     TokensService,
-    HttpService
+    HttpService,
+    MediasService
   ],
   bootstrap: [AppComponent]
 })

@@ -18,44 +18,36 @@ export class BrokerService {
     this.headers =  this.headers.set('Authorization', localStorage.getItem('token'))
   }
 
-
-  // public index(): Promise<any> {
-  //   return this.http
-  //     .get(`${this.apiUrl}/broker`, {headers: {Authorization: 'Bearer '}})
-  //     .toPromise()
-  //     .then((resposta: any) => resposta.json())
-  // }
-
   public index(): Observable<any>{
-    return this.http
-      .get(`${this.apiUrl}/broker`, this.opions)
+    return this.http.get(`${this.apiUrl}/broker`, this.opions)
   }
-
 
   public create(data: any): Observable<any> {
-     return this.http
-      .post(`${this.apiUrl}/broker`, data, this.opions)
+     return this.http.post(`${this.apiUrl}/broker`, data, this.opions)
   }
 
-  public show(id: any): Promise<any> {
-    return this.http
-      .get(`${this.apiUrl}/broker/${id}`)
-      .toPromise()
-      .then((resposta: any) => resposta.json())
+  public show(id: any): Observable<any> {
+    return this.http.get(`${this.apiUrl}/broker/${id}`)
   }
 
-  public update(id: any, data: any): Promise<any> {
-    return this.http
-      .put(`${this.apiUrl}/broker/${id}`, data)
-      .toPromise()
-      .then((resposta: any) => resposta.json())
+  public showDepartament(id: number): Observable<any>{
+    return this.http.get(`${this.apiUrl}/broker/departament/${id}`)
   }
 
-  public destroy(id: any): Promise<any> {
-    return this.http
-      .delete(`${this.apiUrl}/broker/${id}`)
-      .toPromise()
-      .then((resposta: any) => resposta.json())
+  public update(id: any, data: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/broker/${id}`, data)
+  }
+
+  public updateDepartment(id: number, data: any): Observable<any>{
+    return this.http.put(`${this.apiUrl}/broker/departament/${id}`, data, this.opions)
+  }
+
+  public destroy(id: any): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/broker/${id}`)
+  }
+
+  public destroyDepartament(id: number): Observable<any>{
+    return this.http.delete(`${this.apiUrl}/broker/departament/${id}`)
   }
 
 }
