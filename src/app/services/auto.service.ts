@@ -34,18 +34,12 @@ export class AutoService {
                     })
     }
 
-    public show(id: any): Promise<any> {
-        return this.http
-                    .get(`${this.apiUrl}/auto/${id}`)
-                    .toPromise()
-                    .then((resposta: any) => resposta.json())
+    public show(id: any): Observable<any> {
+        return this.http.get(`${this.apiUrl}/auto/${id}`)
     }
 
-    public update(data: any): void {
-        this.http
-                    .put(`${this.apiUrl}/auto`, data)
-                    .toPromise()
-                    .then((resposta: any) => resposta.json())
+    public update(id: number, data: any): Observable<any> {
+        return this.http.put(`${this.apiUrl}/auto/${id}`, data)
     }
 
     public destroy(id: any): Promise<any> {

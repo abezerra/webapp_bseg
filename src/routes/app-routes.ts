@@ -20,6 +20,8 @@ import {BrokerEditComponent} from "../app/bseg/broker/broker-edit/broker-edit.co
 import {BrokerEditMainComponent} from "../app/bseg/broker/broker-edit-main/broker-edit-main.component";
 import {ClientsShowComponent} from "../app/bseg/clients/clients-show/clients-show.component";
 import {ClientEditComponent} from "../app/bseg/clients/client-edit/client-edit.component";
+import {AutoShowComponent} from "../app/bseg/insurances/auto/auto-show/auto-show.component";
+import {AutoEditComponent} from "../app/bseg/insurances/auto/auto-edit/auto-edit.component";
 
 export const r:  Routes = [
     { path: 'auth', component: AuthComponent },
@@ -37,6 +39,8 @@ export const r:  Routes = [
     { path: 'policies', component: PoliciesComponent, canActivate: [AuthGuard]},
     { path: 'chat', component: ChatComponent, canActivate: [AuthGuard]},
     { path: 'auto', component: AutoComponent, canActivate: [AuthGuard]},
+    { path: 'auto-show/:id', component: AutoShowComponent, canActivate: [AuthGuard]},
+    { path: 'auto-edit/:id', component: AutoEditComponent, canActivate: [AuthGuard]},
     { path: 'life', component: LifeComponent, canActivate: [AuthGuard]},
     { path: 'residential', component: ResidentialComponent, canActivate: [AuthGuard]},
     { path: 'eo', component: EoComponent, canActivate: [AuthGuard]},

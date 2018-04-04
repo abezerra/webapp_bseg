@@ -109,6 +109,7 @@ import {MediasService} from "./services/medias.service";
 import { BrokerEditComponent } from './bseg/broker/broker-edit/broker-edit.component';
 import { BrokerEditMainComponent } from './bseg/broker/broker-edit-main/broker-edit-main.component';
 import { ClientEditComponent } from './bseg/clients/client-edit/client-edit.component';
+import { AutoEditComponent } from './bseg/insurances/auto/auto-edit/auto-edit.component';
 
 @NgModule({
   declarations: [
@@ -189,6 +190,7 @@ import { ClientEditComponent } from './bseg/clients/client-edit/client-edit.comp
     BrokerEditComponent,
     BrokerEditMainComponent,
     ClientEditComponent,
+    AutoEditComponent,
   ],
   imports: [
     BrowserModule,

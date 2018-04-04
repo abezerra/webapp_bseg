@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core'
-import { Http } from '@angular/http';
-import api from '../../environments/api'
-import 'rxjs/operator/toPromise'
+import { Injectable } from '@angular/core';
+import api from '../../environments/api';
+import 'rxjs/operator/toPromise';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable()
 export class InsurersService {
 
     public apiUrl = api.apiUrl;
-    constructor(private http: Http) { }
+    constructor(private http: HttpClient) { }
 
     public index(): Promise<any> {
         return this.http

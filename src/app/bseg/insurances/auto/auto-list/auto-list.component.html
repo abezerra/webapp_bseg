@@ -44,17 +44,17 @@
               <td>{{ a.client.name }} </td>
               <td>{{ a.created_at | date: 'dd/MM/yyyy' }}</td>
               <td>
-                <span class="badge badge-info" (click)="show(a.id)" data-toggle="modal" data-target="#show">
+                <a [routerLink]="['/auto-show', a.id]" class="btn bg-purple">
                   <i class="fas fa-eye"></i>
-                </span>
+                </a>
 
-                <span class="badge badge-warning" (click)="edit(a.id)">
+                <a [routerLink]="['/auto-show', a.id]" class="btn btn-warning">
                   <i class="fas fa-pencil-alt"></i>
-                </span>
+                </a>
 
-                <span class="badge badge-danger" (click)="destroy(a.id)">
+                <a class="btn btn-danger" (click)="destroy(a.id)" disabled="">
                   <i class="fas fa-trash-alt"></i>
-                </span>
+                </a>
               </td>
             </tr>
           </tbody>
