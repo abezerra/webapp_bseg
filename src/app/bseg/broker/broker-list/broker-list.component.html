@@ -46,6 +46,7 @@
             <th>Telefone</th>
             <th>E-mail</th>
             <th>Whatsapp</th>
+            <th>Ações</th>
           </tr>
           </thead>
           <tbody>
@@ -54,6 +55,16 @@
             <td>{{dp.telephone}}</td>
             <td>{{dp.email}}</td>
             <td>{{dp.whatsapp}}</td>
+            <td>
+              <a class="btn btn-primary" [routerLink]="['/broker-edit', dp.id]">
+                <i class="fas fa-plus"></i>
+                Editar
+              </a>
+              <button class="btn btn-danger" (click)="removeDepartament(dp.id)">
+                <i class="fas fa-trash-alt"></i>
+                Excluir
+              </button>
+            </td>
           </tr>
           </tbody>
         </table>
@@ -62,16 +73,12 @@
 
     <div class="row no-print">
       <div class="col-xs-12">
-        <a href="invoice-print.html" target="_blank" class="btn btn-default">
-          <i class="fa fa-print"></i>
-          Imprimir
+        <a class="btn btn-success pull-right" [routerLink]="['/broker-main-edit', b.id]">
+          <i class="fas fa-pencil-alt"></i>
+          Editar
         </a>
-        <button type="button" class="btn btn-success pull-right">
-          <i class="fa fa-credit-card"></i>
-          Alterar
-        </button>
-        <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
-          <i class="fa fa-download"></i>
+        <button type="button" class="btn btn-danger pull-right" style="margin-right: 5px;" (click)="destroy(b.id)">
+          <i class="fas fa-trash-alt"></i>
           Excluir
         </button>
       </div>
