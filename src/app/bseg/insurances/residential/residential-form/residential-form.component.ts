@@ -35,13 +35,13 @@ export class ResidentialFormComponent implements OnInit {
     validity: this._fb.control('', [Validators.required]),
     accession: this._fb.control('', [Validators.required]),
     classification: this._fb.control('', [Validators.required]),
-    input: this._fb.control('', [Validators.required]),
-    value: this._fb.control('', [Validators.required]),
-    totalOfPortions: this._fb.control('', [Validators.required]),
-    paymentForm: this._fb.control('', [Validators.required]),
-    portion: this._fb.control('', [Validators.required]),
-    date: this._fb.control('', [Validators.required]),
-    portionValue: this._fb.control('', [Validators.required]),
+    input: this._fb.control('', ),
+    value: this._fb.control('', ),
+    totalOfPortions: this._fb.control('', ),
+    paymentForm: this._fb.control('', ),
+    portion: this._fb.control('', ),
+    date: this._fb.control('', ),
+    portionValue: this._fb.control('', ),
     cpf: this._fb.control('', [Validators.required]),
     name: this._fb.control('', [Validators.required]),
     email: this._fb.control('', [Validators.required]),
@@ -59,22 +59,27 @@ export class ResidentialFormComponent implements OnInit {
 
   createCoverageInputs(): FormGroup {
     return this._fb.group({
-      coverage: this._fb.control('', [Validators.required]),
-      value: this._fb.control('', [Validators.required]),
-      franchise: this._fb.control('', [Validators.required]),
+      coverage: this._fb.control('', ),
+      value: this._fb.control('', ),
+      franchise: this._fb.control('', ),
     })
   }
 
   public create() {
     this.db
       .create(this.formAddResidentialInsurer.value)
-      .then(res => {
-        swal(
+      .subscribe(success => { swal(
           'Sucesso',
           'Seguro cadastrado com sucesso',
           'success'
         );
         $('#modal-add-residential').modal('hide')
+      }, error => {
+        swal(
+          'ERRO',
+          'Erro ao cadastrar seguro',
+          'error'
+        );
       })
   }
 

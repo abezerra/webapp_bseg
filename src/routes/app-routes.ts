@@ -28,6 +28,8 @@ import {LeaseEditComponent} from "../app/bseg/insurances/lease/lease-edit/lease-
 import {LeaseShowComponent} from "../app/bseg/insurances/lease/lease-show/lease-show.component";
 import {LifeShowComponent} from "../app/bseg/insurances/life/life-show/life-show.component";
 import {LifeEditComponent} from "../app/bseg/insurances/life/life-edit/life-edit.component";
+import {ResidentialShowComponent} from "../app/bseg/insurances/residential/residential-show/residential-show.component";
+import {ResidentialEditComponent} from "../app/bseg/insurances/residential/residential-edit/residential-edit.component";
 
 export const r: Routes = [
   {path: 'auth', component: AuthComponent},
@@ -51,6 +53,8 @@ export const r: Routes = [
   {path: 'life-show/:id', component: LifeShowComponent, canActivate: [AuthGuard]},
   {path: 'life-edit/:id', component: LifeEditComponent, canActivate: [AuthGuard]},
   {path: 'residential', component: ResidentialComponent, canActivate: [AuthGuard]},
+  {path: 'residential-show/:id', component: ResidentialShowComponent, canActivate: [AuthGuard]},
+  {path: 'residential-edit/:id', component: ResidentialEditComponent, canActivate: [AuthGuard]},
   {path: 'eo', component: EoComponent, canActivate: [AuthGuard]},
   {path: 'eo-show/:id', component: EoShowComponent, canActivate: [AuthGuard]},
   {path: 'eo-edit/:id', component: EoEditComponent, canActivate: [AuthGuard]},

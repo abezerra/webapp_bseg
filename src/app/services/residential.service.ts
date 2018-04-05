@@ -1,54 +1,40 @@
-import { Injectable } from '@angular/core'
-import { Http } from '@angular/http';
+import {Injectable} from '@angular/core'
 import api from '../../environments/api'
 import 'rxjs/operator/toPromise'
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class ResidentialService {
 
-    public apiUrl = api.apiUrl;
-    constructor(private http: Http) { }
+  public apiUrl = api.apiUrl;
+  private options = {headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}}
 
-    public clients(): Promise<any> {
-        return this.http
-                    .get(`${this.apiUrl}/clients/client`)
-                    .toPromise()
-                    .then((resposta: any) => resposta.json())
-    }
+  constructor(private http: HttpClient) {
+  }
 
-    public index(): Promise<any> {
-        return this.http
-                    .get(`${this.apiUrl}/residential`)
-                    .toPromise()
-                    .then((resposta: any) => resposta.json())
-    }
+  public clients(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/clients/client`, this.options)
+  }
 
-    public create(data: any): Promise<any> {
-        return this.http
-                    .post(`${this.apiUrl}/residential`, data)
-                    .toPromise()
-                    .then((resposta: any) => resposta.json())
-    }
+  public index(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/residential`, this.options)
+  }
 
-    public show(id: any): Promise<any> {
-        return this.http
-                    .get(`${this.apiUrl}/residential/${id}`)
-                    .toPromise()
-                    .then((resposta: any) => resposta.json())
-    }
+  public create(data: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/residential`, data, this.options)
+  }
 
-    public update(data: any, id: any): Promise<any> {
-        return this.http
-                    .put(`${this.apiUrl}/residential/${id}`, data)
-                    .toPromise()
-                    .then((resposta: any) => resposta.json())
-    }
+  public show(id: any): Observable<any> {
+    return this.http.get(`${this.apiUrl}/residential/${id}`, this.options)
+  }
 
-    public destroy(id: any): Promise<any> {
-        return this.http
-                    .delete(`${this.apiUrl}/residential/${id}`)
-                    .toPromise()
-                    .then((resposta: any) => resposta.json())
-    }
+  public update(data: any, id: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/residential/${id}`, data, this.options)
+  }
+
+  public destroy(id: any): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/residential/${id}`, this.options)
+  }
 
 }
