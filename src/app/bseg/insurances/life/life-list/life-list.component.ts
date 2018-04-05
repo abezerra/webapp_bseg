@@ -17,37 +17,21 @@ export class LifeListComponent implements OnInit {
   }
 
   public getAll(): void {
-    this.db
-      .index()
-      .then(res => this.individualLifeInsurances = res)
-      .catch( err => console.error('Insurances not found', err))
-  }
-
-  public show(id: any): void {
-    this.db
-      .show(id)
-      .then(res => this.insurer = res)
-      .catch(err => {
-        swal({
-          type: 'error',
-          title: 'Oops...',
-          text: 'Não foi possivel encontrar o seguro'
-        })
-      })
+    this.db.index().subscribe(success => this.individualLifeInsurances = success,
+                              error => console.error('Erro to find insurance', error))
   }
 
   public destroy(id: any): void {
     this.db
       .destroy(id)
-      .then(res => {
+      .subscribe(success => {
         this.getAll();
         swal(
           'Sucesso',
           'Seguro removido com sucesso',
           'success'
         )
-      })
-      .catch(err => {
+      }, error => {
         swal({
           type: 'error',
           title: 'Oops...',
