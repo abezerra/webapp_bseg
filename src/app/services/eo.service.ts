@@ -26,8 +26,8 @@ export class EOService {
     return this.http.get(`${this.apiUrl}/eo/${id}`, this.options)
   }
 
-  public update(data: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/eo`, data, this.options)
+  public update(id: number, data: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/eo/${id}`, data, this.options)
   }
 
   public destroy(id: any): Observable<any> {
