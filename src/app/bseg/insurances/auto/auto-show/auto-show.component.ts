@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AutoService} from "../../../../services/auto.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-auto-show',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AutoShowComponent implements OnInit {
 
-  constructor() { }
+  public auto: any;
+  public client: any;
+  public coverage: any;
+
+  constructor(private _db: AutoService,
+              private _router: Router,
+              private _route: ActivatedRoute) {
+  }
 
   ngOnInit() {
+    this.show(this._route.snapshot.params['id'])
+  }
+
+  public show(id: number) {
+    this._db.show(id)
+      .subscribe(success => {
+          this.auto = success,
+            this.client = success.client
+          this.coverage = success.coverage
+        },
+        error => console.error('Error to find auto insurance', error))
   }
 
 }

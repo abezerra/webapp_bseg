@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {FormBuilder, Validators} from "@angular/forms";
 import swal from 'sweetalert2'
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-auth',
@@ -11,7 +12,7 @@ import swal from 'sweetalert2'
 })
 export class AuthComponent implements OnInit {
 
-  constructor(private db: AuthService, private _fb: FormBuilder) {
+  constructor(private db: AuthService, private _fb: FormBuilder, private router: Router) {
   }
 
   ngOnInit() {
@@ -25,23 +26,10 @@ export class AuthComponent implements OnInit {
 
   public signin(): void {
     this.db.signin(this.authForm.value.email, this.authForm.value.password)
-      .then(res => {
-        swal({
-          position: 'top-end',
-          type: 'success',
-          title: 'Bem vindo ao BSeg',
-          showConfirmButton: false,
-          timer: 900
-        })
-      })
-      .catch(err => {
-        swal({
-          position: 'top-end',
-          type: 'error',
-          title: 'Credenciais invalidas',
-          showConfirmButton: false,
-          timer: 900
-        })
-      })
+      .subscribe(data => {
+        localStorage.setItem('token', data.success.token)
+        this.router.navigate(['/dashboard'])
+      }, err => console.log('error to login', err))
   }
+
 }

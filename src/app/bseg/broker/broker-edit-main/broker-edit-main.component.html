@@ -1,0 +1,128 @@
+<section class="invoice">
+  <form [formGroup]="updateDepartaments" (ngSubmit)="update()">
+    <div class="row">
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" name="name" id="name" class="form-control" formControlName="name">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="description">Descrição</label>
+          <input type="text" name="description" id="description" value="" class="form-control"
+                 formControlName="description">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="slogan">Slogan</label>
+          <input type="text" name="slogan" id="slogan" value="" class="form-control" formControlName="slogan">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="ddd">DDD</label>
+          <input type="text" name="ddd" id="ddd" value="" class="form-control" formControlName="ddd" maxlength="3">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="cellphone">Celular</label>
+          <input type="text" name="cellphone" id="cellphone" value="" class="form-control" formControlName="cellphone"
+                 maxlength="9">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="telephone">Telefone</label>
+          <input type="text" name="telephone" id="telephone" value="" class="form-control" formControlName="telephone"
+                 maxlength="9" [minlength]="8">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="text" name="email" id="email" value="" class="form-control" formControlName="email">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="site">Site</label>
+          <input type="text" name="site" id="site" value="" class="form-control" formControlName="site">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="cep">CEP</label>
+          <input type="text" name="cep" id="cep" class="form-control" formControlName="cep" maxlength="11">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="ibge_code">Codigo IBGE</label>
+          <input type="text" name="ibge_code" id="ibge_code" class="form-control" formControlName="ibge_code">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="address">Endreço</label>
+          <input type="text" name="address" id="address" value="" class="form-control" formControlName="address">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="neighborhood">Bairro</label>
+          <input type="text" name="neighborhood" id="neighborhood" value="" class="form-control"
+                 formControlName="neighborhood">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="complement">Complemento</label>
+          <input type="text" name="complement" id="complement" value="" class="form-control"
+                 formControlName="complement">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="city">Cidade</label>
+          <input type="text" name="city" id="city" value="" class="form-control" formControlName="city">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="uf">UF</label>
+          <input type="text" name="uf" id="uf" value="" class="form-control" formControlName="uf" maxlength="2">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-success btn-block" type="submit">Salvar alterações</button>
+      </div>
+    </div>
+  </form>
+</section>

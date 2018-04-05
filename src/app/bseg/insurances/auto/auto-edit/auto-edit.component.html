@@ -1,0 +1,126 @@
+<section class="invoice">
+  <form [formGroup]="updateAutoForm" (ngSubmit)="update()">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="insurer">Seguradora</label>
+          <input type="text" name="insurer" id="insurer" class="form-control" formControlName="insurer">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="apoliceNumber">Nº da apolice</label>
+          <input type="text" name="apoliceNumber" id="apoliceNumber" class="form-control"
+                 formControlName="apoliceNumber">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="validity">Termino da vigência</label>
+          <input type="date" name="validity" id="validity" value="" class="form-control" formControlName="validity">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="accession">Adesão</label>
+          <input type="date" id="accession" name="accession" value="" class="form-control"
+                 formControlName="accession">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="input">Entrada / avista</label>
+          <input type="number" name="input" id="input" value="" class="form-control" formControlName="input">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="value">Valor</label>
+          <input type="text" name="value" value="" class="form-control" formControlName="value">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="totalOfPortions">Total de parcelas</label>
+          <input type="text" name="totalOfPortions" id="totalOfPortions" class="form-control"
+                 formControlName="totalOfPortions">
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="paymentForm">Forma de pagamento</label>
+          <input type="text" name="paymentForm" value="" class="form-control" formControlName="paymentForm">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="portion">Dia de vencimento</label>
+          <input type="text" name="portion" id="portion" value="" class="form-control" formControlName="portion">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="cpf">CPF</label>
+          <input type="text" name="cpf" id="cpf" value="" class="form-control" formControlName="cpf">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="veichle">Veiculo</label>
+          <input type="text" name="veichle" id="veichle" value="" class="form-control" formControlName="veichle">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="yearOfManufacture">Ano de fabricação</label>
+          <input type="text" name="yearOfManufacture" id="yearOfManufacture" value="" class="form-control"
+                 formControlName="yearOfManufacture">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="yearOfModel">Ano do modelo</label>
+          <input type="text" name="yearOfModel" id="yearOfModel" value="" class="form-control"
+                 formControlName="yearOfModel">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="board">Placa</label>
+          <input type="text" name="board" id="board" value="" class="form-control" formControlName="board">
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-success btn-block" type="submit">Salvar alterações</button>
+      </div>
+    </div>
+  </form>
+</section>

@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, FormArray, Validators } from '@angular/forms'
-import { Observable } from 'rxjs/Observable'
-import { Subject } from 'rxjs/Subject'
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, FormControl, FormArray, Validators} from '@angular/forms'
+import {Observable} from 'rxjs/Observable'
+import {Subject} from 'rxjs/Subject'
 import 'rxjs'
+
 declare var jquery: any;
 declare var $: any;
 import swal from 'sweetalert2'
 
-import { AutoService } from '../../../../services/auto.service';
+import {AutoService} from '../../../../services/auto.service';
 
 @Component({
   selector: 'app-auto-form',
@@ -18,19 +19,19 @@ export class AutoFormComponent implements OnInit {
 
   private autoApoliceFile: any;
   public clients: any;
-  constructor(
-    private db: AutoService,
-    private _fb: FormBuilder) { }
+
+  constructor(private db: AutoService,
+              private _fb: FormBuilder) {
+  }
 
   ngOnInit() {
     this.getClients()
-   }
+  }
 
-  public getClients(): void{
+  public getClients(): void {
     this.db
-        .clients()
-        .then( res => this.clients = res)
-        .catch( err => console.error('Clients not found', err))
+      .clients()
+      .subscribe(data => this.clients = data, error => console.log('error to get clients'))
   }
 
   public prepareFileToUpload(event): void {
@@ -75,17 +76,21 @@ export class AutoFormComponent implements OnInit {
   }
 
   public create() {
-    console.log(this.formAddCarInsurance)
-    // this.db
-    //   .create(this.formAddCarInsurance.value)
-    //   .then(res => {
-    //     swal(
-    //       'Sucesso',
-    //       'Seguro auto cadastrado com sucesso',
-    //       'success'
-    //     );
-    //     $('#modal-add-auto-insurance').modal('hide')
-    //   })
+    this.db.create(this.formAddCarInsurance.value)
+      .subscribe(data => {
+        swal(
+          'Sucesso',
+          'Seguro auto cadastrado com sucesso',
+          'success'
+        );
+        $('#modal-add-auto-insurance').modal('hide')
+      }, error => {
+        swal(
+          'Erro',
+          'Erro ao cadastrar seguro',
+          'success'
+        );
+      })
 
   }
 

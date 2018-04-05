@@ -3,13 +3,15 @@ import { Router } from '@angular/router'
 import api from '../../environments/api';
 import {Http} from "@angular/http";
 import 'rxjs/operator/toPromise'
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class AuthService{
 
   public token_id: string
   public apiUrl = api.apiUrl;
-  constructor(private router: Router, private http: Http){}
+  constructor(private router: Router, private http: HttpClient){}
 
 
   public authenticated_user(): boolean {
@@ -24,20 +26,27 @@ export class AuthService{
     return this.token_id !== undefined
 
   }
+  //
+  // public signin(email, password): Promise<any>{
+  //   return this.http.post(`${this.apiUrl}/authenticate`, {email: email, password: password})
+  //     .toPromise()
+  //     .then( res =>  res)
+  //     .then( res => {
+  //        if(!res.success.token){
+  //          return false;
+  //        }
+  //
+  //       this.router.navigate((['/dashboard']))
+  //     })
+  //     .catch( err =>  err.json())
+  // }
 
-  public signin(email, password): Promise<any>{
-    return this.http.post(`${this.apiUrl}/authenticate`, {email: email, password: password})
-      .toPromise()
-      .then( res =>  res.json())
-      .then( res => {
-         if(!res.success.token){
-           return false;
-         }
-        localStorage.setItem('token', res.success.token)
-        this.router.navigate((['/dashboard']))
-      })
-      .catch( err =>  err.json())
+
+  public signin(email, password): Observable<any>{
+           return this.http
+                .post(`${this.apiUrl}/authenticate`, {email: email, password: password})
   }
+
 
   public signup(): void{
 
@@ -45,5 +54,9 @@ export class AuthService{
 
   public logout(): void{
 
+  }
+
+  public getToken(): string {
+    return localStorage.getItem('token');
   }
 }
