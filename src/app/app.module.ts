@@ -111,6 +111,7 @@ import { BrokerEditMainComponent } from './bseg/broker/broker-edit-main/broker-e
 import { ClientEditComponent } from './bseg/clients/client-edit/client-edit.component';
 import { AutoEditComponent } from './bseg/insurances/auto/auto-edit/auto-edit.component';
 import { EoEditComponent } from './bseg/insurances/eo/eo-edit/eo-edit.component';
+import { LeaseEditComponent } from './bseg/insurances/lease/lease-edit/lease-edit.component';
 
 @NgModule({
   declarations: [
@@ -193,6 +194,7 @@ import { EoEditComponent } from './bseg/insurances/eo/eo-edit/eo-edit.component'
     ClientEditComponent,
     AutoEditComponent,
     EoEditComponent,
+    LeaseEditComponent,
   ],
   imports: [
     BrowserModule,

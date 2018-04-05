@@ -24,6 +24,8 @@ import {AutoShowComponent} from "../app/bseg/insurances/auto/auto-show/auto-show
 import {AutoEditComponent} from "../app/bseg/insurances/auto/auto-edit/auto-edit.component";
 import {EoShowComponent} from "../app/bseg/insurances/eo/eo-show/eo-show.component";
 import {EoEditComponent} from "../app/bseg/insurances/eo/eo-edit/eo-edit.component";
+import {LeaseEditComponent} from "../app/bseg/insurances/lease/lease-edit/lease-edit.component";
+import {LeaseShowComponent} from "../app/bseg/insurances/lease/lease-show/lease-show.component";
 
 export const r: Routes = [
   {path: 'auth', component: AuthComponent},
@@ -49,6 +51,8 @@ export const r: Routes = [
   {path: 'eo-show/:id', component: EoShowComponent, canActivate: [AuthGuard]},
   {path: 'eo-edit/:id', component: EoEditComponent, canActivate: [AuthGuard]},
   {path: 'lease', component: LeaseComponent, canActivate: [AuthGuard]},
+  {path: 'lease-show/:id', component: LeaseShowComponent, canActivate: [AuthGuard]},
+  {path: 'lease-edit/:id', component: LeaseEditComponent, canActivate: [AuthGuard]},
   {path: 'insurers', component: InsurersComponent, canActivate: [AuthGuard]},
   {path: 'medias', component: MediasComponent, canActivate: [AuthGuard]},
 ];
