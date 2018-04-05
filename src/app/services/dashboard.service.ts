@@ -22,12 +22,12 @@ export class DashboardService {
     return this.http.get(`${this.apiUrl}/dashboard/all`, this.opions)
   }
 
-  public leads(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/clients/leads`, this.opions)
+  public renre_and_expired(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/dashboard/renew_over_the_next_thirty_days`, this.opions)
   }
 
-  public create(data: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/clients`, data, this.opions)
+  public total_hired(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/dashboard/total_hired`, this.opions)
   }
 
   public show(id: number): Observable<any> {
