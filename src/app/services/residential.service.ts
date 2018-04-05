@@ -29,7 +29,7 @@ export class ResidentialService {
     return this.http.get(`${this.apiUrl}/residential/${id}`, this.options)
   }
 
-  public update(data: any, id: any): Observable<any> {
+  public update(id: any, data: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/residential/${id}`, data, this.options)
   }
 
