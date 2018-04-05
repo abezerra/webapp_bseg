@@ -1,0 +1,48 @@
+<section class="content-header">
+  <h1>
+    Manager Bseg
+  </h1>
+</section>
+
+
+<section class="content">
+
+  <div class="row">
+    <div class="col-md-3">
+      <app-profile-numbers></app-profile-numbers>
+      <app-profile-about></app-profile-about>
+    </div>
+
+    <div class="col-md-9">
+      <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a href="#activity" data-toggle="tab">Atendimentos</a>
+          </li>
+          <li>
+            <a href="#timeline" data-toggle="tab">Timeline</a>
+          </li>
+          <li>
+            <a href="#settings" data-toggle="tab">Configurações</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="active tab-pane" id="activity">
+            <app-profile-attendance></app-profile-attendance>
+          </div>
+          <div class="tab-pane" id="timeline">
+            <app-profile-timeline></app-profile-timeline>
+          </div>
+          <div class="tab-pane" id="settings">
+            <app-profile-edit></app-profile-edit>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

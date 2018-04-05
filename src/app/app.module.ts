@@ -114,6 +114,15 @@ import { EoEditComponent } from './bseg/insurances/eo/eo-edit/eo-edit.component'
 import { LeaseEditComponent } from './bseg/insurances/lease/lease-edit/lease-edit.component';
 import { LifeEditComponent } from './bseg/insurances/life/life-edit/life-edit.component';
 import { ResidentialEditComponent } from './bseg/insurances/residential/residential-edit/residential-edit.component';
+import { ProfileComponent } from './bseg/profile/profile.component';
+import { ProfileListComponent } from './bseg/profile/profile-list/profile-list.component';
+import { ProfileEditComponent } from './bseg/profile/profile-edit/profile-edit.component';
+import { ProfileShowComponent } from './bseg/profile/profile-show/profile-show.component';
+import { ProfileNumbersComponent } from './bseg/profile/profile-numbers/profile-numbers.component';
+import { ProfileAttendanceComponent } from './bseg/profile/profile-attendance/profile-attendance.component';
+import { ProfileAboutComponent } from './bseg/profile/profile-about/profile-about.component';
+import { ProfileTimelineComponent } from './bseg/profile/profile-timeline/profile-timeline.component';
+import {DashboardService} from "./services/dashboard.service";
 
 @NgModule({
   declarations: [
@@ -199,6 +208,14 @@ import { ResidentialEditComponent } from './bseg/insurances/residential/resident
     LeaseEditComponent,
     LifeEditComponent,
     ResidentialEditComponent,
+    ProfileComponent,
+    ProfileListComponent,
+    ProfileEditComponent,
+    ProfileShowComponent,
+    ProfileNumbersComponent,
+    ProfileAttendanceComponent,
+    ProfileAboutComponent,
+    ProfileTimelineComponent,
   ],
   imports: [
     BrowserModule,
@@ -225,7 +242,8 @@ import { ResidentialEditComponent } from './bseg/insurances/residential/resident
     AuthGuard,
     TokensService,
     HttpService,
-    MediasService
+    MediasService,
+    DashboardService
   ],
   bootstrap: [AppComponent]
 })
