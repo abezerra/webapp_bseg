@@ -1,11 +1,14 @@
 {
   "name": "webapp_bseg",
-  "description": "Web App Brasal Corretora",
   "scripts": {
-    "postinstall": "ng build --aot -prod",
-    "deproy": "node server.js"
+    "postinstall": "ng build -prod"
   },
-  "env": {},
+  "env": {
+    "NODE_ENV": "production",
+    "NODE_MODULES_CACHE": "true",
+    "NODE_VERBOSE": "false",
+    "NPM_CONFIG_LOGLEVEL": "error"
+  },
   "formation": {
     "web": {
       "quantity": 1
