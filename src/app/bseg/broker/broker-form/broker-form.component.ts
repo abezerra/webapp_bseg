@@ -7,6 +7,7 @@ declare var jquery: any;
 declare var $: any;
 import swal from 'sweetalert2'
 import {BrokerService} from "../../../services/broker.service";
+import {Data} from "@angular/router";
 
 @Component({
   selector: 'app-broker-form',
@@ -78,6 +79,9 @@ export class BrokerFormComponent implements OnInit {
           'error'
         );
       })
+  }
 
+  get formData() {
+    return <FormArray>this.formAddBroker.get('departamentArray');
   }
 }

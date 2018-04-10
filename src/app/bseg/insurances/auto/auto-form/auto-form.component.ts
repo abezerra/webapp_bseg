@@ -95,4 +95,7 @@ export class AutoFormComponent implements OnInit {
   }
 
 
+  get formData() {
+    return <FormArray>this.formAddCarInsurance.get('coverageArray');
+  }
 }

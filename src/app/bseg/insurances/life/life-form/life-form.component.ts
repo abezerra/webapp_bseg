@@ -80,7 +80,10 @@ export class LifeFormComponent implements OnInit {
           'error'
         );
       })
+  }
 
+  get formData() {
+    return <FormArray>this.formAddIndividualLifeInsurance.get('coverageArray');
   }
 
 }
