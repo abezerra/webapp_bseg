@@ -83,4 +83,7 @@ export class ResidentialFormComponent implements OnInit {
       })
   }
 
+  get formData() {
+    return <FormArray>this.formAddResidentialInsurer.get('coverageArray');
+  }
 }

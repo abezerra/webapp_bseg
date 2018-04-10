@@ -228,7 +228,6 @@ import {DashboardService} from "./services/dashboard.service";
     NgSelectizeModule,
   ],
   providers: [
-    //{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     AutoService,
     ClientsService,
     AlertsService,
@@ -240,7 +239,6 @@ import {DashboardService} from "./services/dashboard.service";
     BrokerService,
     AuthService,
     AuthGuard,
-    TokensService,
     HttpService,
     MediasService,
     DashboardService

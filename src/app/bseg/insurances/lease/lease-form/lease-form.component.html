@@ -182,7 +182,7 @@
             </div>
           </div>
 
-          <div class="row" formArrayName="coverageArray" *ngFor="let coverage of formAddLeaseBoundInsurance.get('coverageArray').controls">
+          <div class="row" formArrayName="coverageArray" *ngFor="let coverage of formData.controls">
             <div class="col-md-12" [formGroup]="coverage">
               <div class="form-group">
                 <label for="insurer">Cobertura</label>

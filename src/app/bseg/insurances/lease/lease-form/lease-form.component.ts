@@ -87,5 +87,8 @@ export class LeaseFormComponent implements OnInit {
 
   }
 
+  get formData() {
+    return <FormArray>this.formAddLeaseBoundInsurance.get('coverageArray');
+  }
 
 }

@@ -80,7 +80,10 @@ export class EoFormComponent implements OnInit {
         'error'
       );
     })
+  }
 
+  get formData() {
+    return <FormArray>this.formAddEOInsurer.get('coverageArray');
   }
 
 }
