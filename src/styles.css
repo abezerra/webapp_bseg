@@ -37,3 +37,11 @@ input.ng-valid.ng-touched {
 select.ng-valid.ng-touched {
   border: 1px solid green;
 }
+
+.box.box-primary {
+  border-top-color: #126f69;
+}
+
+.nav-tabs-custom > .nav-tabs > li.active {
+  border-top-color: #126f69;
+}

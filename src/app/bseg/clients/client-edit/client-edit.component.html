@@ -1,0 +1,130 @@
+<section class="invoice">
+  <form [formGroup]="updateClient" (ngSubmit)="update()">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" name="name" id="name" class="form-control" formControlName="name">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="cpf">CPF</label>
+          <input type="text" name="cpf" id="cpf" class="form-control" formControlName="cpf"
+          >
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="rg">RG</label>
+          <input type="text" name="rg" id="rg" class="form-control" formControlName="rg">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="ddd_phone">DDD</label>
+          <input type="text" name="ddd_phone" id="ddd_phone" class="form-control" formControlName="ddd_phone"
+                 >
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="text" name="telefone" id="telefone" class="form-control" formControlName="telefone"
+                 >
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="ddd_cellphone">DDD</label>
+          <input type="text" name="ddd_cellphone" id="ddd_cellphone" class="form-control" formControlName="ddd_cellphone"
+                 >
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="cellphone">Celular</label>
+          <input type="text" name="cellphone" id="cellphone" class="form-control" formControlName="cellphone"
+                 >
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="text" name="email" id="email" class="form-control" formControlName="email"
+                 >
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="whatsapp">Whatsapp</label>
+          <input type="text" name="whatsapp" id="whatsapp" class="form-control" formControlName="whatsapp"
+                 >
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="address">Endereço</label>
+          <input type="text" name="address" id="address" class="form-control" formControlName="address"
+                 >
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="street">street</label>
+          <input type="text" name="street" id="street" class="form-control" formControlName="street"
+                 >
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="neighbhrood">Bairro</label>
+          <input type="text" name="neighbhrood" id="neighbhrood" class="form-control" formControlName="neighbhrood"
+                 >
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="city">Cidade</label>
+          <input type="text" name="city" id="city" class="form-control" formControlName="city"
+                 >
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="uf">UF</label>
+          <input type="text" name="uf" id="uf" class="form-control" formControlName="uf"
+                 >
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="birth">Aniversario</label>
+          <input type="date" name="birth" id="birth" class="form-control" formControlName="birth"
+                 >
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="type">Tipo</label>
+          <input type="text" name="type" id="type" class="form-control" formControlName="type"
+                 >
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-success btn-block" type="submit">Salvar alterações</button>
+      </div>
+    </div>
+  </form>
+</section>

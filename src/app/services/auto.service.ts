@@ -9,50 +9,31 @@ import {HttpClient} from "@angular/common/http";
 export class AutoService {
 
     public apiUrl = api.apiUrl;
+    private options = {headers: {'Authorization': `Bearer ${localStorage.getItem('token')}` }}
     constructor(private http: HttpClient) { }
 
     public index(): Observable<any> {
-        return this.http
-                    .get(`${this.apiUrl}/auto`, {
-                      headers: {'Authorization': `Bearer ${localStorage.getItem('token')}` }
-                    })
-
+        return this.http.get(`${this.apiUrl}/auto`, this.options)
     }
 
     public clients(): Observable<any> {
-        return this.http
-                    .get(`${this.apiUrl}/clients`, {
-                      headers: {'Authorization': `Bearer ${localStorage.getItem('token')}` }
-                    })
-
+        return this.http.get(`${this.apiUrl}/clients`, this.options)
     }
 
     public create(data: any): Observable<any> {
-        return this.http
-                    .post(`${this.apiUrl}/auto`, data, {
-                      headers: {'Authorization': `Bearer ${localStorage.getItem('token')}` }
-                    })
+        return this.http.post(`${this.apiUrl}/auto`, data, this.options)
     }
 
-    public show(id: any): Promise<any> {
-        return this.http
-                    .get(`${this.apiUrl}/auto/${id}`)
-                    .toPromise()
-                    .then((resposta: any) => resposta.json())
+    public show(id: any): Observable<any> {
+        return this.http.get(`${this.apiUrl}/auto/${id}`, this.options)
     }
 
-    public update(data: any): void {
-        this.http
-                    .put(`${this.apiUrl}/auto`, data)
-                    .toPromise()
-                    .then((resposta: any) => resposta.json())
+    public update(id: number, data: any): Observable<any> {
+        return this.http.put(`${this.apiUrl}/auto/${id}`, data, this.options)
     }
 
-    public destroy(id: any): Promise<any> {
-        return this.http
-                    .delete(`${this.apiUrl}/auto/${id}`)
-                    .toPromise()
-                    .then((resposta: any) => resposta.json())
+    public destroy(id: any): Observable<any> {
+        return this.http.delete(`${this.apiUrl}/auto/${id}`, this.options)
     }
 
 }

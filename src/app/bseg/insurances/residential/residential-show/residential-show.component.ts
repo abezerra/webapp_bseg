@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {ResidentialService} from "../../../../services/residential.service";
 
 @Component({
   selector: 'app-residential-show',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResidentialShowComponent implements OnInit {
 
-  constructor() { }
+  public residential: any;
+  public client: any;
+  public coverage: any;
 
-  ngOnInit() {
+  constructor(private _db: ResidentialService,
+              private _router: Router,
+              private _route: ActivatedRoute) {
   }
 
+  ngOnInit() {
+    this.show(this._route.snapshot.params['id'])
+  }
+
+  public show(id: number) {
+    this._db.show(id)
+      .subscribe(success => {
+          this.residential = success
+          this.client = success.client
+          this.coverage = success.coverage
+        },
+        error => console.error('Error to find auto insurance', error))
+  }
 }

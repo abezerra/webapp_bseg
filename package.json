@@ -35,6 +35,7 @@
     "bootstrap3-wysihtml5-bower": "^0.3.3",
     "core-js": "^2.4.1",
     "daterangepicker": "^2.1.25",
+    "express": "^4.16.3",
     "font-awesome": "^4.7.0",
     "icheck": "^1.0.2",
     "install": "^0.10.1",
@@ -57,7 +58,7 @@
     "zone.js": "^0.8.17"
   },
   "devDependencies": {
-    "@angular/cli": "1.6.0",
+    "@angular/cli": "^1.7.3",
     "@angular/compiler-cli": "^5.1.1",
     "@angular/language-service": "^4.4.3",
     "@types/jasmine": "~2.8.2",
@@ -81,5 +82,9 @@
     "ts-node": "~3.3.0",
     "tslint": "~5.7.0",
     "typescript": "^2.4.2"
+  },
+  "engines": {
+    "node": "9.0.0",
+    "yarn": "1.0.2"
   }
 }

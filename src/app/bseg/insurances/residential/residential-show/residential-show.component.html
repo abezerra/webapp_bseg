@@ -1,3 +1,76 @@
-<p>
-  residential-show works!
-</p>
+<section class="invoice">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="page-header">
+        <a [routerLink]="['/residential']" class="btn btn-info">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+        <i class="fas fa-home"></i>{{ client.name }}
+        <small class="pull-right"> {{ client.cpf }}</small>
+      </h2>
+    </div>
+  </div>
+  <div class="row invoice-info">
+    <div class="col-sm-4 invoice-col">
+      <strong>Bem segurado</strong>
+      <address>
+        <b>CEP:</b> {{ residential.cep }}<br/>
+        <b>Cidade:</b> {{ residential.city }}<br>
+        <b>Bairro:</b> {{ residential.neigbrhood }}<br>
+      </address>
+    </div>
+    <div class="col-sm-4 invoice-col">
+      <strong>Dados da apolice</strong>
+      <address>
+        <b>Apolice:</b> {{ residential.apoliceNumber }}<br>
+        <b>Seguradora:</b> {{ residential.insurer }}<br>
+        <b>Vencimento:</b> {{ residential.validity }}<br>
+
+      </address>
+    </div>
+    <div class="col-sm-4 invoice-col"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Cobertura</th>
+          <th>Franquia</th>
+          <th>Valor</th>
+          <th>Ações</th>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let c of coverage">
+          <td> {{ c.coverage }}</td>
+          <td>{{ c.franchise }}</td>
+          <td>{{ c.value }}</td>
+          <td>
+            <a class="btn btn-success">
+              <i class="fas fa-plus"></i>
+            </a>
+            <a class="btn btn-danger" disabled>
+              <i class="fas fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row no-print">
+    <div class="col-xs-12">
+      <a class="btn btn-warning pull-right" [routerLink]="['/residential-edit', residential.id]">
+        <i class="fas fa-pencil-alt"></i>
+        Editar
+      </a>
+      <button type="button" class="btn btn-danger pull-right" style="margin-right: 5px;" disabled>
+        <i class="fas fa-trash-alt"></i>
+        Excluir
+      </button>
+    </div>
+  </div>
+</section>

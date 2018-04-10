@@ -100,6 +100,29 @@ import {AuthGuard} from "./security/auth.guard";
 import TokensService from "./services/tokens.service";
 import {HttpService} from "./services/http.service";
 import AuthInterceptor from "./security/Auth.interceptor";
+import { MediasComponent } from './bseg/medias/medias.component';
+import { MediasListComponent } from './bseg/medias/medias-list/medias-list.component';
+import { MediasFormComponent } from './bseg/medias/medias-form/medias-form.component';
+import { MediasBadagesComponent } from './bseg/medias/medias-badages/medias-badages.component';
+import { MediasShowComponent } from './bseg/medias/medias-show/medias-show.component';
+import {MediasService} from "./services/medias.service";
+import { BrokerEditComponent } from './bseg/broker/broker-edit/broker-edit.component';
+import { BrokerEditMainComponent } from './bseg/broker/broker-edit-main/broker-edit-main.component';
+import { ClientEditComponent } from './bseg/clients/client-edit/client-edit.component';
+import { AutoEditComponent } from './bseg/insurances/auto/auto-edit/auto-edit.component';
+import { EoEditComponent } from './bseg/insurances/eo/eo-edit/eo-edit.component';
+import { LeaseEditComponent } from './bseg/insurances/lease/lease-edit/lease-edit.component';
+import { LifeEditComponent } from './bseg/insurances/life/life-edit/life-edit.component';
+import { ResidentialEditComponent } from './bseg/insurances/residential/residential-edit/residential-edit.component';
+import { ProfileComponent } from './bseg/profile/profile.component';
+import { ProfileListComponent } from './bseg/profile/profile-list/profile-list.component';
+import { ProfileEditComponent } from './bseg/profile/profile-edit/profile-edit.component';
+import { ProfileShowComponent } from './bseg/profile/profile-show/profile-show.component';
+import { ProfileNumbersComponent } from './bseg/profile/profile-numbers/profile-numbers.component';
+import { ProfileAttendanceComponent } from './bseg/profile/profile-attendance/profile-attendance.component';
+import { ProfileAboutComponent } from './bseg/profile/profile-about/profile-about.component';
+import { ProfileTimelineComponent } from './bseg/profile/profile-timeline/profile-timeline.component';
+import {DashboardService} from "./services/dashboard.service";
 
 @NgModule({
   declarations: [
@@ -171,7 +194,28 @@ import AuthInterceptor from "./security/Auth.interceptor";
     InsurersShowComponent,
     InsurersBreadcumbsComponent,
     AuthComponent,
-    SignupComponent
+    SignupComponent,
+    MediasComponent,
+    MediasListComponent,
+    MediasFormComponent,
+    MediasBadagesComponent,
+    MediasShowComponent,
+    BrokerEditComponent,
+    BrokerEditMainComponent,
+    ClientEditComponent,
+    AutoEditComponent,
+    EoEditComponent,
+    LeaseEditComponent,
+    LifeEditComponent,
+    ResidentialEditComponent,
+    ProfileComponent,
+    ProfileListComponent,
+    ProfileEditComponent,
+    ProfileShowComponent,
+    ProfileNumbersComponent,
+    ProfileAttendanceComponent,
+    ProfileAboutComponent,
+    ProfileTimelineComponent,
   ],
   imports: [
     BrowserModule,
@@ -197,7 +241,9 @@ import AuthInterceptor from "./security/Auth.interceptor";
     AuthService,
     AuthGuard,
     TokensService,
-    HttpService
+    HttpService,
+    MediasService,
+    DashboardService
   ],
   bootstrap: [AppComponent]
 })

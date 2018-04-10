@@ -28,21 +28,21 @@ export class BrokerFormComponent implements OnInit {
 
   formAddBroker = this._fb.group({
     image: this._fb.control('',),
-    name: this._fb.control('',[Validators.required]),
+    name: this._fb.control('',[Validators.required, Validators.minLength(3), Validators.maxLength(200)]),
     description: this._fb.control('',[Validators.required]),
     slogan: this._fb.control('',),
-    ddd: this._fb.control('',[Validators.required]),
+    ddd: this._fb.control('',[Validators.required, Validators.maxLength(3), Validators.minLength(2)]),
     cellphone: this._fb.control('',),
-    telephone: this._fb.control('',[Validators.required]),
-    email: this._fb.control('',[Validators.required]),
+    telephone: this._fb.control('',[Validators.required, Validators.maxLength(9), Validators.minLength(8)]),
+    email: this._fb.control('',[Validators.required, Validators.email]),
     site: this._fb.control('',[Validators.required]),
     cep: this._fb.control('',[Validators.required]),
     ibge_code: this._fb.control('',),
-    address: this._fb.control('',[Validators.required]),
-    neighborhood: this._fb.control('',[Validators.required]),
+    address: this._fb.control('',[Validators.required, Validators.minLength(5), Validators.maxLength(200)]),
+    neighborhood: this._fb.control('',[Validators.required, Validators.minLength(3), Validators.maxLength(200)]),
     complement: this._fb.control('',),
-    city: this._fb.control('',[Validators.required]),
-    uf: this._fb.control('',[Validators.required]),
+    city: this._fb.control('',[Validators.required, Validators.minLength(3), Validators.maxLength(200)]),
+    uf: this._fb.control('',[Validators.required, Validators.minLength(2), Validators.maxLength(2)]),
     departamentArray: this._fb.array([]),
   });
 
@@ -56,7 +56,7 @@ export class BrokerFormComponent implements OnInit {
       coverage: this._fb.control('', ),
       description: this._fb.control('', ),
       telephone: this._fb.control('', ),
-      email: this._fb.control('', ),
+      email: this._fb.control('', [Validators.email]),
       whatsapp: this._fb.control('', ),
     })
   }
@@ -64,13 +64,19 @@ export class BrokerFormComponent implements OnInit {
   public create() {
     this._db
       .create(this.formAddBroker.value)
-      .then(res => {
+      .subscribe( data => {
         swal(
           'Sucesso',
           'Corretora cadastrada com sucesso',
           'success'
         );
         $('#modal-add-broker').modal('hide')
+      }, error => {
+        swal(
+          'ERRO',
+          'Houve um erro ao cadastrar a corretora',
+          'error'
+        );
       })
 
   }

@@ -1,3 +1,85 @@
-<p>
-  auto-show works!
-</p>
+<section class="invoice">
+  <!-- title row -->
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="page-header">
+        <a [routerLink]="['/auto']" class="btn btn-info">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+        <i class="fas fa-car"></i> {{ client.name }}
+        <small class="pull-right"> {{ client.cpf }}</small>
+      </h2>
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- info row -->
+  <div class="row invoice-info">
+    <div class="col-sm-4 invoice-col">
+      Bem segurado
+      <address>
+        Veiculo: {{ auto.veichle }}<br/>
+        Placa: {{ auto.board }}<br>
+        Ano do modelo: {{ auto.yearOfModel }}<br>
+        Ano de fabricação: {{ auto.yearOfManufacture }}
+      </address>
+    </div>
+    <!-- /.col -->
+    <div class="col-sm-4 invoice-col">
+      <strong>Dados da apolice</strong>
+      <address>
+        Apolice: {{ auto.apoliceNumber }}<br>
+        Seguradora: {{ auto.insurer }}<br>
+        Vencimento: {{ auto.validity }}<br>
+
+      </address>
+    </div>
+    <!-- /.col -->
+    <div class="col-sm-4 invoice-col"></div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+
+  <!-- Table row -->
+  <div class="row">
+    <div class="col-xs-12 table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Cobertura</th>
+          <th>Franquia</th>
+          <th>Valor</th>
+          <th>Ações</th>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let c of coverage">
+          <td> {{ c.coverage }}</td>
+          <td>{{ c.franchise }}</td>
+          <td>{{ c.value }}</td>
+          <td>
+            <a class="btn btn-success">
+              <i class="fas fa-plus"></i>
+            </a>
+            <a class="btn btn-danger">
+              <i class="fas fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row no-print">
+    <div class="col-xs-12">
+      <a class="btn btn-warning pull-right" [routerLink]="['/auto-edit', auto.id]">
+        <i class="fas fa-pencil-alt"></i>
+        Editar
+      </a>
+      <button type="button" class="btn btn-danger pull-right" style="margin-right: 5px;" disabled>
+        <i class="fas fa-trash-alt"></i>
+        Excluir
+      </button>
+    </div>
+  </div>
+</section>
