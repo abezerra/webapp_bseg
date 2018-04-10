@@ -8,7 +8,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod",
+    "run": "node server.js"
   },
   "private": true,
   "dependencies": {
@@ -35,6 +37,7 @@
     "bootstrap3-wysihtml5-bower": "^0.3.3",
     "core-js": "^2.4.1",
     "daterangepicker": "^2.1.25",
+    "express": "^4.16.3",
     "font-awesome": "^4.7.0",
     "icheck": "^1.0.2",
     "install": "^0.10.1",
@@ -81,5 +84,9 @@
     "ts-node": "~3.3.0",
     "tslint": "~5.7.0",
     "typescript": "^2.4.2"
+  },
+  "engines": {
+    "node": "9.0.0",
+    "yarn": "1.0.2"
   }
 }
