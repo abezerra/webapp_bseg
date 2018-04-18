@@ -10,8 +10,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
 </head>
 <body hold-transition>
   <app-root>Loading ...</app-root>
+
+
+  <script>
+    Pusher.logToConsole = true;
+
+    let pusher = new Pusher('b1c9dfd0226ff506116d', {
+      cluster: 'us2',
+      encrypted: true
+    });
+
+    let channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+      console.log('algum trem aqui no pusher', data)
+      alert(data.message);
+    });
+  </script>
 </body>
 </html>
