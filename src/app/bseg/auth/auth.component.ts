@@ -12,7 +12,9 @@ import {Router} from "@angular/router";
 })
 export class AuthComponent implements OnInit {
 
-  constructor(private db: AuthService, private _fb: FormBuilder, private router: Router) {
+  constructor(private db: AuthService,
+              private _fb: FormBuilder,
+              private router: Router) {
   }
 
   ngOnInit() {

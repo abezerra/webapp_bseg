@@ -123,6 +123,10 @@ import { ProfileAttendanceComponent } from './bseg/profile/profile-attendance/pr
 import { ProfileAboutComponent } from './bseg/profile/profile-about/profile-about.component';
 import { ProfileTimelineComponent } from './bseg/profile/profile-timeline/profile-timeline.component';
 import {DashboardService} from "./services/dashboard.service";
+import { ChatMessagesComponent } from './bseg/chat/chat-messages/chat-messages.component';
+import {NgChatModule} from "ng-chat";
+import {ChatService} from "./services/chat.service";
+import { ChatUsersOnlineComponent } from './bseg/chat/chat-users-online/chat-users-online.component';
 
 @NgModule({
   declarations: [
@@ -216,6 +220,8 @@ import {DashboardService} from "./services/dashboard.service";
     ProfileAttendanceComponent,
     ProfileAboutComponent,
     ProfileTimelineComponent,
+    ChatMessagesComponent,
+    ChatUsersOnlineComponent,
   ],
   imports: [
     BrowserModule,
@@ -226,6 +232,7 @@ import {DashboardService} from "./services/dashboard.service";
     ReactiveFormsModule,
     RouterModule.forRoot(r),
     NgSelectizeModule,
+    NgChatModule,
   ],
   providers: [
     AutoService,
@@ -241,7 +248,8 @@ import {DashboardService} from "./services/dashboard.service";
     AuthGuard,
     HttpService,
     MediasService,
-    DashboardService
+    DashboardService,
+    ChatService
   ],
   bootstrap: [AppComponent]
 })
