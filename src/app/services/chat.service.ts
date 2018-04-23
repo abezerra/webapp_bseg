@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core'
-import {Router} from '@angular/router'
-import api from '../../environments/api';
-import {Http} from "@angular/http";
-import 'rxjs/operator/toPromise'
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
+import {Router} from '@angular/router'
+import 'rxjs/operator/toPromise'
+import * as io from  'socket.io-client';
+import api from '../../environments/api';
+
+
 
 @Injectable()
 export class ChatService {
@@ -12,8 +14,11 @@ export class ChatService {
   public token_id: string
   public apiUrl = api.apiUrl;
   private options = {headers: {'Authorization': `Bearer ${localStorage.getItem('token')}` }}
+  private socket: SocketIOClient.Socket;
 
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router, private http: HttpClient) {
+    this.socket = io('http://localhost:6001')
+  }
 
   public onilen_users(): Observable<any>{
     return this.http.get(`${this.apiUrl}/clients`, this.options)

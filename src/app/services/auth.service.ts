@@ -11,6 +11,8 @@ export class AuthService{
 
   public token_id: string
   public apiUrl = api.apiUrl;
+  private options = {headers: {'Authorization': `Bearer ${localStorage.getItem('token')}` }}
+
   constructor(private router: Router, private http: HttpClient){}
 
 
@@ -58,5 +60,9 @@ export class AuthService{
 
   public getToken(): string {
     return localStorage.getItem('token');
+  }
+
+  public getAuthenticatedUser(): Observable<any>{
+    return this.http.get(`${this.apiUrl}/user`, this.options)
   }
 }
