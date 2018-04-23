@@ -7,9 +7,10 @@ import {FormBuilder, Validators} from "@angular/forms";
 import * as Echo from 'laravel-echo';
 import * as io from  'socket.io-client';
 import {AuthService} from "../../services/auth.service";
+import {ActivatedRoute} from "@angular/router";
+import swal from 'sweetalert2'
 declare var jquery: any;
 declare var $: any;
-
 const window = io;
 
 @Component({
@@ -29,13 +30,19 @@ export class ChatComponent implements OnInit {
   public user: any;
   public quantity_users_online: number;
   private sound: any;
+  public client: any
+  public complete_historic: any
 
-  constructor(private _db: ChatService, private _fb: FormBuilder, private auth: AuthService) {
-  }
+  constructor(
+              private _db: ChatService,
+              private _fb: FormBuilder,
+              private auth: AuthService,
+              private _route: ActivatedRoute) {}
 
   ngOnInit() {
-        this.serverside()
+    this.serverside()
     this.getAtendentData()
+    this.online_users()
   }
 
   public scrollToBotton(): void{
@@ -59,19 +66,23 @@ export class ChatComponent implements OnInit {
   });
 
   public startConversation(id: number) {
+
     this._db.find_or_start_conversation(id).subscribe(
-      success => console.log('liveconservation', this.conversation = success),  error => console.warn('Error to find custoemr', error))
+      success => {
+        this.conversation = ' '
+        this.client = success.client[0]
+        this.conversation = success.historic_conversation
+        this.complete_historic = success.historic_conversation[0].chat_messages
+      },  error => console.warn('Error to find custoemr', error))
   }
 
-  public history_of_conversation(){
-    this._db.history_of_conversation(this.conversation.user_id).subscribe()
-  }
 
   public sendMessage(): void {
     let data = {
       message: this.messageForm.value.message,
-      receiver_id: this.conversation.user_id,
-      sender_id: 11,
+      client_id: this.client.user_id,
+      clerck_id: this._user.id,
+      user_id: this._user.id,
       attachment: ''
     }
 
@@ -91,16 +102,16 @@ export class ChatComponent implements OnInit {
 
     console.log('Echo', Echo)
     Echo.channel('chat').listen('ChatEvent', e => {
-      console.log('evento is', e)
+      console.log('evento bindo do broadcast', e)
       this.sound = new Audio();
       this.sound.src = 'assets/sounds/new_client_message.mp3';
       this.sound.load();
       let message;
-      if(this._user.id === e.user_id.id){
+      if(this._user.id === e.conversation.user_id){
          message = `
             <div class="direct-chat-msg right">
                   <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-right">${e.user_id.name}</span>
+                    <span class="direct-chat-name pull-right">${this._user.id} Atendente ${e.conversation.user_id} </span>
                     <span class="direct-chat-timestamp pull-left">${e.conversation.created_at}</span>
                   </div>
                   <!-- /.direct-chat-info -->
@@ -120,7 +131,7 @@ export class ChatComponent implements OnInit {
         message = `
           <div class="direct-chat-msg">
             <div class="direct-chat-info clearfix">
-              <span class="direct-chat-name pull-left">${e.user_id.name}</span>
+              <span class="direct-chat-name pull-left">${e.user_id.name} </span>
               <span class="direct-chat-timestamp pull-right">${e.conversation.created_at}</span>
             </div>
             <!-- /.direct-chat-info -->
@@ -132,16 +143,28 @@ export class ChatComponent implements OnInit {
             <!-- /.direct-chat-text -->
           </div>
         `
+
+        if(this._route.routeConfig.path !== 'chat'){
+          swal({
+            position: 'top-end',
+            type: 'warning',
+            title: 'Uma nova mensagem no chat',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
       }
 
       $('#messages').append(message);
     })
+
+
   }
 
 
   public getAtendentData(){
     this.auth.getAuthenticatedUser().subscribe(success => this._user = success,
-        error => console.log('Erro ao buscar dados do usuario lgogado', error))
+                                            error => console.log('Erro ao buscar dados do usuario lgogado', error))
   }
 
 }
