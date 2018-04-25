@@ -1,10 +1,11 @@
 import {Component, OnInit, Output, EventEmitter, ViewChild, ElementRef} from '@angular/core';
-
+declare function require(name:string);
 declare const Pusher: any;
 import {ChatService} from "../../services/chat.service";
 import {FormBuilder, Validators} from "@angular/forms";
 
-import * as Echo from 'laravel-echo';
+//import * as Echo from 'laravel-echo';
+var Echo = require('laravel-echo');
 import * as io from  'socket.io-client';
 import {AuthService} from "../../services/auth.service";
 import {ActivatedRoute} from "@angular/router";
