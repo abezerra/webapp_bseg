@@ -98,7 +98,7 @@ export class ChatComponent implements OnInit {
     Echo = new Echo({
       broadcaster: 'socket.io',
       client: io,
-      host: 'http://localhost:6001',
+      host: 'https://api-seguradora-staging.herokuapp.com:6001',
     });
 
     console.log('Echo', Echo)
