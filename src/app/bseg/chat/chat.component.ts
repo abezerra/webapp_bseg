@@ -3,8 +3,6 @@ declare function require(name:string);
 declare const Pusher: any;
 import {ChatService} from "../../services/chat.service";
 import {FormBuilder, Validators} from "@angular/forms";
-
-//import * as Echo from 'laravel-echo';
 var Echo = require('laravel-echo');
 import * as io from  'socket.io-client';
 import {AuthService} from "../../services/auth.service";
@@ -98,7 +96,7 @@ export class ChatComponent implements OnInit {
     Echo = new Echo({
       broadcaster: 'socket.io',
       client: io,
-      host: 'https://api-seguradora-staging.herokuapp.com:6001',
+      host: 'http://localhost:6001',
     });
 
     console.log('Echo', Echo)
