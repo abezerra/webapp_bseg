@@ -127,6 +127,13 @@ import { ChatMessagesComponent } from './bseg/chat/chat-messages/chat-messages.c
 import {NgChatModule} from "ng-chat";
 import {ChatService} from "./services/chat.service";
 import { ChatUsersOnlineComponent } from './bseg/chat/chat-users-online/chat-users-online.component';
+import { NotificationsListComponent } from './bseg/notifications/notifications-list/notifications-list.component';
+import { NotificationsCreateComponent } from './bseg/notifications/notifications-create/notifications-create.component';
+import { NotificationsEditComponent } from './bseg/notifications/notifications-edit/notifications-edit.component';
+import { NotificationsShowComponent } from './bseg/notifications/notifications-show/notifications-show.component';
+import {PusherService} from "./services/pusher.service";
+import { NotificationsBreadcumbsComponent } from './bseg/notifications/notifications-breadcumbs/notifications-breadcumbs.component';
+
 
 @NgModule({
   declarations: [
@@ -222,6 +229,11 @@ import { ChatUsersOnlineComponent } from './bseg/chat/chat-users-online/chat-use
     ProfileTimelineComponent,
     ChatMessagesComponent,
     ChatUsersOnlineComponent,
+    NotificationsListComponent,
+    NotificationsCreateComponent,
+    NotificationsEditComponent,
+    NotificationsShowComponent,
+    NotificationsBreadcumbsComponent,
   ],
   imports: [
     BrowserModule,
@@ -249,7 +261,8 @@ import { ChatUsersOnlineComponent } from './bseg/chat/chat-users-online/chat-use
     HttpService,
     MediasService,
     DashboardService,
-    ChatService
+    ChatService,
+    PusherService
   ],
   bootstrap: [AppComponent]
 })

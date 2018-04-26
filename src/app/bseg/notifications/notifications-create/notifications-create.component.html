@@ -1,0 +1,58 @@
+<!-- Modal -->
+<div class="modal fade" id="newPushNotification" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+     data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Enviar nova push notification</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form [formGroup]="newPushNotification" (ngSubmit)="create()">
+
+        <div class="modal-body">
+          <div class="row">
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="heading">Titulo da push</label>
+                <input type="text" name="heading" id="heading" class="form-control" formControlName="heading">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="subtitle">Subtitulo</label>
+                <input type="text" name="subtitle" id="subtitle" value="" class="form-control" formControlName="subtitle">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="message">Conteudo</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  value=""
+                  class="form-control"
+                  formControlName="message"
+                  cols="30"
+                  rows="10"></textarea>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="newPushNotification.invalid">Enviar</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
