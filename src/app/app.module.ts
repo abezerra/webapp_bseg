@@ -123,6 +123,17 @@ import { ProfileAttendanceComponent } from './bseg/profile/profile-attendance/pr
 import { ProfileAboutComponent } from './bseg/profile/profile-about/profile-about.component';
 import { ProfileTimelineComponent } from './bseg/profile/profile-timeline/profile-timeline.component';
 import {DashboardService} from "./services/dashboard.service";
+import { ChatMessagesComponent } from './bseg/chat/chat-messages/chat-messages.component';
+import {NgChatModule} from "ng-chat";
+import {ChatService} from "./services/chat.service";
+import { ChatUsersOnlineComponent } from './bseg/chat/chat-users-online/chat-users-online.component';
+import { NotificationsListComponent } from './bseg/notifications/notifications-list/notifications-list.component';
+import { NotificationsCreateComponent } from './bseg/notifications/notifications-create/notifications-create.component';
+import { NotificationsEditComponent } from './bseg/notifications/notifications-edit/notifications-edit.component';
+import { NotificationsShowComponent } from './bseg/notifications/notifications-show/notifications-show.component';
+import {PusherService} from "./services/pusher.service";
+import { NotificationsBreadcumbsComponent } from './bseg/notifications/notifications-breadcumbs/notifications-breadcumbs.component';
+
 
 @NgModule({
   declarations: [
@@ -216,6 +227,13 @@ import {DashboardService} from "./services/dashboard.service";
     ProfileAttendanceComponent,
     ProfileAboutComponent,
     ProfileTimelineComponent,
+    ChatMessagesComponent,
+    ChatUsersOnlineComponent,
+    NotificationsListComponent,
+    NotificationsCreateComponent,
+    NotificationsEditComponent,
+    NotificationsShowComponent,
+    NotificationsBreadcumbsComponent,
   ],
   imports: [
     BrowserModule,
@@ -226,6 +244,7 @@ import {DashboardService} from "./services/dashboard.service";
     ReactiveFormsModule,
     RouterModule.forRoot(r),
     NgSelectizeModule,
+    NgChatModule,
   ],
   providers: [
     AutoService,
@@ -241,7 +260,9 @@ import {DashboardService} from "./services/dashboard.service";
     AuthGuard,
     HttpService,
     MediasService,
-    DashboardService
+    DashboardService,
+    ChatService,
+    PusherService
   ],
   bootstrap: [AppComponent]
 })

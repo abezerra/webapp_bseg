@@ -54,7 +54,8 @@
         "../node_modules/microplugin/src/microplugin.js",
         "../node_modules/selectize/dist/js/selectize.js",
         "../node_modules/ng-selectize/selectize/selectize.standalone.js",
-        "assets/js/scripts.js"
+        "assets/js/scripts.js",
+        "../node_modules/pusher-js/dist/web/pusher.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

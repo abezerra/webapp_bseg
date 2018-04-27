@@ -26,9 +26,9 @@ export class MediasFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  newDefaultMedia = this._fb.group({
-    description: this._fb.control('', [Validators.required])
-  })
+  // newDefaultMedia = this._fb.group({
+  //   description: this._fb.control('', [Validators.required])
+  // })
 
   public prepareFileToUpload(event): void {
     //this.image = (<HTMLInputElement>event.target).files[0]
@@ -39,15 +39,14 @@ export class MediasFormComponent implements OnInit {
 
     const fd = new FormData();
     fd.append('image', this.image)
-    this.http
-      .post(`${this.apiUrl}/templatings/defaults`, fd, this.options)
+    this.http.post(`${this.apiUrl}/templatings/defaults`, fd, this.options)
       .subscribe(data => {
         swal(
           'Sucesso',
           'Media cadastrada com sucesso',
           'success'
         );
-        this.newDefaultMedia.reset();
+        // this.newDefaultMedia.reset();
         $('#uploadMedia').modal('hide')
       }, error => {
         swal(
