@@ -17,7 +17,7 @@ export class ChatService {
   private socket: SocketIOClient.Socket;
 
   constructor(private router: Router, private http: HttpClient) {
-    this.socket = io('https://api-seguradora-staging.herokuapp.com:6001')
+    this.socket = io('http://localhost:6001')
   }
 
   public onilen_users(): Observable<any>{
