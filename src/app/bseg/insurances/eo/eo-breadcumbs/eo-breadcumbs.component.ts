@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EoBreadcumbsComponent implements OnInit {
 
+  public pagedescription: string = ''
   constructor() { }
 
   ngOnInit() {

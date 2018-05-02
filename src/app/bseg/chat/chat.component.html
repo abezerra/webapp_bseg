@@ -1,3 +1,230 @@
-<p>
-  chat works!
-</p>
+<div class="row">
+
+  <div class="col-md-6">
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title">Clientes online</h3>
+
+        <div class="box-tools pull-right">
+          <span class="label label-success">{{quantity_users_online}} Clientes Online</span>
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="box-body no-padding">
+        <ul class="users-list clearfix">
+          <aside *ngFor="let client of users_online" (click)="startConversation(client.user_id)">
+            <app-chat-users-online [user]="client"></app-chat-users-online>
+          </aside>
+        </ul>
+      </div>
+
+      <div class="box-footer text-center">
+        <a href="javascript:void(0)" class="uppercase">Todos os clientes</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-md-6" *ngIf="conversation">
+    <div class="box box-primary direct-chat direct-chat-success ">
+      <div class="box-header with-border">
+        <h3 class="box-title">Atendimento online - {{ client.name }}</h3>
+
+        <div class="box-tools pull-right">
+          <span data-toggle="tooltip" title="" class="badge bg-yellow" data-original-title="3 New Messages">
+            3
+          </span>
+          <button type="button" class="btn btn-box-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-widget="chat-pane-toggle"
+                  data-original-title="Contacts">
+            <i class="fa fa-comments"></i>
+          </button>
+          <button type="button" class="btn btn-box-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body" id="scrollme">
+        <!-- Conversations are loaded here -->
+        <div class="direct-chat-messages">
+          <!-- Mensagens da conversa-->
+          <div id="messages">
+            <div *ngIf="conversation.length > 0">
+
+              <div *ngFor="let c of complete_historic">
+                <!--mensagem do atendente-->
+                <div class="direct-chat-msg right" *ngIf="c.user_id === _user.id">
+                <div class="direct-chat-info clearfix">
+                  <span class="direct-chat-name pull-right">Atendente </span>
+                  <span class="direct-chat-timestamp pull-left">{{c.created_at}}</span>
+                </div>
+                <!-- /.direct-chat-info -->
+                <img class="direct-chat-img" src="assets/img/user2-160x160.jpg" alt="message user image">
+                <!-- /.direct-chat-img -->
+                <div class="direct-chat-text">
+                  {{c.message}}
+                  <ul>
+
+                  </ul>
+                </div>
+                <!-- /.direct-chat-text -->
+              </div>
+
+                <!--mensagem do cliente-->
+
+                <div class="direct-chat-msg" *ngIf="c.user_id !== _user.id">
+                  <div class="direct-chat-info clearfix">
+                    <span class="direct-chat-name pull-left">cliente  </span>
+                    <span class="direct-chat-timestamp pull-right">{{c.created_at}}</span>
+                  </div>
+                  <!-- /.direct-chat-info -->
+                  <img class="direct-chat-img" src="assets/img/user2-160x160.jpg" alt="message user image">
+                  <!-- /.direct-chat-img -->
+                  <div class="direct-chat-text">
+                    {{c.message}}
+                  </div>
+                  <!-- /.direct-chat-text -->
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+          <!-- /.direct-chat-msg -->
+        </div>
+        <!--/.direct-chat-messages-->
+
+        <!-- Lista de conversas -->
+        <div class="direct-chat-contacts">
+          <ul class="contacts-list">
+            <li>
+              <a href="#">
+                <img class="contacts-list-img" src="assets/img/user2-160x160.jpg" alt="User Image">
+
+                <div class="contacts-list-info">
+                                <span class="contacts-list-name">
+                                  Count Dracula
+                                  <small class="contacts-list-date pull-right">2/28/2015</small>
+                                </span>
+                  <span class="contacts-list-msg">How have you been? I was...</span>
+                </div>
+                <!-- /.contacts-list-info -->
+              </a>
+            </li>
+            <!-- End Contact Item -->
+            <li>
+              <a href="#">
+                <img class="contacts-list-img" src="assets/img/user2-160x160.jpg" alt="User Image">
+
+                <div class="contacts-list-info">
+                                <span class="contacts-list-name">
+                                  Sarah Doe
+                                  <small class="contacts-list-date pull-right">2/23/2015</small>
+                                </span>
+                  <span class="contacts-list-msg">I will be waiting for...</span>
+                </div>
+                <!-- /.contacts-list-info -->
+              </a>
+            </li>
+            <!-- End Contact Item -->
+            <li>
+              <a href="#">
+                <img class="contacts-list-img" src="assets/img/user2-160x160.jpg" alt="User Image">
+
+                <div class="contacts-list-info">
+                                <span class="contacts-list-name">
+                                  Nadia Jolie
+                                  <small class="contacts-list-date pull-right">2/20/2015</small>
+                                </span>
+                  <span class="contacts-list-msg">I'll call you back at...</span>
+                </div>
+                <!-- /.contacts-list-info -->
+              </a>
+            </li>
+            <!-- End Contact Item -->
+            <li>
+              <a href="#">
+                <img class="contacts-list-img" src="assets/img/user2-160x160.jpg" alt="User Image">
+
+                <div class="contacts-list-info">
+                                <span class="contacts-list-name">
+                                  Nora S. Vans
+                                  <small class="contacts-list-date pull-right">2/10/2015</small>
+                                </span>
+                  <span class="contacts-list-msg">Where is your new...</span>
+                </div>
+                <!-- /.contacts-list-info -->
+              </a>
+            </li>
+            <!-- End Contact Item -->
+            <li>
+              <a href="#">
+                <img class="contacts-list-img" src="assets/img/user2-160x160.jpg" alt="User Image">
+
+                <div class="contacts-list-info">
+                                <span class="contacts-list-name">
+                                  John K.
+                                  <small class="contacts-list-date pull-right">1/27/2015</small>
+                                </span>
+                  <span class="contacts-list-msg">Can I take a look at...</span>
+                </div>
+                <!-- /.contacts-list-info -->
+              </a>
+            </li>
+            <!-- End Contact Item -->
+            <li>
+              <a href="#">
+                <img class="contacts-list-img" src="assets/img/user2-160x160.jpg" alt="User Image">
+
+                <div class="contacts-list-info">
+                                <span class="contacts-list-name">
+                                  Kenneth M.
+                                  <small class="contacts-list-date pull-right">1/4/2015</small>
+                                </span>
+                  <span class="contacts-list-msg">Never mind I found...</span>
+                </div>
+                <!-- /.contacts-list-info -->
+              </a>
+            </li>
+            <!-- End Contact Item -->
+          </ul>
+          <!-- /.contatcts-list -->
+        </div>
+        <!-- /.direct-chat-pane -->
+      </div>
+      <!-- /.box-body -->
+      <div class="box-footer">
+        <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
+          <div class="input-group">
+            <textarea
+              name="message"
+              id=""
+              cols="30"
+              rows="3"
+              placeholder="Digite uma mensagem ..."
+              formControlName="message"
+              class="form-control"
+              (keyup.enter)="sendMessage()"></textarea>
+            <span class="input-group-btn">
+                            <button
+                              [disabled]="messageForm.invalid"
+                              type="submit"
+                              class="btn btn-primary btn-flat">
+                              <i class="fab fa-telegram-plane"></i>
+                              Enviar
+                            </button>
+                          </span>
+          </div>
+        </form>
+      </div>
+      <!-- /.box-footer-->
+    </div>
+  </div>
+</div>

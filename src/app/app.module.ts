@@ -110,6 +110,30 @@ import { BrokerEditComponent } from './bseg/broker/broker-edit/broker-edit.compo
 import { BrokerEditMainComponent } from './bseg/broker/broker-edit-main/broker-edit-main.component';
 import { ClientEditComponent } from './bseg/clients/client-edit/client-edit.component';
 import { AutoEditComponent } from './bseg/insurances/auto/auto-edit/auto-edit.component';
+import { EoEditComponent } from './bseg/insurances/eo/eo-edit/eo-edit.component';
+import { LeaseEditComponent } from './bseg/insurances/lease/lease-edit/lease-edit.component';
+import { LifeEditComponent } from './bseg/insurances/life/life-edit/life-edit.component';
+import { ResidentialEditComponent } from './bseg/insurances/residential/residential-edit/residential-edit.component';
+import { ProfileComponent } from './bseg/profile/profile.component';
+import { ProfileListComponent } from './bseg/profile/profile-list/profile-list.component';
+import { ProfileEditComponent } from './bseg/profile/profile-edit/profile-edit.component';
+import { ProfileShowComponent } from './bseg/profile/profile-show/profile-show.component';
+import { ProfileNumbersComponent } from './bseg/profile/profile-numbers/profile-numbers.component';
+import { ProfileAttendanceComponent } from './bseg/profile/profile-attendance/profile-attendance.component';
+import { ProfileAboutComponent } from './bseg/profile/profile-about/profile-about.component';
+import { ProfileTimelineComponent } from './bseg/profile/profile-timeline/profile-timeline.component';
+import {DashboardService} from "./services/dashboard.service";
+import { ChatMessagesComponent } from './bseg/chat/chat-messages/chat-messages.component';
+import {NgChatModule} from "ng-chat";
+import {ChatService} from "./services/chat.service";
+import { ChatUsersOnlineComponent } from './bseg/chat/chat-users-online/chat-users-online.component';
+import { NotificationsListComponent } from './bseg/notifications/notifications-list/notifications-list.component';
+import { NotificationsCreateComponent } from './bseg/notifications/notifications-create/notifications-create.component';
+import { NotificationsEditComponent } from './bseg/notifications/notifications-edit/notifications-edit.component';
+import { NotificationsShowComponent } from './bseg/notifications/notifications-show/notifications-show.component';
+import {PusherService} from "./services/pusher.service";
+import { NotificationsBreadcumbsComponent } from './bseg/notifications/notifications-breadcumbs/notifications-breadcumbs.component';
+
 
 @NgModule({
   declarations: [
@@ -191,6 +215,25 @@ import { AutoEditComponent } from './bseg/insurances/auto/auto-edit/auto-edit.co
     BrokerEditMainComponent,
     ClientEditComponent,
     AutoEditComponent,
+    EoEditComponent,
+    LeaseEditComponent,
+    LifeEditComponent,
+    ResidentialEditComponent,
+    ProfileComponent,
+    ProfileListComponent,
+    ProfileEditComponent,
+    ProfileShowComponent,
+    ProfileNumbersComponent,
+    ProfileAttendanceComponent,
+    ProfileAboutComponent,
+    ProfileTimelineComponent,
+    ChatMessagesComponent,
+    ChatUsersOnlineComponent,
+    NotificationsListComponent,
+    NotificationsCreateComponent,
+    NotificationsEditComponent,
+    NotificationsShowComponent,
+    NotificationsBreadcumbsComponent,
   ],
   imports: [
     BrowserModule,
@@ -201,9 +244,9 @@ import { AutoEditComponent } from './bseg/insurances/auto/auto-edit/auto-edit.co
     ReactiveFormsModule,
     RouterModule.forRoot(r),
     NgSelectizeModule,
+    NgChatModule,
   ],
   providers: [
-    //{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     AutoService,
     ClientsService,
     AlertsService,
@@ -215,9 +258,11 @@ import { AutoEditComponent } from './bseg/insurances/auto/auto-edit/auto-edit.co
     BrokerService,
     AuthService,
     AuthGuard,
-    TokensService,
     HttpService,
-    MediasService
+    MediasService,
+    DashboardService,
+    ChatService,
+    PusherService
   ],
   bootstrap: [AppComponent]
 })

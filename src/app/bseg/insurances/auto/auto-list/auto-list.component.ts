@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { AutoService } from '../../../../services/auto.service';
+import {Component, OnInit} from '@angular/core';
+import {AutoService} from '../../../../services/auto.service';
 import swal from 'sweetalert2'
 
 @Component({
@@ -10,7 +10,9 @@ import swal from 'sweetalert2'
 export class AutoListComponent implements OnInit {
   public autoInsurances: any;
   public insurer: any;
-  constructor(private db: AutoService) { }
+
+  constructor(private db: AutoService) {
+  }
 
   ngOnInit() {
     this.getAll()
@@ -19,34 +21,31 @@ export class AutoListComponent implements OnInit {
   public getAll(): void {
     this.db
       .index()
-      .subscribe( data => this.autoInsurances = data, error => console.log('erro ao trazer dados da apolice', error))
+      .subscribe(data => this.autoInsurances = data, error => console.log('erro ao trazer dados da apolice', error))
   }
 
   public show(id: any): void {
     this.db
       .show(id)
-      .then(res => this.insurer = res)
-      .catch(err => {
-        swal({
-          type: 'error',
-          title: 'Oops...',
-          text: 'Não foi possivel encontrar o seguro'
-        })
-      })
+      .subscribe(success => this.insurer = success, error => swal({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Não foi possivel encontrar o seguro'
+      }))
+
   }
 
   public destroy(id: any): void {
     this.db
       .destroy(id)
-      .then(res => {
+      .subscribe(success => {
         this.getAll();
         swal(
           'Sucesso',
           'Seguro removido com sucesso',
           'success'
         )
-      })
-      .catch(err => {
+      }, error => {
         swal({
           type: 'error',
           title: 'Oops...',

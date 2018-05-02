@@ -11,7 +11,7 @@
         </button>
       </div>
 
-      <form [formGroup]="newDefaultMedia" (ngSubmit)="create()">
+      <form (ngSubmit)="create()">
 
         <div class="modal-body">
           <div class="row">
@@ -19,18 +19,16 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label for="image">Imagem</label>
-                <input type="file" name="image" id="image" value="" class="form-control" accept="image/jpeg"
-                       (change)="prepareFileToUpload($event)">
+                <input
+                      type="file"
+                      name="image"
+                      id="image"
+                      value=""
+                      class="form-control"
+                      accept="image/*"
+                      (change)="prepareFileToUpload($event)">
               </div>
             </div>
-            <!--<div class="col-md-12">-->
-              <!--<div class="form-group">-->
-                <!--<label for="description">Descrição</label>-->
-
-                <!--<input type="text" name="description" id="description" value="" class="form-control" formControlName="description">-->
-              <!--</div>-->
-            <!--</div>-->
-
           </div>
         </div>
         <div class="modal-footer">

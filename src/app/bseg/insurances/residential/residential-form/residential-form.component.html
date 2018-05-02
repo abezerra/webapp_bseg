@@ -64,7 +64,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="insurer">Arquivo da apolice</label>
-                <input type="file" name="residentialApoliceFile" value="" class="form-control" accept="application/pdf" (change)="prepareFileToUpload($event)">
+
               </div>
             </div>
           </div>
@@ -182,7 +182,7 @@
             </div>
           </div>
 
-          <div class="row" formArrayName="coverageArray" *ngFor="let coverage of formAddResidentialInsurer.get('coverageArray').controls">
+          <div class="row" formArrayName="coverageArray" *ngFor="let coverage of formData.controls">
             <div class="col-md-12" [formGroup]="coverage">
               <div class="form-group">
                 <label for="insurer">Cobertura</label>
@@ -206,7 +206,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary" disabled]="formAddResidentialInsurer.invalid">Adicionar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="formAddResidentialInsurer.invalid">Adicionar</button>
         </div>
       </form>
     </div>

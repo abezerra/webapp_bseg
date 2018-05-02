@@ -18,7 +18,7 @@
         </tr>
         <tr>
           <td>Apólices cadastradas:</td>
-          <td class="text-center">61</td>
+          <td class="text-center">{{ total }}</td>
         </tr>
         <tr>
           <td>Disponível:</td>
@@ -32,7 +32,7 @@
 
   <div class="panel">
     <div class="panel-header bg-default">
-      <span class="glyphicon glyphicon-dashboard"></span> 
+      <span class="glyphicon glyphicon-dashboard"></span>
       Resumo
     </div>
     <table class="table">
@@ -45,16 +45,28 @@
       <tbody>
         <tr>
           <td>Auto</td>
-          <td class="text-center">57</td>
+          <td class="text-center">{{ total_auto }}</td>
+        </tr>
+        <tr>
+          <td>E&O</td>
+          <td class="text-center">{{ total_eo }}</td>
+        </tr>
+        <tr>
+          <td>Vida</td>
+          <td class="text-center">{{ total_life }}</td>
+        </tr>
+        <tr>
+          <td>Fiança</td>
+          <td class="text-center">{{ total_lease }}</td>
         </tr>
         <tr>
           <td>Residencial</td>
-          <td class="text-center">4</td>
+          <td class="text-center">{{ total_residential }}</td>
         </tr>
         <tr>
           <td>Total:</td>
           <td class="text-center">
-            <b>61</b>
+            <b>{{ total }}</b>
           </td>
         </tr>
       </tbody>

@@ -2,42 +2,146 @@
   <div class="panel-body">
     <table class="table table-striped table-hover">
       <thead>
-        <th>Apólice</th>
-        <th>Ramo</th>
-        <th>CPF</th>
-        <th>Segurado</th>
-        <th>Adesão</th>
-        <th>Ações</th>
+      <th>Ramo</th>
+      <th>Apólice</th>
+      <th>CPF</th>
+      <th>Segurado</th>
+      <th>Adesão</th>
+      <th>Ações</th>
       </thead>
 
       <tbody>
-        <tr *ngFor="let item of insurances">
-          <td>{{ item.apoliceNumber }}</td>
-          <td>1</td>
-          <td>{{ item.cpf }}</td>
-          <td>{{ item.name }}</td>
-          <td>{{ item.accession | date: 'dd/MM/yyyy' }}</td>
-          <td>
-            <button class="btn btn-secondary dropdown-toggle btn-new-insurance" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-list-ul"></i>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" data-toggle="modal" data-target="#modal-add-auto-insurance">
-                <i class="fas fa-eye"></i>
-                Detalhes da apolice
-              </a>
-              <a class="dropdown-item" data-toggle="modal" data-target="#modal-add-lease-bound">
-                <i class="fas fa-pencil-alt"></i>
-                Alterar apolice
-              </a>
-              <a class="dropdown-item" data-toggle="modal" data-target="#modal-add-residential">
-                <i class="fas fa-trash-alt"></i>
-                Excluir apolice
-              </a>
-            </div>
-          </td>
-        </tr>
+      <tr *ngFor="let item of auto">
+        <td>
+          <span class="badge bg-green">auto</span>
+        </td>
+        <td>{{ item.apoliceNumber }}</td>
+        <td>{{ item.cpf }}</td>
+        <td>
+          <a [routerLink]="['/clients-show', item.client.id ]">
+            {{ item.client.name }}
+          </a>
+        </td>
+        <td>{{ item.created_at | date: 'dd/MM/yyyy' }}</td>
+        <td>
+          <a [routerLink]="['/auto-show', item.id]" class="btn btn-success">
+            <i class="fas fa-eye"></i>
+          </a>
+
+          <a [routerLink]="['/auto-edit', item.id]" class="btn btn-warning">
+            <i class="fas fa-pencil-alt"></i>
+          </a>
+
+          <a disabled="" class="btn btn-danger">
+            <i class="fas fa-trash-alt"></i>
+          </a>
+        </td>
+      </tr>
+      <tr *ngFor="let e of eo">
+        <td>
+          <span class="badge bg-red">resp. c & ind.</span>
+        </td>
+        <td>{{ e.apoliceNumber }}</td>
+        <td>{{ e.cpf }}</td>
+        <td>
+          <a [routerLink]="['/clients-show', e.client.id ]">
+            {{ e.client.name }}
+          </a>
+        </td>
+        <td>{{ e.created_at | date: 'dd/MM/yyyy' }}</td>
+        <td>
+          <a [routerLink]="['/eo-show', e.id]" class="btn btn-success">
+            <i class="fas fa-eye"></i>
+          </a>
+
+          <a [routerLink]="['/eo-edit', e.id]" class="btn btn-warning">
+            <i class="fas fa-pencil-alt"></i>
+          </a>
+
+          <a disabled="" class="btn btn-danger">
+            <i class="fas fa-trash-alt"></i>
+          </a>
+        </td>
+      </tr>
+      <tr *ngFor="let life of life">
+        <td>
+          <span class="badge bg-purple">vida</span>
+        </td>
+        <td>{{ life.apoliceNumber }}</td>
+        <td>{{ life.cpf }}</td>
+        <td>
+          <a [routerLink]="['/clients-show', life.client.id ]">
+            {{ life.client.name }}
+          </a>
+        </td>
+        <td>{{ life.created_at | date: 'dd/MM/yyyy' }}</td>
+        <td>
+          <a [routerLink]="['/life-show', life.id]" class="btn btn-success">
+            <i class="fas fa-eye"></i>
+          </a>
+
+          <a [routerLink]="['/life-edit', life.id]" class="btn btn-warning">
+            <i class="fas fa-pencil-alt"></i>
+          </a>
+
+          <a disabled="" class="btn btn-danger">
+            <i class="fas fa-trash-alt"></i>
+          </a>
+        </td>
+      </tr>
+      <tr *ngFor="let lease of lease">
+        <td>
+          <span class="badge bg-aqua">Fiança</span>
+        </td>
+        <td>{{ lease.apoliceNumber }}</td>
+        <td>{{ lease.cpf }}</td>
+
+        <td>
+          <a [routerLink]="['/clients-show', lease.client.id ]">
+            {{ lease.client.name }}
+          </a>
+        </td>
+        <td>{{ lease.created_at | date: 'dd/MM/yyyy' }}</td>
+        <td>
+          <a [routerLink]="['/lease-show', lease.id]" class="btn btn-success">
+            <i class="fas fa-eye"></i>
+          </a>
+
+          <a [routerLink]="['/lease-edit', lease.id]" class="btn btn-warning">
+            <i class="fas fa-pencil-alt"></i>
+          </a>
+
+          <a disabled="" class="btn btn-danger">
+            <i class="fas fa-trash-alt"></i>
+          </a>
+        </td>
+      </tr>
+      <tr *ngFor="let residential of residential">
+        <td>
+          <span class="badge bg-danger">residencial</span>
+        </td>
+        <td>{{ residential.apoliceNumber }}</td>
+        <td>{{ residential.cpf }}</td>
+        <td>
+          <a [routerLink]="['/clients-show', residential.client.id ]">
+            {{ residential.client.name }}
+          </a>
+        </td>
+        <td>{{ residential.created_at | date: 'dd/MM/yyyy' }}</td>
+        <td>
+          <a [routerLink]="['/residential-show', residential.id]" class="btn btn-success">
+            <i class="fas fa-eye"></i>
+          </a>
+
+          <a [routerLink]="['/residential-edit', residential.id]" class="btn btn-warning">
+            <i class="fas fa-pencil-alt"></i>
+          </a>
+
+          <a disabled="" class="btn btn-danger">
+            <i class="fas fa-trash-alt"></i>
+          </a>
+        </td>
+      </tr>
       </tbody>
     </table>
   </div>

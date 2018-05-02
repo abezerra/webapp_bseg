@@ -1,6 +1,8 @@
 {
   "name": "webapp_bseg",
   "scripts": {
+    "postinstall": "ng build -prod",
+    "start": "node server.js"
   },
   "env": {
     "NODE_ENV": "production",
@@ -13,9 +15,7 @@
       "quantity": 1
     }
   },
-  "addons": [
-
-  ],
+  "addons": [],
   "buildpacks": [
     {
       "url": "heroku/nodejs"

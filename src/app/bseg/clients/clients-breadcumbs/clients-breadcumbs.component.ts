@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientsBreadcumbsComponent implements OnInit {
 
+  public pagedescription: string = 'Clientes e leads';
   constructor() { }
 
   ngOnInit() {
