@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PusherService} from "../../../services/pusher.service";
 
 @Component({
   selector: 'app-notifications-list',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationsListComponent implements OnInit {
 
-  constructor() { }
+  public pushs: any;
+  constructor(private _db: PusherService) { }
 
   ngOnInit() {
+    this.index();
   }
 
+  public index(){
+    this._db.index().subscribe(success => this.pushs = success, error => error)
+  }
 }
