@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationsBreadcumbsComponent implements OnInit {
 
+  public pagedescription: string = 'Envie notificações para clientes';
   constructor() { }
 
   ngOnInit() {

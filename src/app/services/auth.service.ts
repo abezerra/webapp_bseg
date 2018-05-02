@@ -44,9 +44,9 @@ export class AuthService{
   // }
 
 
-  public signin(email, password): Observable<any>{
+  public signin(data): Observable<any>{
            return this.http
-                .post(`${this.apiUrl}/authenticate`, {email: email, password: password})
+                .post(`${this.apiUrl}/authenticate`, data)
   }
 
 
@@ -63,6 +63,10 @@ export class AuthService{
   }
 
   public getAuthenticatedUser(): Observable<any>{
+    return this.http.get(`${this.apiUrl}/user`, this.options)
+  }
+
+  public user(): Observable<any>{
     return this.http.get(`${this.apiUrl}/user`, this.options)
   }
 }

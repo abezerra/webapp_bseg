@@ -27,7 +27,15 @@ export class AuthComponent implements OnInit {
   })
 
   public signin(): void {
-    this.db.signin(this.authForm.value.email, this.authForm.value.password)
+    let data = {
+      email: this.authForm.value.email,
+      password: this.authForm.value.password,
+      grant_type: 'password',
+      client_id: '1',
+      client_secret: 'c3cEQ9L7leTV4vnRbN8ehMmhjUdaSiGbys7xEn53',
+      scope: ''
+    }
+    this.db.signin(data)
       .subscribe(data => {
         localStorage.setItem('token', data.success.token)
         this.router.navigate(['/dashboard'])

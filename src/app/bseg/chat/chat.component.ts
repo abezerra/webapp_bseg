@@ -93,6 +93,7 @@ export class ChatComponent implements OnInit {
 
     console.log('Echo', Echo)
     Echo.channel('chat').listen('ChatEvent', e => {
+    //Echo.channel('chat').listen('ChatEvent', e => {
 
       console.log('evento bindo do broadcast', e)
       this.sound = new Audio();
@@ -114,7 +115,7 @@ export class ChatComponent implements OnInit {
                   <div class="direct-chat-text">
                     ${e.conversation.message}
                     <ul >
-      
+
                     </ul>
                   </div>
                   <!-- /.direct-chat-text -->

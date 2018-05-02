@@ -1,29 +1,45 @@
 <div class="login-box app-login" id="login">
-  <div class="login-logo">
-    <a href="http://www.brasal.com.br/seguradora"><b>Brasal</b> Seguradora</a>
-    <!-- <img src="assets/img/logo/logo.png" alt=""> -->
-  </div>
-  <div class="login-box-body">
-    <p class="login-box-msg">Faça login para acessar o sistema</p>
+  <div class="hold-transition login-page">
+    <div class="login-box">
+      <div class="login-logo">
+        <a href="#"><b>Brasal</b> Corretora</a>
+      </div>
+      <!-- /.login-logo -->
+      <div class="login-box-body">
+        <p class="login-box-msg">faça login para usar o sistema</p>
 
-    <form [formGroup]="authForm" (ngSubmit)="signin()">
-      <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email" name="email" formControlName="email">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password" name="password" formControlName="password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="row">
-        <div class="col-xs-8">
+        <form [formGroup]="authForm" (ngSubmit)="signin()">
+          <div class="form-group has-feedback">
+            <input type="email" class="form-control" placeholder="Email" name="email" formControlName="email">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input type="password" class="form-control" placeholder="Password" name="password" formControlName="password">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <div class="row">
+            <div class="col-xs-8">
+            </div>
+            <div class="col-xs-4">
+              <button type="submit" class="btn btn-primary btn-block btn-flat" [disabled]="authForm.invalid">Entrar</button>
+            </div>
+          </div>
+        </form>
+        <!-- <div class="social-auth-links text-center">
+          <p>- Ou -</p>
+          <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
+            <i class="fa fa-facebook"></i>
+          Entrar com facebook
+        </a>
+          <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Entrar com Google+
+          </a>
         </div>
-        <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat" [disabled]="authForm.invalid">Entrar</button>
-        </div>
+
+        <a href="#">Esqueci minha senha</a><br>
+        <a href="register.html" class="text-center">AInda não possui acesso? registre-se</a> -->
+
       </div>
-    </form>
-    <a href="#">Esqueci minha senha</a><br>
+      <!-- /.login-box-body -->
+    </div>
   </div>
 </div>
-
