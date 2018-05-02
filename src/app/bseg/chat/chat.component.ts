@@ -44,14 +44,6 @@ export class ChatComponent implements OnInit {
     this.online_users()
   }
 
-  public scrollToBotton(): void{
-    try{
-      this.scrollContainer.nativeElement.scrollTop = this.scrollContainer.nativeElement.scrollHeight;
-    }catch (error){
-      console.log('erro to scroll down', error)
-    }
-  }
-
   public online_users() {
     this._db.onilen_users().subscribe(success => {
       this.users_online = success;
@@ -68,7 +60,7 @@ export class ChatComponent implements OnInit {
 
     this._db.find_or_start_conversation(id).subscribe(
       success => {
-        this.conversation = ' '
+        this.conversation = undefined
         this.client = success.client[0]
         this.conversation = success.historic_conversation
         this.complete_historic = success.historic_conversation[0].chat_messages
@@ -101,16 +93,20 @@ export class ChatComponent implements OnInit {
 
     console.log('Echo', Echo)
     Echo.channel('chat').listen('ChatEvent', e => {
+    //Echo.channel('chat').listen('ChatEvent', e => {
+
       console.log('evento bindo do broadcast', e)
       this.sound = new Audio();
       this.sound.src = 'assets/sounds/new_client_message.mp3';
       this.sound.load();
       let message;
+
+      //mostrar se a mensagem foi enviada ou recebida
       if(this._user.id === e.conversation.user_id){
          message = `
-            <div class="direct-chat-msg right">
+            <div class="direct-chat-msg right" *ngIf="${e.conversation.user_id} === ${e.conversation.client_id}">
                   <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-right">${this._user.id} Atendente ${e.conversation.user_id} </span>
+                    <span class="direct-chat-name pull-right">Brasal Corretora</span>
                     <span class="direct-chat-timestamp pull-left">${e.conversation.created_at}</span>
                   </div>
                   <!-- /.direct-chat-info -->
@@ -119,13 +115,14 @@ export class ChatComponent implements OnInit {
                   <div class="direct-chat-text">
                     ${e.conversation.message}
                     <ul >
-      
+
                     </ul>
                   </div>
                   <!-- /.direct-chat-text -->
                 </div>
       `
-      }else {
+
+      }else{
         this.sound.play();
         message = `
           <div class="direct-chat-msg">
@@ -155,6 +152,8 @@ export class ChatComponent implements OnInit {
       }
 
       $('#messages').append(message);
+      $("#messages").animate({ scrollTop: $("#messages").attr("scrollHeight") - $('#messages').height() }, 3000);
+
     })
 
 
