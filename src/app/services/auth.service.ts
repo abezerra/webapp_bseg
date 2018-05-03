@@ -49,6 +49,10 @@ export class AuthService{
                 .post(`${this.apiUrl}/authenticate`, data)
   }
 
+  public signout(){
+    localStorage.removeItem('token')
+    this.router.navigate(['/auth'])
+  }
 
   public signup(): void{
 

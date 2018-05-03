@@ -2,9 +2,9 @@
   <div class="box-body box-profile">
     <img class="profile-user-img img-responsive img-circle" src="assets/img/user2-160x160.jpg" alt="User profile picture">
 
-    <h3 class="profile-username text-center">Nina Mcintire</h3>
+    <h3 class="profile-username text-center">{{ user?.name }}</h3>
 
-    <p class="text-muted text-center">user._role</p>
+    <p class="text-muted text-center">{{ user?.cpf }}</p>
 
     <ul class="list-group list-group-unbordered">
       <li class="list-group-item">
@@ -17,9 +17,5 @@
         <b>Ranking</b> <a class="pull-right">13,287</a>
       </li>
     </ul>
-
-    <a href="#" class="btn btn-primary btn-block">
-      <b>Follow</b>
-    </a>
   </div>
 </div>
