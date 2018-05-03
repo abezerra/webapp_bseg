@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import user from '../../../environments/user';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit() {
+    console.log('user da variavel', user)
   }
 
 }

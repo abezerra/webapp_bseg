@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {DashboardService} from "../../../services/dashboard.service";
-import swal from "sweetalert2";
 
 @Component({
   selector: 'app-dashboard-list-',
@@ -22,7 +21,6 @@ export class DashboardListComponent implements OnInit {
   }
 
   public insurances(){
-    console.warn('Me rrodou')
     this._db.listOfInsurances().subscribe(success => {
       this.auto =  success.auto;
       this.eo = success.eo;

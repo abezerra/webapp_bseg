@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {FormBuilder, Validators} from "@angular/forms";
-import swal from 'sweetalert2'
 import {Router} from "@angular/router";
 
 @Component({
@@ -35,10 +34,12 @@ export class AuthComponent implements OnInit {
       client_secret: 'c3cEQ9L7leTV4vnRbN8ehMmhjUdaSiGbys7xEn53',
       scope: ''
     }
+
     this.db.signin(data)
       .subscribe(data => {
         localStorage.setItem('token', data.success.token)
         this.router.navigate(['/dashboard'])
+        location.reload()
       }, err => console.log('error to login', err))
   }
 

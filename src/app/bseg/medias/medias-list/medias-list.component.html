@@ -13,23 +13,23 @@
   <div class="col-md-6" *ngFor="let i of medias">
     <div class="box box-primary">
       <div class="box-body box-profile">
-        <img class="profile-user-img img-responsive" [src]="i.media_url"
+        <img class="profile-user-img img-responsive" [src]="i?.media_url"
              alt="User profile picture">
         <p class="text-muted text-center">
-          <span class="badge bg-green">{{ i.status }}</span>
+          <span class="badge bg-green">{{ i?.status }}</span>
         </p>
         <div class="text-center">
-          <a class="btn btn-social-icon btn-bitbucket" (click)="show(i.id)" data-toggle="modal"
+          <a class="btn btn-social-icon btn-bitbucket" (click)="show(i?.id)" data-toggle="modal"
              data-target="#showMedia">
             <i class="fas fa-eye"></i>
           </a>
-          <a class="btn btn-social-icon btn-dropbox" (click)="disable(i.id)">
+          <a class="btn btn-social-icon btn-dropbox" (click)="disable(i?.id)">
             <i class="fas fa-pencil"></i>
           </a>
           <a class="btn btn-social-icon btn-facebook">
             <i class="fas fa-thumbs-down"></i>
           </a>
-          <a class="btn btn-social-icon btn-flickr" (click)="destroy(i.id)">
+          <a class="btn btn-social-icon btn-flickr" (click)="destroy(i?.id)">
             <i class="fas fa-trash-alt"></i>
           </a>
         </div>
@@ -49,7 +49,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <img [src]="media.media_url" alt="">
+        <img [src]="media?.media_url" alt="">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
