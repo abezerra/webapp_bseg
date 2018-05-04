@@ -11,49 +11,34 @@ export class AlertsListComponent implements OnInit {
 
   public alerts: any;
   public alert: any;
-  constructor(private db: AlertsService) { }
+  constructor(private _db: AlertsService) { }
 
   ngOnInit() {
-    this.getAll()
+    this._index();
   }
 
-  public getAll(): void {
-    this.db
-      .fetch()
-      .then(res => this.alerts = res)
+  public _index(): void{
+    this._db.index().subscribe(success => this.alerts = success, error => error)
   }
 
-  public show(id: any): void {
-    this.db
-      .show(id)
-      .then(res => this.alert = res)
-      .catch(err => {
-        swal({
-          type: 'error',
-          title: 'Oops...',
-          text: 'Não foi possivel encontrar o alerta'
-        })
-      })
+  public _show(id: any): void{
+    this._db.show(id).subscribe(success => this.alert = success, error => error)
   }
 
-  public destroy(id: any): void {
-    this.db
-      .destroy(id)
-      .then(res => {
-        swal(
-          'Sucesso',
-          'Alerta removido com sucesso',
-          'success'
-        )
+  public _destroy(id: any): void {
+    this._db.destroy(id).subscribe(success => {
+      swal(
+        'Sucesso',
+        'Alerta removido com sucesso',
+        'success'
+      )
+    }, error => {
+      swal({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Não foi possivel remover o alerta'
       })
-      .then(r => this.getAll())
-      .catch(err => {
-        swal({
-          type: 'error',
-          title: 'Oops...',
-          text: 'Não foi possivel remover o alerta'
-        })
-      })
+    })
   }
 
 }

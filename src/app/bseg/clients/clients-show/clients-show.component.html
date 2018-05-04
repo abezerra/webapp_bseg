@@ -6,8 +6,8 @@
         <a [routerLink]="['/clients']" class="btn btn-info">
           <i class="fas fa-arrow-left"></i>
         </a>
-        <i class="fa fa-globe"></i> {{ client.name }}
-        <small class="pull-right"> {{ client.cpf }}</small>
+        <i class="fa fa-globe"></i> {{ client?.name }}
+        <small class="pull-right"> {{ client?.cpf }}</small>
       </h2>
     </div>
     <!-- /.col -->
@@ -17,19 +17,19 @@
     <div class="col-sm-4 invoice-col">
       Contato
       <address>
-        Telefone: ({{ client.ddd_phone }}) {{ client.telephone }}<br/>
-        Celular: ({{ client.ddd_cellphone }}) {{ client.cellphone }}<br>
-        Email: {{ client.email }}
+        Telefone: ({{ client?.ddd_phone }}) {{ client?.telephone }}<br/>
+        Celular: ({{ client?.ddd_cellphone }}) {{ client?.cellphone }}<br>
+        Email: {{ client?.email }}
       </address>
     </div>
     <!-- /.col -->
     <div class="col-sm-4 invoice-col">
       <strong>Endereco</strong>
       <address>
-        {{ client.address }}<br>
-        {{ client.neighborhood }}<br>
-        {{ client.complement }}<br>
-        {{ client.city }} - {{ client.uf }}<br>
+        {{ client?.address }}<br>
+        {{ client?.neighborhood }}<br>
+        {{ client?.complement }}<br>
+        {{ client?.city }} - {{ client?.uf }}<br>
 
       </address>
     </div>
@@ -54,9 +54,9 @@
 
         <tbody>
           <tr *ngFor="let a of auto">
-          <td> {{ a.apoliceNumber }}</td>
-          <td>{{ a.created_at | date: 'dd/MM/yyyy' }}</td>
-          <td>{{ a.validity }}</td>
+          <td> {{ a?.apoliceNumber }}</td>
+          <td>{{ a?.created_at | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ a?.validity }}</td>
           <td>
             <span class="badge bg-green">
             Seguro auto
@@ -73,9 +73,9 @@
           </td>
         </tr>
           <tr *ngFor="let e of eo">
-            <td> {{ e.apoliceNumber }}</td>
-            <td>{{ e.created_at | date: 'dd/MM/yyyy' }}</td>
-            <td>{{ e.validity }}</td>
+            <td> {{ e?.apoliceNumber }}</td>
+            <td>{{ e?.created_at | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ e?.validity }}</td>
             <td>
             <span class="badge bg-light-blue">
             Seguro responsabilidade civil e individual
@@ -92,9 +92,9 @@
             </td>
           </tr>
           <tr *ngFor="let l of life">
-            <td> {{ l.apoliceNumber }}</td>
-            <td>{{ l.created_at | date: 'dd/MM/yyyy' }}</td>
-            <td>{{ l.validity }}</td>
+            <td> {{ l?.apoliceNumber }}</td>
+            <td>{{ l?.created_at | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ l?.validity }}</td>
             <td>
             <span class="badge bg-fuchsia">
             Seguro Vida
@@ -111,9 +111,9 @@
             </td>
           </tr>
           <tr *ngFor="let le of lease">
-            <td> {{ le.apoliceNumber }}</td>
-            <td>{{ le.created_at | date: 'dd/MM/yyyy' }}</td>
-            <td>{{ le.validity }}</td>
+            <td> {{ le?.apoliceNumber }}</td>
+            <td>{{ le?.created_at | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ le?.validity }}</td>
             <td>
             <span class="badge bg-purple">
             Seguro fiança locaticia
@@ -136,7 +136,7 @@
 
   <div class="row no-print">
     <div class="col-xs-12">
-      <a class="btn btn-success pull-right" [routerLink]="['/clients-edit', client.id]">
+      <a class="btn btn-success pull-right" [routerLink]="['/clients-edit',client?.id]">
         <i class="fas fa-pencil-alt"></i>
         Editar
       </a>
