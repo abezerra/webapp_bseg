@@ -1,5 +1,5 @@
 .app-login .row{margin-top: 20vh;}
-.app-login .panel-body{box-shadow: 0px 0px 10px 3px #ccc}
+.app-login .panel-body{box-shadow: 0px 0px 10px 3px #126f69}
 #login {
   background-color: 'blue' !important;
   position: fixed;
@@ -15,4 +15,8 @@
 .login-page {
   overflow: hidden;
   min-height: 100%;
+}
+
+.login-page, .register-page {
+  background: #126f69;
 }

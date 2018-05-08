@@ -18,6 +18,7 @@ export class AppComponent implements OnInit{
     // add the the body classes
     this.body.classList.add('skin-green');
     this.body.classList.add('sidebar-mini');
+    this.body.classList.add('sidebar-collapse');
   }
 
    ngOnDestroy() {

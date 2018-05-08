@@ -11,8 +11,6 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    console.log('user da variavel', user)
-  }
+  ngOnInit() {}
 
 }

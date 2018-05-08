@@ -5,7 +5,7 @@
         <h3 class="box-title">Todos os alertas</h3>
 
         <div class="box-tools">
-          <button class="btn btn-info" (click)="getAll()">
+          <button class="btn btn-info" (click)="_index()">
             <i class="fas fa-sync"></i>
           </button>
           <ul class="pagination pagination-sm no-margin pull-right">
@@ -41,15 +41,15 @@
             <tr *ngFor="let a of alerts">
               <td>{{ a.title }}</td>
               <td>{{ a.content }}</td>
-              <td>{{ a.destiny }}</td>
+              <td>{{ a.user.name }}</td>
               <td>
                 {{ a.status}}
               </td>
               <td>
-                <button class="btn btn-primary" data-toggle="modal" data-target="#modal-default" (click)="show(a.id)">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#modal-default" (click)="_show(a.id)">
                   <i class="fas fa-eye"></i>
                 </button>
-                <button class="btn btn-danger" (click)="destroy(a.id)">
+                <button class="btn btn-danger" (click)="_destroy(a.id)">
                   <i class="fas fa-trash-alt"></i>
                 </button>
               </td>
