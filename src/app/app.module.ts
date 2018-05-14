@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {EditorModule} from 'primeng/editor';
+import {GrowlModule} from 'primeng/growl';
+import {MessageService} from 'primeng/components/common/messageservice';
 
 import { AppComponent } from './app.component';
 import { StarterComponent } from './starter/starter.component';
@@ -282,6 +284,8 @@ import { MailTemplatesBreadcumbsComponent } from './bseg/mail/mail-templates/mai
     NgChatModule,
     NgxPaginationModule,
     EditorModule,
+    GrowlModule,
+
   ],
   providers: [
     AutoService,
@@ -301,6 +305,7 @@ import { MailTemplatesBreadcumbsComponent } from './bseg/mail/mail-templates/mai
     ChatService,
     PusherService,
     MailService,
+    MessageService,
   ],
   bootstrap: [AppComponent]
 })

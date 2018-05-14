@@ -46,4 +46,18 @@ export class MailService {
     return this.http.get(`${this.apiUrl}/user`, this.options)
   }
 
+  //templating
+
+  public index_templating(page: any): Observable<any> {
+    return this.http.get(`${this.apiUrl}/mailer/templates/paginated?page=${page}`, this.options)
+  }
+
+  public create_templating(data: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/mailer/templates`, data, this.options)
+  }
+
+  public destroy_templating(id: any): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/mailer/templates/${id}`, this.options)
+  }
+
 }
