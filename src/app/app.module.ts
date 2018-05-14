@@ -133,6 +133,20 @@ import { NotificationsEditComponent } from './bseg/notifications/notifications-e
 import { NotificationsShowComponent } from './bseg/notifications/notifications-show/notifications-show.component';
 import {PusherService} from "./services/pusher.service";
 import { NotificationsBreadcumbsComponent } from './bseg/notifications/notifications-breadcumbs/notifications-breadcumbs.component';
+import { MailComponent } from './bseg/mail/mail.component';
+import { MailBreadcumbsComponent } from './bseg/mail/mail-breadcumbs/mail-breadcumbs.component';
+import { MailInboxComponent } from './bseg/mail/mail-inbox/mail-inbox.component';
+import { MailOutboxComponent } from './bseg/mail/mail-outbox/mail-outbox.component';
+import { MailSidebarComponent } from './bseg/mail/mail-sidebar/mail-sidebar.component';
+import { MailListsComponent } from './bseg/mail/mail-lists/mail-lists.component';
+import { MailListCreateComponent } from './bseg/mail/mail-lists/mail-list-create/mail-list-create.component';
+import { MailListEditComponent } from './bseg/mail/mail-lists/mail-list-edit/mail-list-edit.component';
+import { MailListShowComponent } from './bseg/mail/mail-lists/mail-list-show/mail-list-show.component';
+import { MailTemplatesComponent } from './bseg/mail/mail-templates/mail-templates.component';
+import { MailTemplatesCreateComponent } from './bseg/mail/mail-templates/mail-templates-create/mail-templates-create.component';
+import { MailTemplatesEditComponent } from './bseg/mail/mail-templates/mail-templates-edit/mail-templates-edit.component';
+import { MailTemplatesListComponent } from './bseg/mail/mail-templates/mail-templates-list/mail-templates-list.component';
+import { MailTemplatesShowComponent } from './bseg/mail/mail-templates/mail-templates-show/mail-templates-show.component';
 
 
 @NgModule({
@@ -234,6 +248,20 @@ import { NotificationsBreadcumbsComponent } from './bseg/notifications/notificat
     NotificationsEditComponent,
     NotificationsShowComponent,
     NotificationsBreadcumbsComponent,
+    MailComponent,
+    MailBreadcumbsComponent,
+    MailInboxComponent,
+    MailOutboxComponent,
+    MailSidebarComponent,
+    MailListsComponent,
+    MailListCreateComponent,
+    MailListEditComponent,
+    MailListShowComponent,
+    MailTemplatesComponent,
+    MailTemplatesCreateComponent,
+    MailTemplatesEditComponent,
+    MailTemplatesListComponent,
+    MailTemplatesShowComponent,
   ],
   imports: [
     BrowserModule,
