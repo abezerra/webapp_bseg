@@ -1,0 +1,26 @@
+<section class="content-header">
+  <h1>
+    Templates de e-mail <small> {{ pagedescription }} </small>
+  </h1>
+  <ol class="breadcrumb">
+    <li>
+      <button class="btn btn-secondary btn-new-insurance" type="button" data-toggle="modal" data-target="#newMailTemplate">
+        <i class="fas fa-plus"></i>
+        Criar
+      </button>
+    </li>
+    <li>
+      <button class="btn btn-secondary btn-new-insurance" type="button" [routerLink]="['/mail']" >
+        <i class="far fa-envelope"></i>
+        Entrada
+      </button>
+    </li>
+
+    <li class="active">
+      <button type="button" name="button" class="btn btn-new-insurance" [routerLink]="['/mail-list']" >
+        <i class="fas fa-clipboard-list"></i>
+        Listas de distribuição
+      </button>
+    </li>
+  </ol>
+</section>

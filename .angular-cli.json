@@ -31,7 +31,11 @@
         "../node_modules/sweetalert2/dist/sweetalert2.min.css",
         "../node_modules/selectize/dist/css/selectize.css",
         "../node_modules/selectize/dist/css/selectize.legacy.css",
-        "styles.css"
+        "styles.css",
+        "../node_modules/primeng/resources/themes/omega/theme.css",
+        "../node_modules/primeng/resources/primeng.min.css",
+        "../node_modules/quill/dist/quill.core.css",
+        "../node_modules/quill/dist/quill.snow.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
@@ -55,7 +59,8 @@
         "../node_modules/selectize/dist/js/selectize.js",
         "../node_modules/ng-selectize/selectize/selectize.standalone.js",
         "assets/js/scripts.js",
-        "../node_modules/pusher-js/dist/web/pusher.min.js"
+        "../node_modules/pusher-js/dist/web/pusher.min.js",
+        "../node_modules/quill/dist/quill.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

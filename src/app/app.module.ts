@@ -2,8 +2,11 @@ import { AdminModule } from './admin/admin.module';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http'
+import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {EditorModule} from 'primeng/editor';
+import {GrowlModule} from 'primeng/growl';
+import {MessageService} from 'primeng/components/common/messageservice';
 
 import { AppComponent } from './app.component';
 import { StarterComponent } from './starter/starter.component';
@@ -134,6 +137,24 @@ import { NotificationsShowComponent } from './bseg/notifications/notifications-s
 import {PusherService} from "./services/pusher.service";
 import { NotificationsBreadcumbsComponent } from './bseg/notifications/notifications-breadcumbs/notifications-breadcumbs.component';
 
+import {MailService} from "./services/mail.service";
+import { MailComponent } from './bseg/mail/mail.component';
+import { MailBreadcumbsComponent } from './bseg/mail/mail-breadcumbs/mail-breadcumbs.component';
+import { MailInboxComponent } from './bseg/mail/mail-inbox/mail-inbox.component';
+import { MailOutboxComponent } from './bseg/mail/mail-outbox/mail-outbox.component';
+import { MailSidebarComponent } from './bseg/mail/mail-sidebar/mail-sidebar.component';
+import { MailListsComponent } from './bseg/mail/mail-lists/mail-lists.component';
+import { MailListCreateComponent } from './bseg/mail/mail-lists/mail-list-create/mail-list-create.component';
+import { MailListEditComponent } from './bseg/mail/mail-lists/mail-list-edit/mail-list-edit.component';
+import { MailListShowComponent } from './bseg/mail/mail-lists/mail-list-show/mail-list-show.component';
+import { MailTemplatesComponent } from './bseg/mail/mail-templates/mail-templates.component';
+import { MailTemplatesCreateComponent } from './bseg/mail/mail-templates/mail-templates-create/mail-templates-create.component';
+import { MailTemplatesEditComponent } from './bseg/mail/mail-templates/mail-templates-edit/mail-templates-edit.component';
+import { MailTemplatesListComponent } from './bseg/mail/mail-templates/mail-templates-list/mail-templates-list.component';
+import { MailTemplatesShowComponent } from './bseg/mail/mail-templates/mail-templates-show/mail-templates-show.component';
+import { MailComposeComponent } from './bseg/mail/mail-compose/mail-compose.component';
+import { MailTemplatesBreadcumbsComponent } from './bseg/mail/mail-templates/mail-templates-breadcumbs/mail-templates-breadcumbs.component';
+
 
 @NgModule({
   declarations: [
@@ -234,6 +255,22 @@ import { NotificationsBreadcumbsComponent } from './bseg/notifications/notificat
     NotificationsEditComponent,
     NotificationsShowComponent,
     NotificationsBreadcumbsComponent,
+    MailComponent,
+    MailBreadcumbsComponent,
+    MailInboxComponent,
+    MailOutboxComponent,
+    MailSidebarComponent,
+    MailListsComponent,
+    MailListCreateComponent,
+    MailListEditComponent,
+    MailListShowComponent,
+    MailTemplatesComponent,
+    MailTemplatesCreateComponent,
+    MailTemplatesEditComponent,
+    MailTemplatesListComponent,
+    MailTemplatesShowComponent,
+    MailComposeComponent,
+    MailTemplatesBreadcumbsComponent,
   ],
   imports: [
     BrowserModule,
@@ -245,6 +282,10 @@ import { NotificationsBreadcumbsComponent } from './bseg/notifications/notificat
     RouterModule.forRoot(r),
     NgSelectizeModule,
     NgChatModule,
+    NgxPaginationModule,
+    EditorModule,
+    GrowlModule,
+
   ],
   providers: [
     AutoService,
@@ -262,7 +303,9 @@ import { NotificationsBreadcumbsComponent } from './bseg/notifications/notificat
     MediasService,
     DashboardService,
     ChatService,
-    PusherService
+    PusherService,
+    MailService,
+    MessageService,
   ],
   bootstrap: [AppComponent]
 })
