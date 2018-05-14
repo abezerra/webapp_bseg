@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MailBreadcumbsComponent implements OnInit {
 
+  public pagedescription: string = 'E-mail marketing';
   constructor() { }
 
   ngOnInit() {
