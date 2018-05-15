@@ -74,11 +74,11 @@ export class MailService {
     return this.http.post(`${this.apiUrl}/mailer/lists`, data, this.options)
   }
 
-  public show(id: any): Observable<any> {
+  public show_list(id: any): Observable<any> {
     return this.http.get(`${this.apiUrl}/mailer/lists/${id}`, this.options)
   }
 
-  public update(id: number, data: any): Observable<any> {
+  public update_list(id: number, data: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/mailer/lists/${id}`, data, this.options)
   }
 

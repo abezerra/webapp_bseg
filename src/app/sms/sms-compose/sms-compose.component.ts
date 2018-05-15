@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
-import {$} from "../../bseg/mail/mail-compose/mail-compose.component";
+declare var jquery: any;
+declare var $: any;
 import swal from "sweetalert2";
 import {CURRENT_OPTIONS_CONFIG} from "../../bseg/mail/mail-compose/ng-selectize.config";
 import {SmsService} from "../../services/sms.service";
