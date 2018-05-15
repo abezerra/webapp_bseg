@@ -5,16 +5,9 @@
         <h3 class="box-title">Templates de e-mail</h3>
 
         <div class="box-tools">
-          <button class="btn btn-info" (click)="getAll()">
+          <button class="btn btn-info" (click)="index(current_page)">
             <i class="fas fa-sync"></i>
           </button>
-          <pagination-controls
-            (pageChange) = "page = pageChanged($event)"
-            maxSize = "10"
-            directionLinks = "true"
-            previousLabel="Anterior"
-            nextLabel="Proximo"
-            autohide = "true"></pagination-controls>
         </div>
       </div>
       <!-- /.box-header -->
@@ -23,28 +16,26 @@
           <thead>
           <th>Nome</th>
           <th>Descrição</th>
-          <th>Link</th>
+          <th>Participantes</th>
+          <th>Criado por</th>
           <th>Ações</th>
           </thead>
           <tbody>
-          <tr *ngFor="let t of templates | paginate: { itemsPerPage: per_page, currentPage: current_page, totalItems: total }">
+          <tr
+            *ngFor="let t of lists | paginate: { itemsPerPage: per_page, currentPage: current_page, totalItems: total }">
             <td>{{ t?.name }}</td>
-            <td>{{ t?.description }} </td>
+            <td>{{ t?.description }}</td>
             <td>
-              <a [href]="t.file_path" target="_blank">
-                <i class="fas fa-eye"></i>
-              </a>
+              {{ t.participants.length }}
             </td>
-            <td>{{ t?.created_at | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ t?.user.name }}</td>
             <td>
-              <a [href]="t.file_path" target="_blank" class="btn bg-purple">
-                <i class="fas fa-share-alt"></i>
-              </a>
-
-              <a [href]="t.file_path" target="_blank" class="btn bg-purple">
+              <a [routerLink]="['/mail-list-show', t.id]" class="btn bg-purple">
                 <i class="fas fa-eye"></i>
               </a>
-
+              <a class="btn bg-purple" [routerLink]="['/mail-list-edit', t.id]">
+                <i class="fas fa-pencil-alt"></i>
+              </a>
               <a class="btn btn-danger" (click)="destroy(t?.id)" disabled="">
                 <i class="fas fa-trash-alt"></i>
               </a>
@@ -52,6 +43,13 @@
           </tr>
           </tbody>
         </table>
+        <pagination-controls
+          (pageChange)="page = pageChanged($event)"
+          maxSize="10"
+          directionLinks="true"
+          previousLabel="Anterior"
+          nextLabel="Proximo"
+          autohide="true"></pagination-controls>
       </div>
     </div>
   </div>

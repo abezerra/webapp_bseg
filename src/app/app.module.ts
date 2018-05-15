@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {EditorModule} from 'primeng/editor';
 import {GrowlModule} from 'primeng/growl';
 import {MessageService} from 'primeng/components/common/messageservice';
+import {ListboxModule} from 'primeng/listbox';
 
 import { AppComponent } from './app.component';
 import { StarterComponent } from './starter/starter.component';
@@ -154,6 +155,8 @@ import { MailTemplatesListComponent } from './bseg/mail/mail-templates/mail-temp
 import { MailTemplatesShowComponent } from './bseg/mail/mail-templates/mail-templates-show/mail-templates-show.component';
 import { MailComposeComponent } from './bseg/mail/mail-compose/mail-compose.component';
 import { MailTemplatesBreadcumbsComponent } from './bseg/mail/mail-templates/mail-templates-breadcumbs/mail-templates-breadcumbs.component';
+import { MailListsBreadcumbsComponent } from './bseg/mail/mail-lists/mail-lists-breadcumbs/mail-lists-breadcumbs.component';
+import { MailListListComponent } from './bseg/mail/mail-lists/mail-list-list/mail-list-list.component';
 
 
 @NgModule({
@@ -271,6 +274,8 @@ import { MailTemplatesBreadcumbsComponent } from './bseg/mail/mail-templates/mai
     MailTemplatesShowComponent,
     MailComposeComponent,
     MailTemplatesBreadcumbsComponent,
+    MailListsBreadcumbsComponent,
+    MailListListComponent,
   ],
   imports: [
     BrowserModule,
@@ -285,7 +290,7 @@ import { MailTemplatesBreadcumbsComponent } from './bseg/mail/mail-templates/mai
     NgxPaginationModule,
     EditorModule,
     GrowlModule,
-
+    ListboxModule,
   ],
   providers: [
     AutoService,

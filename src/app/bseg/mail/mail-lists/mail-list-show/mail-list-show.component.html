@@ -1,3 +1,56 @@
-<p>
-  mail-list-show works!
-</p>
+<section class="invoice">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="page-header">
+        <a [routerLink]="['/mail-list']" class="btn btn-info">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+        <i class="fas fa-car"></i> {{ list?.name }}
+        <small class="pull-right"> {{ list?.description }}</small>
+      </h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 table-responsive">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Whatsapp</th>
+          <th>Ações</th>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let c of client">
+          <td> {{ c?.name }}</td>
+          <td>{{ c?.email }}</td>
+          <td>{{ c?.whatsapp }}</td>
+          <td>
+            <a class="btn btn-success">
+              <i class="fas fa-plus"></i>
+            </a>
+            <a class="btn btn-danger">
+              <i class="fas fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row no-print">
+    <div class="col-xs-12">
+      <a class="btn btn-warning pull-right">
+        <i class="fas fa-pencil-alt"></i>
+        Editar
+      </a>
+      <button type="button" class="btn btn-danger pull-right" style="margin-right: 5px;" disabled>
+        <i class="fas fa-trash-alt"></i>
+        Excluir
+      </button>
+    </div>
+  </div>
+</section>
