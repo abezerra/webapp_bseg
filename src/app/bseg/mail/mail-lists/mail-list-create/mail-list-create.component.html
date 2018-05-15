@@ -1,3 +1,63 @@
-<p>
-  mail-list-create works!
-</p>
+<div class="modal fade" id="newMailList" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+     data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Criar novo template de email</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form [formGroup]="newMailList" (ngSubmit)="create()">
+        <div class="modal-body">
+          <div class="row">
+
+            <div class="col-md-4">
+              <label for="name">Nome da lista</label>
+              <input type="text" name="name" id="name" class="form-control" placeholder="Nomei a sua lista"
+                     formControlName="name">
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="description">Descrição</label>
+                <input type="text" name="description" id="description" value="" placeholder="Descrição da lista" class="form-control"
+                       formControlName="description">
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="participants">Participantes</label>
+                <p-listbox
+                          [options]="clients"
+                          formControlName="participants"
+                          id="participants"
+                          multiple="multiple"
+                          checkbox="checkbox"
+                          filter="filter"
+                          optionLabel="name">
+                  <p-header>
+                    <i class="fas fa-user-plus"></i>
+                    Clientes
+                  </p-header>
+                </p-listbox>
+
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Cancelar
+            </button>
+            <button type="submit" class="btn btn-primary" [disabled]="newMailList.invalid">
+              Cadastrar
+            </button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

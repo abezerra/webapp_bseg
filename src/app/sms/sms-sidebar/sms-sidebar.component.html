@@ -1,0 +1,35 @@
+<div class="col-md-3">
+  <a class="btn btn-primary btn-block margin-bottom" data-toggle="modal" data-target="#newSms">
+    Escrever
+  </a>
+  <app-sms-compose></app-sms-compose>
+  <div class="box box-solid">
+    <div class="box-header with-border">
+      <h3 class="box-title">Pastas</h3>
+
+      <div class="box-tools">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+          <i class="fa fa-minus"></i>
+        </button>
+      </div>
+    </div>
+    <div class="box-body no-padding">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active">
+          <a [routerLink]="['/sms']">
+            <i class="fa fa-inbox"></i>
+            Entrada
+            <span class="label label-primary pull-right">12</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/sms-outbox']">
+            <i class="fas fa-reply-all"></i>
+            Enviados
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- /.box-body -->
+  </div>
+</div>

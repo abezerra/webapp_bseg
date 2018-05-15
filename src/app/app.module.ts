@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {EditorModule} from 'primeng/editor';
 import {GrowlModule} from 'primeng/growl';
 import {MessageService} from 'primeng/components/common/messageservice';
+import {ListboxModule} from 'primeng/listbox';
 
 import { AppComponent } from './app.component';
 import { StarterComponent } from './starter/starter.component';
@@ -154,6 +155,29 @@ import { MailTemplatesListComponent } from './bseg/mail/mail-templates/mail-temp
 import { MailTemplatesShowComponent } from './bseg/mail/mail-templates/mail-templates-show/mail-templates-show.component';
 import { MailComposeComponent } from './bseg/mail/mail-compose/mail-compose.component';
 import { MailTemplatesBreadcumbsComponent } from './bseg/mail/mail-templates/mail-templates-breadcumbs/mail-templates-breadcumbs.component';
+import { MailListsBreadcumbsComponent } from './bseg/mail/mail-lists/mail-lists-breadcumbs/mail-lists-breadcumbs.component';
+import { MailListListComponent } from './bseg/mail/mail-lists/mail-list-list/mail-list-list.component';
+
+import {SmsService} from "./services/sms.service";
+import { SmsComponent } from './sms/sms.component';
+import { SmsBreadcumbsComponent } from './sms/sms-breadcumbs/sms-breadcumbs.component';
+import { SmsComposeComponent } from './sms/sms-compose/sms-compose.component';
+import { SmsInboxComponent } from './sms/sms-inbox/sms-inbox.component';
+import { SmsOutboxComponent } from './sms/sms-outbox/sms-outbox.component';
+import { SmsSidebarComponent } from './sms/sms-sidebar/sms-sidebar.component';
+import { SmsListsComponent } from './sms/sms-lists/sms-lists.component';
+import { SmsTemplatesComponent } from './sms/sms-templates/sms-templates.component';
+import { SmsListsCreateComponent } from './sms/sms-lists/sms-lists-create/sms-lists-create.component';
+import { SmsListsEditComponent } from './sms/sms-lists/sms-lists-edit/sms-lists-edit.component';
+import { SmsListsListComponent } from './sms/sms-lists/sms-lists-list/sms-lists-list.component';
+import { SmsListsShowComponent } from './sms/sms-lists/sms-lists-show/sms-lists-show.component';
+import { SmsListsBreadcumbsComponent } from './sms/sms-lists/sms-lists-breadcumbs/sms-lists-breadcumbs.component';
+import { SmsTemplatesCreateComponent } from './sms/sms-templates/sms-templates-create/sms-templates-create.component';
+import { SmsTemplatesListComponent } from './sms/sms-templates/sms-templates-list/sms-templates-list.component';
+import { SmsTemplatesEditComponent } from './sms/sms-templates/sms-templates-edit/sms-templates-edit.component';
+import { SmsTemplatesShowComponent } from './sms/sms-templates/sms-templates-show/sms-templates-show.component';
+import { SmsTemplatesBreadcumbsComponent } from './sms/sms-templates/sms-templates-breadcumbs/sms-templates-breadcumbs.component';
+
 
 
 @NgModule({
@@ -271,6 +295,26 @@ import { MailTemplatesBreadcumbsComponent } from './bseg/mail/mail-templates/mai
     MailTemplatesShowComponent,
     MailComposeComponent,
     MailTemplatesBreadcumbsComponent,
+    MailListsBreadcumbsComponent,
+    MailListListComponent,
+    SmsComponent,
+    SmsBreadcumbsComponent,
+    SmsComposeComponent,
+    SmsInboxComponent,
+    SmsOutboxComponent,
+    SmsSidebarComponent,
+    SmsListsComponent,
+    SmsTemplatesComponent,
+    SmsListsCreateComponent,
+    SmsListsEditComponent,
+    SmsListsListComponent,
+    SmsListsShowComponent,
+    SmsListsBreadcumbsComponent,
+    SmsTemplatesCreateComponent,
+    SmsTemplatesListComponent,
+    SmsTemplatesEditComponent,
+    SmsTemplatesShowComponent,
+    SmsTemplatesBreadcumbsComponent,
   ],
   imports: [
     BrowserModule,
@@ -285,7 +329,7 @@ import { MailTemplatesBreadcumbsComponent } from './bseg/mail/mail-templates/mai
     NgxPaginationModule,
     EditorModule,
     GrowlModule,
-
+    ListboxModule,
   ],
   providers: [
     AutoService,
@@ -306,6 +350,7 @@ import { MailTemplatesBreadcumbsComponent } from './bseg/mail/mail-templates/mai
     PusherService,
     MailService,
     MessageService,
+    SmsService,
   ],
   bootstrap: [AppComponent]
 })

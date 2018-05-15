@@ -40,6 +40,14 @@ import {MailTemplatesEditComponent} from "../app/bseg/mail/mail-templates/mail-t
 import {MailListsComponent} from "../app/bseg/mail/mail-lists/mail-lists.component";
 import {MailListShowComponent} from "../app/bseg/mail/mail-lists/mail-list-show/mail-list-show.component";
 import {MailListEditComponent} from "../app/bseg/mail/mail-lists/mail-list-edit/mail-list-edit.component";
+import {SmsComponent} from "../app/sms/sms.component";
+import {SmsOutboxComponent} from "../app/sms/sms-outbox/sms-outbox.component";
+import {SmsTemplatesComponent} from "../app/sms/sms-templates/sms-templates.component";
+import {SmsTemplatesShowComponent} from "../app/sms/sms-templates/sms-templates-show/sms-templates-show.component";
+import {SmsTemplatesEditComponent} from "../app/sms/sms-templates/sms-templates-edit/sms-templates-edit.component";
+import {SmsListsComponent} from "../app/sms/sms-lists/sms-lists.component";
+import {SmsListsShowComponent} from "../app/sms/sms-lists/sms-lists-show/sms-lists-show.component";
+import {SmsListsEditComponent} from "../app/sms/sms-lists/sms-lists-edit/sms-lists-edit.component";
 
 export const r: Routes = [
   {path: 'auth', component: AuthComponent},
@@ -101,4 +109,14 @@ export const r: Routes = [
   {path: 'mail-list', component: MailListsComponent, canActivate: [AuthGuard]},
   {path: 'mail-list-show/:id', component: MailListShowComponent, canActivate: [AuthGuard]},
   {path: 'mail-list-edit/:id', component: MailListEditComponent, canActivate: [AuthGuard]},
+
+  {path: 'sms', component: SmsComponent, canActivate: [AuthGuard]},
+  // {path: 'sms-show/:id', component: Mail, canActivate: [AuthGuard]},
+  {path: 'sms-outbox', component: SmsOutboxComponent, canActivate: [AuthGuard]},
+  {path: 'sms-template', component: SmsTemplatesComponent, canActivate: [AuthGuard]},
+  {path: 'sms-template-show/:id', component: SmsTemplatesShowComponent, canActivate: [AuthGuard]},
+  {path: 'sms-template-edit/:id', component: SmsTemplatesEditComponent, canActivate: [AuthGuard]},
+  {path: 'sms-list', component: SmsListsComponent, canActivate: [AuthGuard]},
+  {path: 'sms-list-show/:id', component: SmsListsShowComponent, canActivate: [AuthGuard]},
+  {path: 'sms-list-edit/:id', component: SmsListsEditComponent, canActivate: [AuthGuard]},
 ];

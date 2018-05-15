@@ -17,15 +17,21 @@ export class MailComposeComponent implements OnInit {
   public user: any;
   public clients: any;
   public config: any = CURRENT_OPTIONS_CONFIG;
+  public lists: any;
   constructor(private _db: MailService, private _fb: FormBuilder) { }
 
   ngOnInit() {
     this._user();
     this._clients();
+    this._list();
   }
 
   public _user() {
     this._db.user().subscribe(success => this.user = success, error => error)
+  }
+
+  public _list() {
+    this._db.lists().subscribe(success => this.lists = success, error => error)
   }
 
   public _clients() {

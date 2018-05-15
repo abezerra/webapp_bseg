@@ -60,4 +60,30 @@ export class MailService {
     return this.http.delete(`${this.apiUrl}/mailer/templates/${id}`, this.options)
   }
 
+  //distributuion lists
+
+  public lists(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/mailer/lists`, this.options)
+  }
+
+  public index_lists(page: any): Observable<any> {
+    return this.http.get(`${this.apiUrl}/mailer/lists/paginated?page=${page}`, this.options)
+  }
+
+  public create_lists(data: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/mailer/lists`, data, this.options)
+  }
+
+  public show_list(id: any): Observable<any> {
+    return this.http.get(`${this.apiUrl}/mailer/lists/${id}`, this.options)
+  }
+
+  public update_list(id: number, data: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/mailer/lists/${id}`, data, this.options)
+  }
+
+  public destroy_lists(id: any): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/mailer/lists/${id}`, this.options)
+  }
+
 }

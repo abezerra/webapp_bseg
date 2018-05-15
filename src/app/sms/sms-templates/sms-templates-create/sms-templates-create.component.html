@@ -1,0 +1,60 @@
+<div class="modal fade" id="newSmsTemplate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+     data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Criar novo template de email</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="alert alert-warning alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4>
+          <i class="icon fa fa-warning"></i>
+          Alerta!
+        </h4>
+        Para personalizar a mensagem com o nome do destinatario, use #nome#
+      </div>
+
+      <form [formGroup]="newSmsTemplate" (ngSubmit)="create()">
+        <div class="modal-body">
+          <div class="row form-group">
+
+            <div class="col-md-12">
+              <label for="name">Nome do template</label>
+              <input type="text" name="name" id="name" class="form-control" placeholder="Dê um nome ao template"
+                     formControlName="name">
+            </div>
+
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="description">Descrição</label>
+                <input type="text" name="description" id="description" value="" placeholder="Descrição do template" class="form-control"
+                       formControlName="description">
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="content">Conteudo</label>
+                <p-editor formControlName="content" id="content" [style]="{'height':'320px'}"></p-editor>
+
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Cancelar
+            </button>
+            <button type="submit" class="btn btn-primary" [disabled]="newSmsTemplate.invalid">
+              Cadastrar
+            </button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

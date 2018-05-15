@@ -1,0 +1,31 @@
+<section class="content-header">
+  <h1>
+    SMS
+    <small>
+      {{ pagedescription }}
+    </small>
+  </h1>
+  <ol class="breadcrumb">
+    <li>
+      <button class="btn btn-secondary btn-new-insurance" type="button" [routerLink]="['/sms-template']" >
+        <i class="fas fa-object-group"></i>
+        Templates
+      </button>
+    </li>
+
+    <li class="active">
+      <button type="button" name="button" class="btn btn-new-insurance" [routerLink]="['/sms-list']" >
+        <i class="fas fa-clipboard-list"></i>
+        Listas de distribuição
+      </button>
+    </li>
+
+    <li>
+      <button type="button" name="button" class="btn btn-new-insurance" disabled>
+        <i class="fas fa-download"></i>
+        Exportar
+      </button>
+    </li>
+
+  </ol>
+</section>

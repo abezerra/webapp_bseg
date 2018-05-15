@@ -1,0 +1,55 @@
+<div class="modal fade" id="newSms" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+     data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Envio de email</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+
+      <form [formGroup]="newSms" (ngSubmit)="create()">
+        <div class="modal-body">
+          <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4 class="text-center"><i class="icon fa fa-warning"></i> Alerta!</h4>
+            Para personalizar a mensagem com o nome do destinatario, use #nome#
+          </div>
+          <div class="row form-group">
+
+            <div class="col-md-12">
+              <label for="to">Para</label>
+              <ng-selectize
+                [config]="config"
+                [options]="clients"
+                name="to"
+                id="to"
+                value=""
+                placeholder="Destinatarios"
+                formControlName="to"></ng-selectize>
+            </div>
+
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="content">Mensagem</label>
+                <textarea formControlName="content" name="content" id="content" cols="30" rows="3" class="form-control"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Cancelar
+            </button>
+            <button type="submit" class="btn btn-primary" [disabled]="newSms.invalid">
+              Enviar
+            </button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
