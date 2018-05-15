@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {AutoService} from "../../../../services/auto.service";
+import {FormBuilder, Validators} from "@angular/forms";
 import swal from "sweetalert2";
 import {ActivatedRoute, Router} from "@angular/router";
-import {FormBuilder, Validators} from "@angular/forms";
-import {MailService} from "../../../../services/mail.service";
+import {SmsService} from "../../../services/sms.service";
 
 @Component({
-  selector: 'app-mail-list-edit',
-  templateUrl: './mail-list-edit.component.html',
-  styleUrls: ['./mail-list-edit.component.css']
+  selector: 'app-sms-lists-edit',
+  templateUrl: './sms-lists-edit.component.html',
+  styleUrls: ['./sms-lists-edit.component.css']
 })
-export class MailListEditComponent implements OnInit {
+export class SmsListsEditComponent implements OnInit {
 
   public list: any;
   public clients: any;
   constructor(
-    private _db: MailService,
+    private _db: SmsService,
     private _fb: FormBuilder,
     private _router: Router,
     private _route: ActivatedRoute) { }
@@ -25,8 +24,8 @@ export class MailListEditComponent implements OnInit {
     this.clients_list();
     setTimeout(() => {
       this.updateMialerList.setValue({
-       name: this.list.listy.name,
-       description: this.list.listy.description,
+        name: this.list.listy.name,
+        description: this.list.listy.description,
         participants: this.list.client.name
       })
     }, 999)

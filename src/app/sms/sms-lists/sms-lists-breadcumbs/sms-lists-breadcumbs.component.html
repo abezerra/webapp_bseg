@@ -1,0 +1,36 @@
+<section class="content-header">
+  <h1>
+    Listas de distribuição
+    <small>
+      {{ pagedescription }}
+    </small>
+  </h1>
+  <ol class="breadcrumb">
+    <li>
+      <button class="btn btn-secondary btn-new-insurance" type="button" data-toggle="modal" data-target="#newMailList">
+        <i class="fas fa-plus"></i>
+        Criar
+      </button>
+    </li>
+    <li>
+      <button class="btn btn-secondary btn-new-insurance" type="button" [routerLink]="['/sms-template']" >
+        <i class="fas fa-object-group"></i>
+        Templates
+      </button>
+    </li>
+
+    <li class="active">
+      <button type="button" name="button" class="btn btn-new-insurance" [routerLink]="['/sms-list']" >
+        <i class="fas fa-clipboard-list"></i>
+        Listas de distribuição
+      </button>
+    </li>
+
+    <li>
+      <button type="button" name="button" class="btn btn-new-insurance" [routerLink]="['/sms']" >
+        <i class="fas fa-download"></i>
+        Entrada
+      </button>
+    </li>
+  </ol>
+</section>

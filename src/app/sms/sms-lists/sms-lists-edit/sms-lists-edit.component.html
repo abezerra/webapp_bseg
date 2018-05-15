@@ -1,0 +1,45 @@
+<section class="invoice">
+  <form [formGroup]="updateMialerList" (ngSubmit)="update()">
+    <div class="row">
+
+      <div class="col-md-4">
+        <label for="name">Nome da lista</label>
+        <input type="text" name="name" id="name" class="form-control" placeholder="Nomei a sua lista"
+               formControlName="name">
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="description">Descrição</label>
+          <input type="text" name="description" id="description" value="" placeholder="Descrição da lista" class="form-control"
+                 formControlName="description">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="participants">Participantes</label>
+          <p-listbox
+            [options]="clients"
+            formControlName="participants"
+            id="participants"
+            multiple="multiple"
+            checkbox="checkbox"
+            filter="filter"
+            optionLabel="name">
+            <p-header>
+              <i class="fas fa-user-plus"></i>
+              Clientes
+            </p-header>
+          </p-listbox>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-success btn-block" type="submit">Salvar alterações</button>
+      </div>
+    </div>
+  </form>
+</section>

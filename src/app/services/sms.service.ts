@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 
 @Injectable()
-export class MailService {
+export class SmsService {
 
   public apiUrl = api.apiUrl;
   private options = {headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}}
