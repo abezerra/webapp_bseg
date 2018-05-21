@@ -10,6 +10,7 @@ import {SmsService} from "../../services/sms.service";
 export class SmsInboxComponent implements OnInit {
 
   public mails: any;
+  public page: any;
   public current_page: number;
   public last_page: number;
   public total: number;

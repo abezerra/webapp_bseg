@@ -9,6 +9,7 @@ import {SmsService} from "../../../services/sms.service";
 export class SmsTemplatesListComponent implements OnInit {
 
   public templates: any;
+  public page: any;
   public current_page: number;
   public last_page: number;
   public total: number;

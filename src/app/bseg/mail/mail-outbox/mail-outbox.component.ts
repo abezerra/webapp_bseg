@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MailOutboxComponent implements OnInit {
 
+public mails: any;
   constructor() { }
 
   ngOnInit() {
