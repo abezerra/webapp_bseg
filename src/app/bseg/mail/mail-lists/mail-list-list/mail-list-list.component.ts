@@ -10,6 +10,7 @@ import swal from "sweetalert2";
 export class MailListListComponent implements OnInit {
 
   public lists: any;
+  public page: any;
   public current_page: number;
   public last_page: number;
   public total: number;

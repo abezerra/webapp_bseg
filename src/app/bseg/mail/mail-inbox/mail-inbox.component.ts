@@ -9,6 +9,7 @@ import {MailService} from "../../../services/mail.service";
 export class MailInboxComponent implements OnInit {
 
   public mails: any;
+  public page: any;
   public current_page: number;
   public last_page: number;
   public total: number;

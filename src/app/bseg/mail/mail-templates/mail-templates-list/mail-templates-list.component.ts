@@ -9,6 +9,7 @@ import {MailService} from "../../../../services/mail.service";
 export class MailTemplatesListComponent implements OnInit {
 
   public templates: any;
+  public page: any;
   public current_page: number;
   public last_page: number;
   public total: number;
