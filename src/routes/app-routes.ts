@@ -48,6 +48,9 @@ import {SmsTemplatesEditComponent} from "../app/sms/sms-templates/sms-templates-
 import {SmsListsComponent} from "../app/sms/sms-lists/sms-lists.component";
 import {SmsListsShowComponent} from "../app/sms/sms-lists/sms-lists-show/sms-lists-show.component";
 import {SmsListsEditComponent} from "../app/sms/sms-lists/sms-lists-edit/sms-lists-edit.component";
+import {MetasComponent} from "../app/bseg/metas/metas.component";
+import {MetasShowComponent} from "../app/bseg/metas/metas-show/metas-show.component";
+import {MetasEditComponent} from "../app/bseg/metas/metas-edit/metas-edit.component";
 
 export const r: Routes = [
   {path: 'auth', component: AuthComponent},
@@ -119,4 +122,8 @@ export const r: Routes = [
   {path: 'sms-list', component: SmsListsComponent, canActivate: [AuthGuard]},
   {path: 'sms-list-show/:id', component: SmsListsShowComponent, canActivate: [AuthGuard]},
   {path: 'sms-list-edit/:id', component: SmsListsEditComponent, canActivate: [AuthGuard]},
+
+  {path: 'metas', component: MetasComponent, canActivate: [AuthGuard]},
+  {path: 'metas-show/:id', component: MetasShowComponent, canActivate: [AuthGuard]},
+  {path: 'metas-edit/:id', component: MetasEditComponent, canActivate: [AuthGuard]},
 ];

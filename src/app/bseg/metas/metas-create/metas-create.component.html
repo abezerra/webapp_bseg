@@ -1,0 +1,155 @@
+<!-- Modal -->
+<div class="modal fade" id="newMeta" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+     data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Criar meta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form [formGroup]="newMeta" (ngSubmit)="create()">
+
+        <div class="modal-body">
+          <div class="row">
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="employer_id">Corretor</label>
+                <select class="form-control" name="employer_id" id="employer_id" formControlName="employer_id">
+                  <option value="">Selecione</option>
+                  <option [value]="e.id" *ngFor="let e of emp">{{ e.name }}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="production_meta">Meta de Produção</label>
+                <input
+                      type="text"
+                      name="production_meta"
+                      id="production_meta"
+                      value=""
+                      placeholder="Ex.: 123.456.789"
+                      class="form-control"
+                      formControlName="production_meta"
+                      currencyMask
+                      [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="production_real">Produção - real</label>
+                <input
+                      type="text"
+                      name="production_real"
+                      id="production_real"
+                      class="form-control"
+                      formControlName="production_real"
+                      currencyMask
+                      [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="rate_profit_meta">Taxa de lucro - meta</label>
+                <input type="text" name="rate_profit_meta" id="rate_profit_meta" value="" class="form-control"
+                       formControlName="rate_profit_meta">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="rate_profit_real">Taxa de lucro - real</label>
+                <input type="text" name="rate_profit_real" id="rate_profit_real" value="" class="form-control"
+                       formControlName="rate_profit_real">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="app_downloads_number_meta">Downloads do app - meta</label>
+                <input type="number" name="app_downloads_number_meta" id="app_downloads_number_meta" value=""
+                       class="form-control" formControlName="app_downloads_number_meta">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="app_downloads_number_real">Downloads do app - real</label>
+                <input type="number" name="app_downloads_number_real" id="app_downloads_number_real" value=""
+                       class="form-control" formControlName="app_downloads_number_real">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="news_contracts_meta">Novos contratos - metal</label>
+                <input type="number" name="news_contracts_meta" id="news_contracts_meta" value="" class="form-control"
+                       formControlName="news_contracts_meta">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="news_contracts_real">Novos contratos - real</label>
+                <input type="number" name="news_contracts_real" id="news_contracts_real" value="" class="form-control"
+                       formControlName="news_contracts_real">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="percentage_of_renovations_meta">% de renovações - meta</label>
+                <input type="text" name="percentage_of_renovations_meta" id="percentage_of_renovations_meta" value=""
+                       class="form-control" formControlName="percentage_of_renovations_meta">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="percentage_of_renovations_real"> % de renovações - real</label>
+                <input type="text" name="percentage_of_renovations_real" id="percentage_of_renovations_real" value=""
+                       class="form-control" formControlName="percentage_of_renovations_real">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="percentage_of_insurances_versus_news_meta">% de seguros X novos - meta</label>
+                <input type="text" name="percentage_of_insurances_versus_news_meta"
+                       id="percentage_of_insurances_versus_news_meta" value="" class="form-control"
+                       formControlName="percentage_of_insurances_versus_news_meta">
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="percentage_of_insurances_versus_news_real">% de seguros X novos - real</label>
+                <input type="text" name="percentage_of_insurances_versus_news_real"
+                       id="percentage_of_insurances_versus_news_real" value="" class="form-control"
+                       formControlName="percentage_of_insurances_versus_news_real">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="newMeta.invalid">Adicionar</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
