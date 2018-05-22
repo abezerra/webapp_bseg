@@ -25,7 +25,23 @@
               </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-8">
+              <div class="form-group">
+                <label for="description">Descrição</label>
+                <input
+                      type="text"
+                      name="description"
+                      id="description"
+                      value=""
+                      class="form-control"
+                      formControlName="description">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
               <div class="form-group">
                 <label for="production_meta">Meta de Produção</label>
                 <input
@@ -41,7 +57,7 @@
               </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="form-group">
                 <label for="production_real">Produção - real</label>
                 <input
@@ -54,9 +70,7 @@
                       [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
               </div>
             </div>
-          </div>
 
-          <div class="row">
             <div class="col-md-3">
               <div class="form-group">
                 <label for="rate_profit_meta">Taxa de lucro - meta</label>
@@ -72,7 +86,9 @@
                        formControlName="rate_profit_real">
               </div>
             </div>
+          </div>
 
+          <div class="row">
             <div class="col-md-3">
               <div class="form-group">
                 <label for="app_downloads_number_meta">Downloads do app - meta</label>
@@ -88,9 +104,7 @@
                        class="form-control" formControlName="app_downloads_number_real">
               </div>
             </div>
-          </div>
 
-          <div class="row">
             <div class="col-md-3">
               <div class="form-group">
                 <label for="news_contracts_meta">Novos contratos - metal</label>

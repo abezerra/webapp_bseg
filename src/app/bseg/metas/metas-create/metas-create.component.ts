@@ -57,10 +57,10 @@ export class MetasCreateComponent implements OnInit {
 
   public inputmask() {
     $(document).ready(function() {
-      $('#rate_profit_meta').mask('##0,00%');
-      $('#rate_profit_real').mask('##0,00%');
-      $('#percentage_of_renovations_meta').mask('##0,00%');
-      $('#percentage_of_renovations_real').mask('##0,00%');
+      $('#rate_profit_meta').mask('#0%');
+      $('#rate_profit_real').mask('#0%');
+      $('#percentage_of_renovations_meta').mask('#0%');
+      $('#percentage_of_renovations_real').mask('#0%');
     });
   }
 }

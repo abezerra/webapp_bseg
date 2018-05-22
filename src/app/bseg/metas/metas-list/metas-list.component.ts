@@ -21,10 +21,6 @@ export class MetasListComponent implements OnInit {
     this.index(1);
   }
 
-  showSuccess() {
-    this.toastr.success('Hello world!', 'Toastr fun!');
-  }
-
   public index(page: number) {
     this._db.index(page).subscribe(success => {
       this.metas = success.data;
