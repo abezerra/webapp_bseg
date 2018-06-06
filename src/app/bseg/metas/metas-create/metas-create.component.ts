@@ -31,21 +31,20 @@ export class MetasCreateComponent implements OnInit {
     description: this._fb.control('', []),
     production_meta: this._fb.control('', [Validators.required]),
     production_real: this._fb.control('', []),
-    rate_profit_meta: this._fb.control('', [Validators.required]),
-    rate_profit_real: this._fb.control('', []),
-    app_downloads_number_meta: this._fb.control('', [Validators.required]),
-    app_downloads_number_real: this._fb.control('', []),
-    news_contracts_meta: this._fb.control('', [Validators.required]),
-    news_contracts_real: this._fb.control('', []),
-    percentage_of_renovations_meta: this._fb.control('', [Validators.required]),
-    percentage_of_renovations_real: this._fb.control('', []),
-    percentage_of_insurances_versus_news_meta: this._fb.control('', [Validators.required]),
-    percentage_of_insurances_versus_news_real: this._fb.control('', []),
+    day: this._fb.control('', [Validators.required]),
+    // rate_profit_real: this._fb.control('', []),
+    // app_downloads_number_meta: this._fb.control('', [Validators.required]),
+    // app_downloads_number_real: this._fb.control('', []),
+    // news_contracts_meta: this._fb.control('', [Validators.required]),
+    // news_contracts_real: this._fb.control('', []),
+    // percentage_of_renovations_meta: this._fb.control('', [Validators.required]),
+    // percentage_of_renovations_real: this._fb.control('', []),
+    // percentage_of_insurances_versus_news_meta: this._fb.control('', [Validators.required]),
+    // percentage_of_insurances_versus_news_real: this._fb.control('', []),
     employer_id: this._fb.control('', [Validators.required]),
   });
 
   public create(): void {
-    console.log(this.newMeta.value)
     this._db.create(this.newMeta.value).subscribe(
       success => {
         this.toastr.success('Meta cadastrada com sucesso', 'Sucesso!')
@@ -57,10 +56,7 @@ export class MetasCreateComponent implements OnInit {
 
   public inputmask() {
     $(document).ready(function() {
-      $('#rate_profit_meta').mask('#0%');
-      $('#rate_profit_real').mask('#0%');
-      $('#percentage_of_renovations_meta').mask('#0%');
-      $('#percentage_of_renovations_real').mask('#0%');
+      $('#day').mask('00/00/0000');
     });
   }
 }

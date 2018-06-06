@@ -12,31 +12,13 @@
       <br>
       <br>
       <div class="box-body table-responsive">
-        <table class="table table-striped">
+        <table class="table table-striped table-responsive">
           <thead class="text-center">
           <tr>
-            <th>Nome</th>
+            <th>Corretor</th>
             <th>Descrição</th>
-
             <th>Produção - meta</th>
             <th>Produção - real</th>
-            <!--<th>Taxa de lucro - meta</th>-->
-            <!--<th>Taxa de lucro - real</th>-->
-
-            <!--<th>Downloads do app - meta</th>-->
-            <!--<th>Downloads do app - real</th>-->
-
-            <!--<th>Novos contratos - meta</th>-->
-            <!--<th>Novos contratos - real</th>-->
-
-            <!--<th>Novos contratos - meta</th>-->
-            <!--<th>Novos contratos - real</th>-->
-
-            <!--<th>% de renovações - meta</th>-->
-            <!--<th>% de renovações - real</th>-->
-
-            <!--<th>% de seguros X novos - meta</th>-->
-            <!--<th>% de seguros X novos - real</th>-->
             <th>Ações</th>
           </tr>
 
@@ -49,26 +31,7 @@
 
             <td>{{ a?.production_meta }} </td>
             <td>{{ a?.production_real }} </td>
-
-            <!--<td>{{ a?.rate_profit_meta }} </td>-->
-            <!--<td>{{ a?.rate_profit_real }} </td>-->
-
-            <!--<td>{{ a?.app_downloads_number_meta }} </td>-->
-            <!--<td>{{ a?.app_downloads_number_real }} </td>-->
-
-            <!--<td>{{ a?.news_contracts_meta }} </td>-->
-            <!--<td>{{ a?.news_contracts_real }} </td>-->
-
-            <!--<td>{{ a?.percentage_of_renovations_meta }} </td>-->
-            <!--<td>{{ a?.percentage_of_renovations_real }} </td>-->
-
-            <!--<td>{{ a?.percentage_of_insurances_versus_news_meta }} </td>-->
-            <!--<td>{{ a?.percentage_of_insurances_versus_news_real }} </td>-->
             <td>
-              <a [routerLink]="['/metas-show', a.id]" class="btn bg-purple">
-                <i class="fas fa-eye"></i>
-              </a>
-
               <a [routerLink]="['/metas-edit', a.id]" class="btn btn-warning">
                 <i class="fas fa-pencil-alt"></i>
               </a>

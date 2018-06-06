@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ToastrService } from 'ngx-toastr';
 import { CurrencyMaskModule } from "ng2-currency-mask";
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+import { QuillModule } from 'ngx-quill'
 
 import { AppComponent } from './app.component';
 import { StarterComponent } from './starter/starter.component';
@@ -187,6 +189,8 @@ import { MetasEditComponent } from './bseg/metas/metas-edit/metas-edit.component
 import { MetasListComponent } from './bseg/metas/metas-list/metas-list.component';
 import { MetasShowComponent } from './bseg/metas/metas-show/metas-show.component';
 import {MetasService} from "./services/metas.service";
+import { DashboardChartsComponent } from './bseg/dashboard/dashboard-charts/dashboard-charts.component';
+import { AutoImportComponent } from './bseg/insurances/auto/auto-import/auto-import.component';
 
 
 
@@ -331,6 +335,8 @@ import {MetasService} from "./services/metas.service";
     MetasEditComponent,
     MetasListComponent,
     MetasShowComponent,
+    DashboardChartsComponent,
+    AutoImportComponent,
   ],
   imports: [
     BrowserModule,
@@ -348,6 +354,8 @@ import {MetasService} from "./services/metas.service";
     ListboxModule,
     ToastrModule.forRoot(),
     CurrencyMaskModule,
+    Ng2GoogleChartsModule,
+    QuillModule,
   ],
   providers: [
     ToastrService,

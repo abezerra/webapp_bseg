@@ -42,4 +42,8 @@ export class DashboardService {
     return this.http.delete(`${this.apiUrl}/clients/${id}`, this.opions)
   }
 
+  public weekly_ranking(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/metas/weekly_ranking`, this.opions)
+  }
+
 }
