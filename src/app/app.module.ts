@@ -191,6 +191,7 @@ import { MetasShowComponent } from './bseg/metas/metas-show/metas-show.component
 import {MetasService} from "./services/metas.service";
 import { DashboardChartsComponent } from './bseg/dashboard/dashboard-charts/dashboard-charts.component';
 import { AutoImportComponent } from './bseg/insurances/auto/auto-import/auto-import.component';
+import {ExtractorService} from "./services/extractor.service";
 
 
 
@@ -378,6 +379,7 @@ import { AutoImportComponent } from './bseg/insurances/auto/auto-import/auto-imp
     MailService,
     SmsService,
     MetasService,
+    ExtractorService,
   ],
   bootstrap: [AppComponent]
 })

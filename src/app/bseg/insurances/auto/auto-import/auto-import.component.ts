@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {AutoService} from "../../../../services/auto.service";
 import {ToastrService} from 'ngx-toastr';
+import {ExtractorService} from "../../../../services/extractor.service";
 declare var jquery: any;
 declare var $: any;
 
@@ -17,7 +18,8 @@ export class AutoImportComponent implements OnInit {
 
   constructor(private _fb: FormBuilder,
               private _db: AutoService,
-              private toastr: ToastrService) {
+              private toastr: ToastrService,
+              private _extractor: ExtractorService) {
   }
 
   ngOnInit() {
@@ -77,6 +79,7 @@ export class AutoImportComponent implements OnInit {
       }
     )
   }
+
 
 
 }

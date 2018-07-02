@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AutoService} from '../../../../services/auto.service';
 import swal from 'sweetalert2'
+import {ExtractorService} from "../../../../services/extractor.service";
 
 @Component({
   selector: 'app-auto-list',
@@ -11,7 +12,7 @@ export class AutoListComponent implements OnInit {
   public autoInsurances: any;
   public insurer: any;
 
-  constructor(private db: AutoService) {
+  constructor(private db: AutoService, private _extractor: ExtractorService) {
   }
 
   ngOnInit() {
@@ -53,4 +54,10 @@ export class AutoListComponent implements OnInit {
         })
       })
   }
+
+  public extract(){
+    console.log('clicou nessa buxita aqui')
+    this._extractor.index();
+  }
+
 }
