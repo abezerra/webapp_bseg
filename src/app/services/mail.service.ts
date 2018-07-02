@@ -48,6 +48,10 @@ export class MailService {
 
   //templating
 
+  public all_templates(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/maiu/templates`, this.options);
+  }
+
   public index_templating(page: any): Observable<any> {
     return this.http.get(`${this.apiUrl}/mailer/templates/paginated?page=${page}`, this.options)
   }
@@ -63,7 +67,7 @@ export class MailService {
   //distributuion lists
 
   public lists(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/mailer/lists`, this.options)
+    return this.http.get(`${this.apiUrl}/maiu/listas`, this.options)
   }
 
   public index_lists(page: any): Observable<any> {

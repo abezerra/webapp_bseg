@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, FormArray, Validators } from '@angular/forms'
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, FormControl, FormArray, Validators} from '@angular/forms'
+import {ToastrService} from 'ngx-toastr';
 
-//rxjs
-import { Observable } from 'rxjs/Observable'
-import { Subject } from 'rxjs/Subject'
-import 'rxjs'
 declare var jquery: any;
 declare var $: any;
-import swal from 'sweetalert2'
-
-import { InsurersService } from '../../../services/insurers.service';
+//rxjs
+import {Observable} from 'rxjs/Observable'
+import {Subject} from 'rxjs/Subject'
+import 'rxjs'
+import {InsurersService} from '../../../services/insurers.service';
 
 @Component({
   selector: 'app-insurers-form',
@@ -18,11 +17,16 @@ import { InsurersService } from '../../../services/insurers.service';
 })
 export class InsurersFormComponent implements OnInit {
 
-  
+
   private eoFile: any;
-  constructor(private db: InsurersService, private _fb: FormBuilder) { }
+
+  constructor(private db: InsurersService,
+              private _fb: FormBuilder,
+              private toastr: ToastrService) {
+  }
 
   ngOnInit() {
+    this.inputmask()
   }
 
   public prepareFileToUpload(event): void {
@@ -38,15 +42,29 @@ export class InsurersFormComponent implements OnInit {
 
   public create() {
     this.db
-      .create(this.formAddInsurers.value)
-      .then(res => {
-        swal(
-          'Sucesso',
-          'Seguradora cadastrado com sucesso',
-          'success'
-        );
+      .create(this.formAddInsurers.value).subscribe(
+      success => {
         $('#modal-add-insurers').modal('hide')
-      })
+        this.toastr.success('Seguradora criada com sucesso', 'Sucesso!', {
+          timeOut: 3000,
+          progressAnimation: "decreasing",
+          progressBar: true,
+        });
+      },
+      error => {
+        this.toastr.error('Erro ao criar seguradora', 'Error!', {
+          timeOut: 3000,
+          progressAnimation: "decreasing",
+          progressBar: true,
+        });
+      }
+    )
+  }
 
+
+  public inputmask() {
+    $(document).ready(function() {
+      $('#cnpj').mask('00.000.000/0000-00');
+    });
   }
 }

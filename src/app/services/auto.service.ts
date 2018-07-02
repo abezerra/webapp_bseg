@@ -20,6 +20,10 @@ export class AutoService {
         return this.http.get(`${this.apiUrl}/clients`, this.options)
     }
 
+    public insurers(): Observable<any> {
+        return this.http.get(`${this.apiUrl}/insurers`, this.options)
+    }
+
     public create(data: any): Observable<any> {
         return this.http.post(`${this.apiUrl}/auto`, data, this.options)
     }
@@ -34,6 +38,10 @@ export class AutoService {
 
     public destroy(id: any): Observable<any> {
         return this.http.delete(`${this.apiUrl}/auto/${id}`, this.options)
+    }
+
+    public upload(data: any): Observable<any> {
+      return this.http.post(`${this.apiUrl}/parsing`, data, this.options)
     }
 
 }

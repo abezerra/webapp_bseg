@@ -15,20 +15,63 @@
         Para personalizar a mensagem com o nome do destinatario, use #nome#
       </div>
 
+
+
       <form [formGroup]="newMail" (ngSubmit)="create()">
         <div class="modal-body">
           <div class="row form-group">
 
             <div class="col-md-12">
+              <div class="box box-default collapsed-box">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Templates e listas</h3>
+
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                    </button>
+                  </div>
+                  <!-- /.box-tools -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body" style="display: none;">
+                  <div class="col-md-6">
+                    <label for="participants">Listas de distribuição</label>
+                    <p-listbox
+                      [options]="lists"
+                      formControlName="participants"
+                      id="participants"
+                      multiple="multiple"
+                      checkbox="checkbox"
+                      filter="filter"
+                      optionLabel="name">
+                      <p-header>
+                        <i class="fas fa-user-plus"></i>
+                        Clientes
+                      </p-header>
+                    </p-listbox>
+                  </div>
+                  <div class="col-md-6">
+                    <div *ngFor="let t of temps">
+                      <input type="radio" [name]="t.name" id="" formControlName="templating">
+                      <span>{{t.description}}</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.box-body -->
+              </div>
+              <!-- /.box -->
+            </div>
+
+            <div class="col-md-12">
               <label for="to">Para</label>
               <ng-selectize
-                [config]="config"
-                [options]="clients"
-                name="to"
-                id="to"
-                value=""
-                placeholder="Destinatarios"
-                formControlName="to"></ng-selectize>
+                          [config]="config"
+                          [options]="clients"
+                          name="to"
+                          id="to"
+                          value=""
+                          placeholder="Destinatarios"
+                          formControlName="to"></ng-selectize>
             </div>
 
             <div class="col-md-12">
@@ -42,7 +85,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label for="content">Mensagem</label>
-                <p-editor formControlName="content" [style]="{'height':'320px'}"></p-editor>
+                <quill-editor formControlName="content" id="content" name="content"></quill-editor>
               </div>
             </div>
           </div>

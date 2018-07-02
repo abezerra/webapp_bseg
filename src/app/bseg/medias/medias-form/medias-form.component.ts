@@ -20,8 +20,10 @@ export class MediasFormComponent implements OnInit {
   private apiUrl = api.apiUrl
   private options = {headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}}
 
-  constructor(private _fb: FormBuilder, private _db: MediasService, private http: HttpClient) {
-  }
+  constructor(
+    private _fb: FormBuilder,
+    private _db: MediasService,
+    private http: HttpClient) {}
 
   ngOnInit() {
   }

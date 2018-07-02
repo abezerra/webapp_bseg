@@ -6,8 +6,13 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {EditorModule} from 'primeng/editor';
 import {GrowlModule} from 'primeng/growl';
-import {MessageService} from 'primeng/components/common/messageservice';
 import {ListboxModule} from 'primeng/listbox';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
+import { CurrencyMaskModule } from "ng2-currency-mask";
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+import { QuillModule } from 'ngx-quill'
 
 import { AppComponent } from './app.component';
 import { StarterComponent } from './starter/starter.component';
@@ -177,6 +182,16 @@ import { SmsTemplatesListComponent } from './sms/sms-templates/sms-templates-lis
 import { SmsTemplatesEditComponent } from './sms/sms-templates/sms-templates-edit/sms-templates-edit.component';
 import { SmsTemplatesShowComponent } from './sms/sms-templates/sms-templates-show/sms-templates-show.component';
 import { SmsTemplatesBreadcumbsComponent } from './sms/sms-templates/sms-templates-breadcumbs/sms-templates-breadcumbs.component';
+import { MetasComponent } from './bseg/metas/metas.component';
+import { MetasBreadcumbsComponent } from './bseg/metas/metas-breadcumbs/metas-breadcumbs.component';
+import { MetasCreateComponent } from './bseg/metas/metas-create/metas-create.component';
+import { MetasEditComponent } from './bseg/metas/metas-edit/metas-edit.component';
+import { MetasListComponent } from './bseg/metas/metas-list/metas-list.component';
+import { MetasShowComponent } from './bseg/metas/metas-show/metas-show.component';
+import {MetasService} from "./services/metas.service";
+import { DashboardChartsComponent } from './bseg/dashboard/dashboard-charts/dashboard-charts.component';
+import { AutoImportComponent } from './bseg/insurances/auto/auto-import/auto-import.component';
+import {ExtractorService} from "./services/extractor.service";
 
 
 
@@ -315,10 +330,18 @@ import { SmsTemplatesBreadcumbsComponent } from './sms/sms-templates/sms-templat
     SmsTemplatesEditComponent,
     SmsTemplatesShowComponent,
     SmsTemplatesBreadcumbsComponent,
+    MetasComponent,
+    MetasBreadcumbsComponent,
+    MetasCreateComponent,
+    MetasEditComponent,
+    MetasListComponent,
+    MetasShowComponent,
+    DashboardChartsComponent,
+    AutoImportComponent,
   ],
   imports: [
     BrowserModule,
-    // AppRoutingModule,
+    BrowserAnimationsModule,
     AdminModule,
     HttpClientModule ,
     FormsModule,
@@ -330,8 +353,13 @@ import { SmsTemplatesBreadcumbsComponent } from './sms/sms-templates/sms-templat
     EditorModule,
     GrowlModule,
     ListboxModule,
+    ToastrModule.forRoot(),
+    CurrencyMaskModule,
+    Ng2GoogleChartsModule,
+    QuillModule,
   ],
   providers: [
+    ToastrService,
     AutoService,
     ClientsService,
     AlertsService,
@@ -349,8 +377,9 @@ import { SmsTemplatesBreadcumbsComponent } from './sms/sms-templates/sms-templat
     ChatService,
     PusherService,
     MailService,
-    MessageService,
     SmsService,
+    MetasService,
+    ExtractorService,
   ],
   bootstrap: [AppComponent]
 })

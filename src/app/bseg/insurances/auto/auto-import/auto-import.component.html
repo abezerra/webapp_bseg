@@ -1,0 +1,82 @@
+<!-- Modal -->
+<div class="modal fade" id="importAuto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true"
+     data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Importar apolice auto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form [formGroup]="importAuto" (ngSubmit)="upload()">
+
+        <div class="modal-body">
+
+          <div class="row">
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="police_type">Tipo de apolice</label>
+                <select class="form-control" name="police_type" formControlName="police_type" id="police_type">
+                  <option value="">Selecione</option>
+                  <option value="xyz">Seguro auto</option>
+                  <option value="xyz">Seguro auto / residencial</option>
+                  <option value="xyz">Seguro auto</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-9">
+              <div class="form-group">
+                <label for="autoApoliceFile">Arquivo da apolice</label>
+                <input type="file" name="autoApoliceFile" id="autoApoliceFile" value="" class="form-control"
+                       accept="application/pdf" (change)="_prepareFileToUpload($event)">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="insurer_id">Seguradora</label>
+                <select class="form-control" name="insurer_id" formControlName="insurer_id" id="insurer_id">
+                  <option value="">Selecione</option>
+                  <option [value]="s.id" *ngFor="let s of insurers">{{ s.name }}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="page_start">Pagina de inicio dos dados da apolice </label>
+                <input type="text" id="page_start" name="page_start" value=""
+                       placeholder="Pagina em que se inicia o cartão da apolice" class="form-control"
+                       formControlName="page_start">
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="page_end">Pagina de fim dos dados da apolice</label>
+                <input type="text" id="page_end" name="page_end" value=""
+                       placeholder="Pagina em que termina o cartão da apolice" class="form-control"
+                       formControlName="page_end">
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="importAuto.invalid">Importar</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
