@@ -89,7 +89,7 @@ export class ChatComponent implements OnInit {
       broadcaster: 'socket.io',
       client: io,
       //host: 'http://localhost:6001',
-      host: 'https://api-bseg.brasal.com.br/',
+      host: 'https://apibseg.brasal.com.br:6001',
     });
 
     console.log('Echo', Echo)
