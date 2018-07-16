@@ -2914,7 +2914,7 @@ var ChatComponent = (function () {
         Echo = new Echo({
             broadcaster: 'socket.io',
             client: __WEBPACK_IMPORTED_MODULE_3_socket_io_client__,
-            host: 'http://localhost:6001',
+            host: 'https://apibseg.brasal.com.br:6001',
         });
         console.log('Echo', Echo);
         Echo.channel('chat').listen('ChatEvent', function (e) {
@@ -10094,7 +10094,7 @@ var ChatService = (function () {
         this.http = http;
         this.apiUrl = __WEBPACK_IMPORTED_MODULE_5__environments_api__["a" /* default */].apiUrl;
         this.options = { headers: { 'Authorization': "Bearer " + localStorage.getItem('token') } };
-        this.socket = __WEBPACK_IMPORTED_MODULE_4_socket_io_client__('http://localhost:6001');
+        this.socket = __WEBPACK_IMPORTED_MODULE_4_socket_io_client__('https://apibseg.brasal.com.br:6001');
     }
     ChatService.prototype.onilen_users = function () {
         return this.http.get(this.apiUrl + "/clients", this.options);
