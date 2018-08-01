@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Http } from '@angular/http';
 import api from '../../environments/api'
+import extractor from '../../environments/extractor'
 import 'rxjs/operator/toPromise'
 import {Observable} from "rxjs/Observable";
 import {HttpClient} from "@angular/common/http";
@@ -9,6 +10,7 @@ import {HttpClient} from "@angular/common/http";
 export class AutoService {
 
     public apiUrl = api.apiUrl;
+    public ex = extractor.extractorUrl;
     private options = {headers: {'Authorization': `Bearer ${localStorage.getItem('token')}` }}
     constructor(private http: HttpClient) { }
 
@@ -42,6 +44,22 @@ export class AutoService {
 
     public upload(data: any): Observable<any> {
       return this.http.post(`${this.apiUrl}/parsing`, data, this.options)
+    }
+
+    public liberty(data: any): Observable<any> {
+      console.log('a data', data)
+      let datta = {
+        'url': data
+      }
+      return this.http.post(`http://127.0.0.1:3333/liberty`, datta)
+    }
+
+    public mapfre(data: any): Observable<any> {
+      console.log('a data', data)
+      let datta = {
+        'url': data
+      }
+      return this.http.post(`http://127.0.0.1:3333/mapfre`, datta)
     }
 
 }

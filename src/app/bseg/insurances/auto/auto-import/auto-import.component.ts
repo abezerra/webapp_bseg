@@ -3,6 +3,7 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {AutoService} from "../../../../services/auto.service";
 import {ToastrService} from 'ngx-toastr';
 import {ExtractorService} from "../../../../services/extractor.service";
+import { Observable } from '../../../../../../node_modules/rxjs';
 declare var jquery: any;
 declare var $: any;
 
@@ -41,7 +42,7 @@ export class AutoImportComponent implements OnInit {
   }
 
   importAuto = this._fb.group({
-    insurer_id: this._fb.control('', [Validators.required]),
+    insurer_id: this._fb.control('', []),
     page_start: this._fb.control('', [Validators.required]),
     page_end: this._fb.control('', [Validators.required]),
     police_type: this._fb.control('', [Validators.required]),
@@ -62,21 +63,44 @@ export class AutoImportComponent implements OnInit {
     data.append('page_end', this.importAuto.value.page_end);
     data.append('police_type', this.importAuto.value.police_type);
     data.append('policy', this.policy);
-
     this._db.upload(data).subscribe(
       success => {
+        this.importAuto.value.insurer_id == 1 ? this.__liberty(success) : false;
+        this.importAuto.value.insurer_id == 2 ? this.__mapfre(success) : false;
+      },
+      error => {
+        this.toastr.error('Erro ao fazer upload da apolice', 'Erro!', { timeOut: 3000});
+      }
+    )
+  }
+
+  private __liberty(url: any): void {
+    this._db.liberty(url).subscribe(
+      success => {
         $('#importAuto').modal('hide');
-        this.toastr.success('Upload realizado com sucesso', 'Sucesso!', {
+        this.importAuto.reset();
+        this.toastr.success('Apolice importada com sucesso', 'Sucesso!', {
           timeOut: 3000,
           progressAnimation: "decreasing",
           progressBar: true,
         });
-        this.importAuto.reset();
       },
-      error => {
-        this.toastr.error('Erro ao fazer upload da apolice', 'Erro!', { timeOut: 3000});
+      error => this.toastr.error('Erro ao importar apolice', 'Erro!', { timeOut: 3000})
+    )
+  }
 
-      }
+  private __mapfre(url: any): void {
+    this._db.mapfre(url).subscribe(
+      success => {
+        $('#importAuto').modal('hide');
+        this.importAuto.reset();
+        this.toastr.success('Apolice importada com sucesso', 'Sucesso!', {
+          timeOut: 3000,
+          progressAnimation: "decreasing",
+          progressBar: true,
+        });
+      },
+      error => this.toastr.error('Erro ao importar apolice', 'Erro!', { timeOut: 3000})
     )
   }
 
